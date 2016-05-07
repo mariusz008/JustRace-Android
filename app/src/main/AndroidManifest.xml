@@ -96,6 +96,11 @@
        	android:screenOrientation="portrait">         
         </activity>
         <activity
+            android:name=".StartComp"
+            android:label="Zawody"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
             android:name=".GoogleMap"
             android:label="Tworzenie trasy"
             android:screenOrientation="portrait">

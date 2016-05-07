@@ -41,6 +41,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -68,7 +69,7 @@ public class CompInfo extends Activity {
 	String ID_usera = user1.getID_uzytkownika();
 	boolean flaga1, flaga2, mappc, mapoi, matrase, mozezapisac;
 	int inn=0;
-	Intent intent2, intent3, intentmapa;
+	Intent intent2, intent3, intent5, intentmapa;
 	String success = "Udało Ci się zapisać na zawody!";
 	String success1 = "Udało Ci się wypisać z zawodów!";
 	ArrayList<String> category = new ArrayList<String>();
@@ -80,7 +81,7 @@ public class CompInfo extends Activity {
 		gpssx = new TurningOnGPS(getApplicationContext());
 		whichList1 = intentX.getExtras().getString("ktory");
 		button2 = (Button) findViewById(R.id.Button2);	
-		button1 = (Button) findViewById(R.id.Button1);	
+		button1 = (Button) findViewById(R.id.Button1);
 		datarozTV = (TextView) findViewById(R.id.TextView1);
 		nazwaTV = (TextView) findViewById(R.id.TextView2);
 		miejscowoscTV = (TextView) findViewById(R.id.TextView3);
@@ -96,7 +97,10 @@ public class CompInfo extends Activity {
 		typIV = (ImageView) findViewById(R.id.imageView1);
 		intent2 = new Intent(CompInfo.this, CompList.class);
 		intent3 = new Intent(CompInfo.this, GoogleMap.class);
+		intent5 = new Intent(CompInfo.this, StartComp.class);
 		intentmapa = new Intent(CompInfo.this, MapsActivity.class);
+		String url="http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition?id="+ID_zad;
+		sendGetRequest(0, url, "GET");
 		if (whichList1.equals("OGOLNE")){
 			button1.setText("Zapisz się na zawody");
 			button1.setBackgroundResource(R.color.teal700);
@@ -106,6 +110,8 @@ public class CompInfo extends Activity {
 			button1.setText("Wypisz się z zawodów");
 			button1.setBackgroundResource(R.color.teal700);
 			inn = 2;
+			if(matrase&&mappc)
+			addButton("START", intent5, R.color.teal2);
 		}
 		if (whichList1.equals("ORG")){
 			button1.setText("Ustal trasę");
@@ -117,8 +123,7 @@ public class CompInfo extends Activity {
 			button1.setBackgroundResource(R.color.teal700);
 			inn = 4;
 		}
-		String url="http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition?id="+ID_zad;
-		sendGetRequest(0, url, "GET");
+
 
 		new DownloadImageTask(typIV)
         .execute("http://209785serwer.iiar.pwr.edu.pl/RestImage/rest/competition/get/image?competition_id="+ID_zad);
@@ -132,7 +137,7 @@ public class CompInfo extends Activity {
 		button1.setOnClickListener(new OnClickListener() {			
 			public void onClick(View arg1) {
 				if (inn == 1){
-					if(matrase) {
+					if(mozezapisac) {
 						AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
 								context);
 						alertDialogBuilder.setTitle("Zapis na zawody");
@@ -293,13 +298,18 @@ public class CompInfo extends Activity {
 		}
 	}
 
-	public void addButton() {
+	public void addButton(final String x, final Intent y, int z) {
 		TableLayout table = (TableLayout) findViewById(R.id.tableButtons);
 		TableRow tableRow = new TableRow(this);
 		tableRow.setLayoutParams(new TableLayout.LayoutParams(
 				TableLayout.LayoutParams.MATCH_PARENT,
 				TableLayout.LayoutParams.MATCH_PARENT
 		));
+		TableLayout.LayoutParams tableRowParams=
+				new TableLayout.LayoutParams
+						(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.MATCH_PARENT);
+		tableRowParams.setMargins(0, 0, 0, 10);
+		tableRow.setLayoutParams(tableRowParams);
 		table.addView(tableRow);
 		Button button = new Button(this);
 		button.setLayoutParams(new TableRow.LayoutParams(
@@ -307,15 +317,23 @@ public class CompInfo extends Activity {
 				TableRow.LayoutParams.MATCH_PARENT
 		));
 		button.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL);
-		button.setBackgroundResource(R.color.teal1);
-		button.setHeight(100);
+		button.setBackgroundResource(z);
+		button.setHeight(70);
 		button.setWidth(150);
 		button.setTextColor(getApplication().getResources().getColor(R.color.white));
-		button.setText("Zobacz trasę");
+		button.setText(x);
 		button.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				startActivity(intentmapa);
+				if(x.equals("START")) {
+					if (gpssx.checkingGPSStatus()) {
+						startActivity(y);
+					} else {
+						Toast.makeText(CompInfo.this, "Proszę włączyć usługę GPS", Toast.LENGTH_LONG).show();
+						startActivity(intent4);
+					}
+				} else
+				startActivity(y);
 			}
 
 		});
@@ -339,9 +357,11 @@ public class CompInfo extends Activity {
         }
 
         protected void onPreExecute(){
-            progress= new ProgressDialog(this.context);
-            progress.setMessage("Loading");
-            progress.show();
+			if(ktoryGet!=0) {
+				progress = new ProgressDialog(this.context);
+				progress.setMessage("Loading");
+				progress.show();
+			}
         }      
             
         @Override
@@ -378,7 +398,7 @@ public class CompInfo extends Activity {
 			 // TODO Auto-generated catch block
 			 e.printStackTrace();
 			 }
-
+			 if(ktoryGet!=0)
 			 progress.dismiss();
 			 return wynik1;
 			 }
@@ -614,8 +634,11 @@ public class CompInfo extends Activity {
 		if(JSON.contains("ROUTE_ID")) mappc=true;
 		if(JSON.contains("ROUTEPOI_ID")) mapoi=true;
 		if(JSON.contains("TRACK_ID")) matrase=true;
-
-		if(mappc&&matrase) addButton();
+		if (whichList1.equals("OSOBISTE")){
+			if(matrase&&mappc)
+				addButton("START", intent5, R.color.teal2);
+		}
+		if (mappc && matrase) addButton("Zobacz trasę", intentmapa, R.color.teal1);
 		JSONObject obj = new JSONObject(JSON);		
 		String naz = obj.getString("NAME");
 		String miej = obj.getString("MIEJSCOWOSC");
@@ -665,7 +688,7 @@ public class CompInfo extends Activity {
 	}
 	public void getCategory(String JSON) throws JSONException {
 
-		if(!(JSON.equals("[]"))) {
+		if(JSON.length()>3) {
 			mozezapisac = true;
 			//Toast.makeText(CompInfo.this, JSON, Toast.LENGTH_LONG).show();
 			JSONArray jsonarray = new JSONArray(JSON);

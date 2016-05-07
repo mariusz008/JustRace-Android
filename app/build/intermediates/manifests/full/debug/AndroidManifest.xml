@@ -103,6 +103,11 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
+            android:name="com.teamproject.windows.StartComp"
+            android:label="Zawody"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
             android:name="com.teamproject.windows.GoogleMap"
             android:label="Tworzenie trasy"
             android:screenOrientation="portrait" >
