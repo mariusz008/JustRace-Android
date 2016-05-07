@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">JustRace</string>
+    <string name="app_name1">Panel logowania</string>
+    <string name="app_name2">Panel rejestracji</string>
+    <string name="app_name3">Panel obserwatora</string>
+    <string name="app_name4">Panel użytkownika</string>
+    <string name="app_name5">Generowanie nowego hasła</string>
+    <string name="app_name6">Tworzenie zawodów</string>
+    <string name="app_name7">Lista zawodów</string>
+    <string name="action_settings">Settings</string>
+    <string name="powitanie">Witaj w aplikacji</string>  
+    <string name="powiadomienie_log">Zaloguj się</string> 
+    <string name="powiadomienie_rej"><u>Nie masz konta? Zarejestruj się!</u></string>
+    <string name="powiadomienie_haslo"><u>Zapomniałeś hasła? Wygeneruj nowe!</u></string>
+    <string name="powiadomienie_zap">Zapamiętaj mnie</string>
+    <string name="powiadomienie_przypomnienia">Wpisz swój adres e-mail oraz login. \n Na podany adres e-mail zostanie wysłany link, \n który po kliknięciu wygeneruje nowe hasło</string>
+   	<string name="zgoda"><b>Wyrażam zgodę na przetwarzanie moich danych osobowych</b></string>
+    <string name="obser">Kontynuuj jako obserwator</string>
+    
+    <string name="przycisk1"><b>Ok, dalej!</b></string>
+    <string name="przycisk2">Wyjdź</string>  
+    <string name="przycisk3"><b>Potwierdź</b></string> 
+    <string name="zarejestruj"><b>Zarejestruj</b></string>
+    <string name="utworz"><b>Utwórz zawody</b></string>
+    <string name="powrót">Powrót</string>
+    <string name="wyloguj">Wyloguj się</string>
+    <string name="sprawdz">Sprawdz</string>
+    
+    <string name="imie">Imię: *</string> 
+    <string name="nazwisko">Nazwisko: *</string> 
+    <string name="login">Login:</string> 
+    <string name="login1">Login: * (od 5 do 20 znaków)</string>  
+    <string name="pass">Hasło:</string> 
+    <string name="pass1">Hasło: * (od 8 do 20 znaków)</string> 
+    <string name="pass2">Powtórz hasło: *</string> 
+    <string name="email">E-mail: *</string> 
+    <string name="plec">Płeć: *</string> 
+    <string name="wiek">Wiek: *</string>
+    <string name="klub">Klub sportowy:</string>
+    <string name="obywatelstwo">Obywatelstwo:</string>
+    <string name="numertelefonu">Numer telefonu:</string>
+    <string name="ice">Kontakt w nagłym wypadku (ICE):</string>
+    <string name="m">M</string> 
+    <string name="k">K</string>
+
+</resources>

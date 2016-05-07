@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="tlo">#66ffc2</color>
+    <color name="tlo1">#f5f5f0</color>
+    <color name="tlo2">#ffdd99</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="red">#ff3300</color>
+    <color name="blue">#0066ff</color>
+    <color name="blue1">#99d6ff</color>
+    <color name="obserw">#a64dff</color>
+    <color name="green_part">#b3ffb3</color>
+    <color name="blue_org">#cce6ff</color>
+    <color name="teal700">#00796B</color>
+    <color name="teal">#33ff77</color>
+    <color name="teal1">#40bf80</color>
+
+</resources>

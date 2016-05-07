@@ -1,0 +1,64 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:background="@color/tlo1"
+    >
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
+                <EditText
+                    android:id="@+id/editText1"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:hint="Nazwa POI"
+                    android:backgroundTint="@color/teal700"
+                    android:layout_marginTop="20dp"
+                    android:layout_centerHorizontal="true" />
+
+
+
+                <Button
+                    android:id="@+id/Button1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Potwierdź punkt"
+                    android:layout_below="@+id/editText1"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="15dp" />
+
+
+
+        </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/LinearLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp">
+
+
+
+        <Button
+            android:id="@+id/Button2"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Zapisz wszystkie punkty"
+            android:background="@color/teal700"
+            android:textColor="@color/white"
+            android:layout_marginRight="5dp"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>

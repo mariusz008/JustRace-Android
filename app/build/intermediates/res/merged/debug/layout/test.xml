@@ -1,0 +1,46 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:background="@color/blue_org"
+	android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin">
+    
+    <TextView
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="Response..."
+    android:id="@+id/showOutput"
+    android:layout_below="@+id/sendGet"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentEnd="true" />
+    
+    <TextView
+    android:layout_width="fill_parent"
+    android:layout_height="40dp"
+    android:text="Imię: "
+    android:id="@+id/textView1"
+    android:layout_below="@+id/showOutput" />
+    
+    
+       <EditText
+        android:id="@+id/editText1"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_toRightOf="@+id/textView1"/>
+       
+	<Button
+        android:id="@+id/buttonAlert"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp"
+        android:text="@string/sprawdz"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true" 
+        android:clickable="true"/>
+</RelativeLayout>

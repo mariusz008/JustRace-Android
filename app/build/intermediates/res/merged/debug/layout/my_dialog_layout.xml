@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="20dp"
+ />
+
+    <LinearLayout
+        android:id="@+id/LinearLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp">
+
+
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Anuluj"
+            android:background="@color/teal700"
+            android:textColor="@color/white"
+            android:layout_weight="1"
+            android:layout_marginRight="5dp"
+            />
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_toRightOf="@+id/ButtonPotwierdz"
+            android:layout_height="40dp"
+            android:text="Zapisz się"
+            android:layout_weight="1"
+            android:background="@color/teal700"
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/white"
+            />
+    </LinearLayout>
+
+</LinearLayout>
