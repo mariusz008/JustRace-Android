@@ -10,11 +10,6 @@ import org.apache.http.impl.client.DefaultHttpClient;
 
 public class NetworkDAO {
 
-    /**
-     * Execute the given URI, and return the data from that URI.
-     * @param uri the universal resource indicator for a set of data.
-     * @return the set of data provided by the uri
-     */
     public String request(String uri) throws IOException {
         // Use the GET method, which submits the search terms in the URL.
         HttpGet httpGet = new HttpGet(uri);

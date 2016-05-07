@@ -17,7 +17,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.teamproject.functions.httpGet;
 import com.teamproject.models.userDTO;
 
 import org.json.JSONException;
@@ -36,21 +35,17 @@ public class Login extends Activity {
 	private static final String PASSWORD = "password";  //  <--- To save password
 	boolean flaga = true;
 	boolean flaga1;
-	String ret="";
-	String wyjscieOST="";
 	ProgressDialog progress;
 	String error, success = "";
-	httpGet httpget = new httpGet();
 	boolean rem_pass = false;
 	String JSON="";
-	int yy, mm, dd = 0;
 	final static userDTO user = new userDTO();
 	final Context context = this;
 	private Button button, button1, button2;
 	private TextView rej_click, forget_pass;
 	private EditText login, haslo;
 	private CheckBox remember_pass;
-	Intent intent, intent1, intent2, intent3, intent4;
+	Intent intent, intent1, intent2, intent3;
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);		
 		setContentView(R.layout.activity_log);
@@ -89,7 +84,7 @@ public class Login extends Activity {
 					e1.printStackTrace();
 				}				
 				try {
-				zapamietuj();
+					rememberPass();
 					intent2.putExtra("username", login.getText().toString());
 				
 			} catch (JSONException e) {
@@ -124,18 +119,16 @@ public class Login extends Activity {
         else rem_pass=false;
     }
 
-	public void zapamietuj() throws JSONException{
-		
-		    //   ADD  to save  and  read next time
+	public void rememberPass() throws JSONException{
 		        String strUserName = login.getText().toString().trim();
 		        String strPassword = haslo.getText().toString().trim();
 		        if (null == strUserName || strUserName.length() == 0)
 		                    {
-		            //  showToast("Enter Your Name");
+
 		            login.requestFocus();
 		        } else if (null == strPassword || strPassword.length() == 0)
 		                    {
-		                //      showToast("Enter Your Password");
+
 		            haslo.requestFocus();
 		        } else
 		                    {
@@ -181,7 +174,6 @@ public class Login extends Activity {
     protected void onPreExecute(){
         progress= new ProgressDialog(this.context);
         progress.setMessage("Loading");
-        //progress.setCancelable(false);
         progress.show();
     }
 
@@ -195,7 +187,6 @@ public class Login extends Activity {
 		 BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 		 String line = "";
 		 StringBuilder responseOutput = new StringBuilder();
-		 
 		 while((line = br.readLine()) != null ) {
 		 responseOutput.append(line);
 		 }
@@ -205,7 +196,6 @@ public class Login extends Activity {
 		 Login.this.runOnUiThread(new Runnable() {
 		 @Override
 		 public void run() {
-
 		 }
 		 });	 
 		 } catch (MalformedURLException e) {

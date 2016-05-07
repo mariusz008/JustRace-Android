@@ -16,7 +16,6 @@ public class TrackPOI extends Fragment {
     private EditText nazwaET;
     OnHeadlineSelectedListener mCallback;
 
-    // Container Activity must implement this interface
     public interface OnHeadlineSelectedListener {
         public void operation2(String i);
     }
@@ -24,9 +23,6 @@ public class TrackPOI extends Fragment {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-
-        // This makes sure that the container activity has implemented
-        // the callback interface. If not, it throws an exception
         try {
             mCallback = (OnHeadlineSelectedListener) activity;
         } catch (ClassCastException e) {
@@ -45,8 +41,6 @@ public class TrackPOI extends Fragment {
         button1 = (Button) v.findViewById(R.id.Button1);
         button2 = (Button) v.findViewById(R.id.Button2);
         nazwaET = (EditText) v.findViewById(R.id.editText1);
-
-
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
@@ -61,7 +55,6 @@ public class TrackPOI extends Fragment {
             public void onClick(View arg0) {
                 mCallback.operation2("ZapPOI");
             }});
-
 
         return v;
     }

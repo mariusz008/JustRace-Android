@@ -18,7 +18,6 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.teamproject.functions.httpPost;
 import com.teamproject.models.userDTO;
 
 import org.json.JSONException;
@@ -43,9 +42,7 @@ public class UserProfile extends Activity {
 	 private EditText imieET, nazwiskoET, loginET, emailET, wiekET, plecET, klubET, obywET, nrtelET, ICEET;
 	ProgressDialog progress;
 	public static final String costam1  = Login.SPF_NAME;
-	String jakis = "re";
 	Intent intent, intent1;
-	httpPost post = new httpPost();
 	String error, ret, success, success1 = "";
 	boolean flaga,flaga1;
 	boolean czyklik = false;
@@ -186,8 +183,6 @@ public class UserProfile extends Activity {
         String nr_tel = nrtelET.getText().toString();
         String ICE = ICEET.getText().toString();
         String ID = id;
-
-
     	if ((nazwisko.matches("[A-Za-z]+") == false))
     	{
     		flaga = false;
@@ -223,7 +218,6 @@ public class UserProfile extends Activity {
     		url = URLaddress(imie, nazwisko, email, ID, wiek, klub, nr_tel, ICE, obywatelstwo); 
     	}
     	return url;
-    	
     }
     
 	public String URLaddress(String imieS, String nazwiskoS, String emailS, String ID, String wiekS, String klubS, String nrtel, String ICE, String obywS) throws UnsupportedEncodingException
@@ -314,7 +308,6 @@ public class UserProfile extends Activity {
 				 responseOutput.append(line);
 				 }
 				 br.close();
-	            	
 				 final String wynik = responseOutput.toString();
 				 wynik1=wynik;	            	
 	            	
@@ -364,7 +357,6 @@ public class UserProfile extends Activity {
 		public void setAkcja(String akcja) {
 			this.akcja = akcja;
 		}
-	      
 	}
 
 		public boolean checkResponse(String wejscie)

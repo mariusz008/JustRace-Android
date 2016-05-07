@@ -14,8 +14,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
-import com.teamproject.functions.httpPut;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -32,13 +30,10 @@ import java.util.regex.Pattern;
 public class Registration extends Activity {
 	boolean flaga, flaga1;
 	String ret="";
-	public String ostateczny_URL = "";
-	String WYNIK="";
 	final Context context = this;
 	ProgressDialog progress;
 	private CheckBox checkBox1, checkBox2, checkBox3;
 	private EditText imieT, nazwiskoT, loginT, haslo1T, haslo2T, emailT, wiekT, klubT, obywT, nrtelT, iceT;
-	final httpPut httpput = new httpPut();
 	String error, success = "";
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -115,8 +110,7 @@ public class Registration extends Activity {
 
             URL url = new URL(url1);
 		 HttpURLConnection connection = (HttpURLConnection)url.openConnection();
-		 connection.setRequestMethod("PUT");	 
-		 int responseCode = connection.getResponseCode();
+		 connection.setRequestMethod("PUT");
 		 BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 		 String line = "";
 		 StringBuilder responseOutput = new StringBuilder();
@@ -147,7 +141,6 @@ public class Registration extends Activity {
     protected void onPostExecute(String result) {   	
     		checkResponse(result);    	
     }
-  
     }
     
 	
@@ -169,7 +162,6 @@ public class Registration extends Activity {
 			else {
 				flaga1 = false;
 				error = "Wystąpił nieoczekiwany błąd - spróbuj ponownie później";
-					
 			}
 		
 			if (flaga1==false){
@@ -234,7 +226,6 @@ public class Registration extends Activity {
         CharSequence inputStr = email;
         Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(inputStr);
-        
         
 
         if (checkBox1.isChecked())

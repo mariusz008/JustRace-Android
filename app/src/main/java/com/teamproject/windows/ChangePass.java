@@ -147,8 +147,7 @@ public class ChangePass extends Activity{
 
           URL url = new URL(url1);
 		 HttpURLConnection connection = (HttpURLConnection)url.openConnection();
-		 connection.setRequestMethod("POST");	 
-		 int responseCode = connection.getResponseCode();
+		 connection.setRequestMethod("POST");
 		 BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 		 String line = "";
 		 StringBuilder responseOutput = new StringBuilder();
@@ -159,7 +158,6 @@ public class ChangePass extends Activity{
 		 br.close();
 		 final String wynik = responseOutput.toString();
 		 wynik1=wynik;
-
 		 ChangePass.this.runOnUiThread(new Runnable() {
 		 @Override
 		 public void run() {

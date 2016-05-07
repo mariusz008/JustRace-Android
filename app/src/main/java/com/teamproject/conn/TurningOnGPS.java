@@ -25,16 +25,10 @@ public class TurningOnGPS {
 		        poke.addCategory(Intent.CATEGORY_ALTERNATIVE);
 		        poke.setData(Uri.parse("3")); 
 		        this.ctx.sendBroadcast(poke);
-		
-		
 		    }
 		}
 		public boolean checkingGPSStatus()
 		{
-			//Intent intent = new Intent("android.location.GPS_ENABLED_CHANGE");
-		  //   intent.putExtra("enabled", true);
-		  //   this.ctx.sendBroadcast(intent);
-		
 		    @SuppressWarnings("deprecation")
 			String provider = Settings.Secure.getString(ctx.getContentResolver(), Settings.Secure.LOCATION_PROVIDERS_ALLOWED);
 		    if(!provider.contains("gps")){ //disabled
@@ -42,8 +36,7 @@ public class TurningOnGPS {
 		    } //enabled
 		    else return true;
 		}
-		
-		// automatic turn off the gps
+
 		public void turnGPSOff()
 		{
 		    @SuppressWarnings("deprecation")

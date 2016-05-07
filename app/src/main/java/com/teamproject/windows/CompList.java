@@ -167,12 +167,9 @@ public class CompList extends Activity {
 			else
 				button.setCompoundDrawablesWithIntrinsicBounds(R.mipmap.ic_inne, 0, 0, 0);
 
-				
-			//button.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_timer, 0, 0, 0);
 			button.setCompoundDrawablePadding(50);
 			button.setBackground(getResources().getDrawable(R.drawable.rounded_shape));
 			button.setText(data.get(row) + ",\n" + nazwa.get(row) + ",\n" + miasto.get(row));
-		   // button.getBackground().setColorFilter(Color.GRAY, PorterDuff.Mode.MULTIPLY);
 			DateTimeFormatter formatter = DateTimeFormat.forPattern("dd.MM.yyyy");
 			DateTime eventDate = formatter.parseDateTime(data.get(row));			
 			eventDate = formatter.parseDateTime(data.get(row));			 
@@ -208,12 +205,6 @@ public class CompList extends Activity {
 	
 	public void parsingJSON(String JSON) throws JSONException
 	{
-		stringArray.clear();
-		stringArray1.clear();
-		stringArray2.clear();
-		stringArray3.clear();
-		stringArray4.clear();
-		
 		int i;		
 		JSONArray jsonarray = new JSONArray(JSON);
 		for (i=0; i < jsonarray.length(); i++) {
@@ -271,8 +262,6 @@ public class CompList extends Activity {
 		 CompList.this.runOnUiThread(new Runnable() {
 		 @Override
 		 public void run() {
-		// progress.dismiss();
-		 //Toast.makeText(CompList.this, wynik, Toast.LENGTH_SHORT).show();
 		 try {
 				parsingJSON(wynik);
 			} catch (JSONException e) {
@@ -292,10 +281,6 @@ public class CompList extends Activity {
 		progress.dismiss();
 		 return wynik1;
 		 }
-
-	public String getAdres() {
-		return adres;
-	}
 
 	public void setAdres(String adres) {
 		this.adres = adres;

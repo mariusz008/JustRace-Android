@@ -13,7 +13,6 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.teamproject.windows.CompList;
-import com.teamproject.windows.GPS;
 import com.teamproject.windows.Login;
 import com.teamproject.windows.R;
 

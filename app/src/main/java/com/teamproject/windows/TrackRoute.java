@@ -14,7 +14,6 @@ public class TrackRoute extends Fragment {
     private Button buttonS, buttonM, buttonZap, buttonRes;
     OnHeadlineSelectedListener mCallback;
 
-    // Container Activity must implement this interface
     public interface OnHeadlineSelectedListener {
         public void operation1(String i);
     }
@@ -22,9 +21,6 @@ public class TrackRoute extends Fragment {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-
-        // This makes sure that the container activity has implemented
-        // the callback interface. If not, it throws an exception
         try {
             mCallback = (OnHeadlineSelectedListener) activity;
         } catch (ClassCastException e) {

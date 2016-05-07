@@ -174,7 +174,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         progress.dismiss();
                     }
                 });
-
             } catch (MalformedURLException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();

@@ -455,8 +455,6 @@ public class GoogleMap extends FragmentActivity implements OnMapReadyCallback, T
         getclass.execute();
     }
 
-
-
     private class GetClass1 extends AsyncTask<String, Void, String> {
 
         private final Context context;
@@ -492,11 +490,9 @@ public class GoogleMap extends FragmentActivity implements OnMapReadyCallback, T
                 br.close();
                 final String wynik = responseOutput.toString();
                 wynik1=wynik;
-
                 GoogleMap.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-
                     }
                 });
 
@@ -557,52 +553,6 @@ public class GoogleMap extends FragmentActivity implements OnMapReadyCallback, T
            ret1 = success1;
            komunikat1 = "Tworzenie trasy";
        }
-//        if (h==1) {
-//            if (wejscie.contains("Route track saved")) {
-//                flaga2 = true;
-//            } else {
-//                flaga2 = false;
-//                error1 = "Wystąpił nieoczekiwany błąd. Spróbuj ponownie";
-//            }
-//            if (flaga2 == false) {
-//                ret1 = error1;
-//                komunikat1 = "Komunikat";
-//            } else {
-//                ret1 = "Udało Ci się poprawnie dodać wszystkie punkty kontrolne.";
-//                komunikat1 = "Tworzenie trasy";
-//            }
-//        }
-//       else if(h==2){
-//            if (wejscie.contains("POIs saved")) {
-//                flaga2 = true;
-//            } else {
-//                flaga2 = false;
-//                error1 = "Wystąpił nieoczekiwany błąd. Spróbuj ponownie";
-//            }
-//            if (flaga2 == false) {
-//                ret1 = error1;
-//                komunikat1 = "Komunikat";
-//            } else {
-//                ret1 = "Udało Ci się poprawnie dodać wszystkie POI";
-//                komunikat1 = "Tworzenie trasy";
-//            }
-//        }
-//        else if(h==2){
-//            if (wejscie.contains("")) {
-//                flaga2 = true;
-//            } else {
-//                flaga2 = false;
-//                error1 = "Wystąpił nieoczekiwany błąd. Spróbuj ponownie";
-//            }
-//            if (flaga2 == false) {
-//                ret1 = error1;
-//                komunikat1 = "Komunikat";
-//            } else {
-//                ret1 = "Udało Ci się poprawnie dodać trasę zawodów.";
-//                komunikat1 = "Tworzenie trasy";
-//            }
-//        }
-
        final View arg0 = null;
        Context context2 = this;
        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context2);

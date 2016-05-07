@@ -45,7 +45,6 @@ public class ReminderPass extends Activity {
 				});
 			button1.setOnClickListener(new OnClickListener() {			
 				public void onClick(View arg0) {
-					
 					String url1 = Validation();
 					if (url1.length()!=0)
 					{
@@ -53,7 +52,7 @@ public class ReminderPass extends Activity {
 					}			
 					}
 				});	
-    }
+   	 }
 	  public boolean CheckResponse(String wejscie)
 	    {
 	    	String komunikat="";
@@ -170,8 +169,7 @@ public class ReminderPass extends Activity {
 
 	            URL url = new URL(url1);
 			 HttpURLConnection connection = (HttpURLConnection)url.openConnection();
-			 connection.setRequestMethod("GET");	 
-			 int responseCode = connection.getResponseCode();
+			 connection.setRequestMethod("GET");
 			 BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 			 String line = "";
 			 StringBuilder responseOutput = new StringBuilder();

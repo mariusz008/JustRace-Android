@@ -8,7 +8,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -17,7 +16,6 @@ import org.json.JSONObject;
 import com.teamproject.conn.TurningOnGPS;
 import com.teamproject.models.competitionDTO;
 import com.teamproject.models.userDTO;
-//import com.teamproject.windows.Registration.GetClass;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -27,28 +25,22 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
-import android.graphics.Typeface;
+
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Html;
-import android.text.InputType;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.PopupMenu;
 import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -155,10 +147,9 @@ public class CompInfo extends Activity {
 								.setPositiveButton("Zgadzam się", new DialogInterface.OnClickListener() {
 									public void onClick(DialogInterface dialog, int id) {
 										//positiveResponse();
-										dodajSpinnery();
+										addSpinners();
 									}
 								});
-
 						AlertDialog alertDialog = alertDialogBuilder.create();
 						alertDialog.show();
 					}
@@ -237,7 +228,7 @@ public class CompInfo extends Activity {
 			});
 	}
 
-	public void dodajSpinnery(){
+	public void addSpinners(){
 		LayoutInflater li = LayoutInflater.from(context);
 		View promptsView = li.inflate(R.layout.my_dialog_layout, null);
 		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
@@ -293,8 +284,6 @@ public class CompInfo extends Activity {
 		@Override
 		public void onItemSelected(AdapterView<?> parent,
 								   View view, int pos, long id) {
-//			Toast.makeText(parent.getContext(), "Clicked : " +
-//					parent.getItemAtPosition(pos).toString(), Toast.LENGTH_LONG).show();
 			kategoria = parent.getItemAtPosition(pos).toString();
 		}
 
@@ -304,7 +293,7 @@ public class CompInfo extends Activity {
 		}
 	}
 
-	public void add_button() {
+	public void addButton() {
 		TableLayout table = (TableLayout) findViewById(R.id.tableButtons);
 		TableRow tableRow = new TableRow(this);
 		tableRow.setLayoutParams(new TableLayout.LayoutParams(
@@ -622,12 +611,11 @@ public class CompInfo extends Activity {
 	}
 	public void parsingJSON(String JSON) throws JSONException
 	{
-
 		if(JSON.contains("ROUTE_ID")) mappc=true;
 		if(JSON.contains("ROUTEPOI_ID")) mapoi=true;
 		if(JSON.contains("TRACK_ID")) matrase=true;
 
-		if(mappc&&matrase) add_button();
+		if(mappc&&matrase) addButton();
 		JSONObject obj = new JSONObject(JSON);		
 		String naz = obj.getString("NAME");
 		String miej = obj.getString("MIEJSCOWOSC");

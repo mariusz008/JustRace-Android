@@ -44,7 +44,6 @@ public class RestController extends AsyncTask<String, Void, String> {
     protected void onPreExecute(){
         progress= new ProgressDialog(this.context);
         progress.setMessage("Loading");
-        //progress.setCancelable(false);
         progress.show();
     }
 
@@ -54,7 +53,7 @@ public class RestController extends AsyncTask<String, Void, String> {
 
             URL url = new URL(url1);
 		 HttpURLConnection connection = (HttpURLConnection)url.openConnection();
-		 connection.setRequestMethod("GET");
+		 connection.setRequestMethod(akcja);
 		 BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 		 String line = "";
 		 StringBuilder responseOutput = new StringBuilder();
@@ -85,15 +84,6 @@ public class RestController extends AsyncTask<String, Void, String> {
     
     protected void onPostExecute(String result) {
     	setWyjscie(result);
-//    	try {
-//    		if (akcja == "LOGIN"){
-//			log.checkResponse(result);
-//			
-////			log.parsingJSON(result);
-//    		}
-//		} catch (JSONException e) {
-//			e.printStackTrace();
-//		}
     }
 	public String getWyjscie() {
 		return wyjscie;
