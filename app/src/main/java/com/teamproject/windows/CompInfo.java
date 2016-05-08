@@ -56,19 +56,15 @@ public class CompInfo extends Activity {
 	ProgressDialog progress;
 	Intent intent4 = new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
 	TurningOnGPS gpssx;
-	String jakis = "re";
-	String error, error1, ret, ret1= "";
-	String whichList1, kategoria="";
-	String ktore_zawody="";
+	String error, error1, ret, ret1, whichList1, kategoria, ktore_zawody= "";
 	final competitionDTO competition = CompList.comp;
 	String ID_zad = competition.getID_zawodow();
-	//final Spinner input1 = new Spinner(CompInfo.this);
 	ImageView typIV;
 	Spinner mSpinner;
 	final userDTO user1 = Login.user;
 	String ID_usera = user1.getID_uzytkownika();
 	boolean flaga1, flaga2, mappc, mapoi, matrase, mozezapisac;
-	int inn=0;
+	int inn, ilosc_linii=0;
 	Intent intent2, intent3, intent5, intentmapa;
 	String success = "Udało Ci się zapisać na zawody!";
 	String success1 = "Udało Ci się wypisać z zawodów!";
@@ -629,6 +625,7 @@ public class CompInfo extends Activity {
     	
     	return flaga2;
 	}
+
 	public void parsingJSON(String JSON) throws JSONException
 	{
 		if(JSON.contains("ROUTE_ID")) mappc=true;
@@ -661,8 +658,12 @@ public class CompInfo extends Activity {
 		limitTV.setText(lim);
 		oplataTV.setText(opl);
 		Spanned spanned = Html.fromHtml(opis);
+		ilosc_linii=(int)(spanned.length()/25);
+		if (ilosc_linii==0) ilosc_linii=2;
+		++ilosc_linii;
+		opisTV.setLines(ilosc_linii);
 		opisTV.setText(spanned);
-		
+
 		if (typ.contains("arciars")){
 			typIV.setImageResource(R.mipmap.ic_narciarskie);
 			}

@@ -139,6 +139,13 @@ public class GoogleMap extends FragmentActivity implements OnMapReadyCallback, T
                 }
                 gpstracker.stopUsingGPS();
                 LatLng p2 = new LatLng(szerokosc, dlugosc);
+                if(nagrywanie){
+                    now = mMap.addMarker(new MarkerOptions()
+                            .position(p2)
+                            .title("Tu jesteś")
+                            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+                }
+                else
                 now = mMap.addMarker(new MarkerOptions().position(p2).title("Tu jesteś"));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(p2));
             }
@@ -271,7 +278,7 @@ public class GoogleMap extends FragmentActivity implements OnMapReadyCallback, T
             f2 = true;
             szerokoscPoint = szerokosc;
             dlugoscPoint = dlugosc;
-            setPoint(szerokoscPoint, dlugoscPoint, "Koniec linii startu", m1, BitmapDescriptorFactory.HUE_BLUE);
+            setPoint(szerokoscPoint, dlugoscPoint, "Koniec linii startu", m1, BitmapDescriptorFactory.HUE_AZURE);
             szerPoint = Double.toString(szerokoscPoint);
             dlPoint = Double.toString(dlugoscPoint);
             pk_start.add(dlPoint);
@@ -714,6 +721,13 @@ public class GoogleMap extends FragmentActivity implements OnMapReadyCallback, T
                     drawRoute(trasa);
                 }
                 LatLng p2 = new LatLng(szerokosc, dlugosc);
+                if(nagrywanie){
+                    now = mMap.addMarker(new MarkerOptions()
+                            .position(p2)
+                            .title("Tu jesteś")
+                            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+                }
+                else
                 now = mMap.addMarker(new MarkerOptions().position(p2).title("Tu jesteś"));
                 if (jk==0)
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(p2, 16F));

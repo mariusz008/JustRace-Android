@@ -81,13 +81,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             tmpm = mMap.addMarker(new MarkerOptions().position(p2).title(nazwa_point).icon(BitmapDescriptorFactory.defaultMarker(x)));
         }
     }
-    public void setPoint(List<String> p, String name1,  float x){
+    public void setPoint(List<String> p, String name1,  float x, int h){
         int i;
         for(i=0, j=1.0; i<p.size(); i=i+2,j++) {
             y1 = Double.parseDouble(p.get(i));
             x1 = Double.parseDouble(p.get(i + 1));
             LatLng p2 = new LatLng(y1, x1);
-            if (p.size()>4)
+            if (h==1)
             nazwa_point = name1 + (int)(Math.ceil((j/2)));
             else nazwa_point = name1;
             tmpm = mMap.addMarker(new MarkerOptions().position(p2).title(nazwa_point).icon(BitmapDescriptorFactory.defaultMarker(x)));
@@ -217,15 +217,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         pk_meta.add(checkpoints.getString("META2y"));
         pk_meta.add(checkpoints.getString("META2x"));
 
-
-        String ilosc_poi = poi.getString("COUNT");
-        il_poi = Integer.parseInt(ilosc_poi);
-        for(int i=0;i<il_poi;i++){
-            pk_POI.add(poi.getString("POINT_POIY"+i));
-            pk_POI.add(poi.getString("POINT_POIX"+i));
-            nazwaPOI.add(poi.getString("POINT_POINAME"+i));
+        if(JSON.contains("POINT_POINAME")) {
+            String ilosc_poi = poi.getString("COUNT");
+            il_poi = Integer.parseInt(ilosc_poi);
+            for (int i = 0; i < il_poi; i++) {
+                pk_POI.add(poi.getString("POINT_POIY" + i));
+                pk_POI.add(poi.getString("POINT_POIX" + i));
+                nazwaPOI.add(poi.getString("POINT_POINAME" + i));
+            }
         }
-
+        setPOI(pk_POI, nazwaPOI, BitmapDescriptorFactory.HUE_VIOLET);
         String ilosc_track = route.getString("COUNT");
         ile_route = Integer.parseInt(ilosc_track);
         for(int i=0;i<ile_route;i++){
@@ -234,10 +235,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
 
         drawRoute(trasa);
-        setPOI(pk_POI, nazwaPOI, BitmapDescriptorFactory.HUE_VIOLET);
-        setPoint(pk_start, "Start ", BitmapDescriptorFactory.HUE_BLUE);
-        setPoint(pk_pk,"Punkt kontrolny nr ", BitmapDescriptorFactory.HUE_ORANGE);
-        setPoint(pk_meta, "Meta ", BitmapDescriptorFactory.HUE_GREEN);
+
+        setPoint(pk_start, "Start ", BitmapDescriptorFactory.HUE_AZURE, 0);
+        setPoint(pk_pk,"Punkt kontrolny nr ", BitmapDescriptorFactory.HUE_ORANGE, 1);
+        setPoint(pk_meta, "Meta ", BitmapDescriptorFactory.HUE_GREEN, 0);
         drawLine(pk_start, Color.BLUE);
         drawLine(pk_pk, Color.parseColor("#FF6600"));
         drawLine(pk_meta, Color.GREEN);
