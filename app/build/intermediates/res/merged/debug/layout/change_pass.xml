@@ -14,7 +14,8 @@
         android:layout_height="40dp"
         android:src="@drawable/ic_password"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"/>
+        android:layout_marginTop="50dp"
+        android:tint="@color/navyblue"/>
 
     <Button
         android:id="@+id/buttonAlert"
@@ -63,7 +64,7 @@
         android:id="@+id/submitButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/teal700"
+        android:background="@color/navyblue"
         android:textColor="@color/white"
         android:text="@string/przycisk3"
         android:layout_above="@+id/buttonAlert"

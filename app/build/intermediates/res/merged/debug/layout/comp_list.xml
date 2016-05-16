@@ -23,7 +23,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/linearLayout5">
+            android:id="@+id/linearLayout5"
+            android:layout_marginBottom="5dp">
 
             <TableLayout
                 android:layout_width="match_parent"
@@ -49,7 +50,7 @@
             android:id="@+id/buttonAlert"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/teal700"
+            android:background="#233859"
             android:textColor="@color/white"
             android:text="@string/powrót"/>
 
@@ -58,7 +59,7 @@
     <SlidingDrawer
         android:id="@+id/slidingDrawer1"
         android:layout_width="wrap_content"
-        android:layout_height="200dp"
+        android:layout_height="230dp"
         android:content="@+id/content"
         android:handle="@+id/handle"
         android:orientation="vertical"
@@ -70,7 +71,7 @@
             android:layout_width="wrap_content"
             android:layout_height="50sp"
             android:background="@mipmap/arrow1"
-            />
+            android:tint="#233859" />
 
         <RelativeLayout
             android:id="@+id/content"
@@ -79,23 +80,20 @@
             android:rotation="180"
             android:background="@color/tlo1">
 
-            <EditText
-                android:id="@+id/editText1"
+            <Spinner
+                android:id="@+id/spinner1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:hint="podaj typ zawodów"
+                android:prompt="@string/typ"
                 android:gravity="center_horizontal"
-                android:layout_centerHorizontal="true"
-                android:textAppearance="?android:attr/textAppearanceSmall"/>
+                />
 
             <EditText
                 android:id="@+id/editText2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/editText1"
+                android:layout_below="@id/spinner1"
                 android:hint="podaj nazwę zawodów"
-                android:gravity="center_horizontal"
                 android:layout_centerHorizontal="true"
                 android:textAppearance="?android:attr/textAppearanceSmall"/>
 
@@ -105,22 +103,24 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/editText2"
                 android:hint="podaj miejscowość"
-                android:gravity="center_horizontal"
                 android:layout_centerHorizontal="true"
                 android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+
 
             <Button
                 android:id="@+id/button1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/teal700"
+                android:background="#233859"
                 android:textColor="@color/white"
                 android:text="Filtruj"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:layout_below="@+id/editText3"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:drawablePadding="10dp"/>
+                android:drawablePadding="10dp"
+                />
 
         </RelativeLayout>
     </SlidingDrawer>

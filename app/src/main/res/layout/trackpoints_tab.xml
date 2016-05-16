@@ -4,23 +4,23 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:background="@color/tlo1"
-    >
+    android:background="@color/tlo1">
 
 
     <ScrollView
         android:id="@+id/ScrollView1"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/map"
+        android:layout_above="@+id/LinearLayout5"
         android:fillViewport="true"
         android:isScrollContainer="false"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
 
 
             <LinearLayout
@@ -127,8 +127,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"
-        android:weightSum="2"
-        android:layout_marginBottom="20dp">
+        android:weightSum="2">
 
 
 
@@ -137,7 +136,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="Potwierdź punkt"
-            android:background="@color/teal700"
+            android:background="@color/navyblue"
             android:textColor="@color/white"
             android:layout_weight="1"
             android:layout_marginRight="5dp"
@@ -150,7 +149,7 @@
             android:layout_height="40dp"
             android:text="Zapisz trasę"
             android:layout_weight="1"
-            android:background="@color/teal700"
+            android:background="@color/navyblue"
             android:layout_marginLeft="5dp"
             android:textColor="@color/white"
             />

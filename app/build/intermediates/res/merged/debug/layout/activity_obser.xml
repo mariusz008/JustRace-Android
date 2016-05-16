@@ -14,28 +14,30 @@
         android:id="@+id/button1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="25dip"
         android:text="Wyniki poszczególnych zawodników"
         android:drawableLeft="@drawable/ic_time"
+        android:layout_marginBottom="5dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
         />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="25dip"
         android:text="Harmonogram zawodów"
         android:drawableLeft="@drawable/ic_schedule"
+        android:drawablePadding="20dp"
         />
 
     <Button
         android:id="@+id/buttonAlert"
-        android:layout_width="352dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="50dp"
         android:text="@string/powrót"
-        android:background="@color/teal700"
+        android:background="@color/navyblue"
         android:textColor="@color/white"
         android:layout_gravity="center_horizontal"/>
 </LinearLayout>

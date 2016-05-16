@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@color/tlo1">
 
     <Spinner
         android:id="@+id/spinner1"
@@ -30,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="Anuluj"
-            android:background="@color/teal700"
+            android:background="@color/navyblue"
             android:textColor="@color/white"
             android:layout_weight="1"
             android:layout_marginRight="5dp"
@@ -43,7 +44,7 @@
             android:layout_height="40dp"
             android:text="Zapisz się"
             android:layout_weight="1"
-            android:background="@color/teal700"
+            android:background="@color/navyblue"
             android:layout_marginLeft="5dp"
             android:textColor="@color/white"
             />

@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string-array name="competitions">
+        <item>Bieg przełajowy</item>
+        <item>Bieg maratoński</item>
+        <item>Bieg uliczny</item>
+        <item>Bieg górski</item>
+        <item>Chód</item>
+        <item>Kolarstwo szosowe</item>
+        <item>Kolarstwo górski</item>
+        <item>Bieg narciarski</item>
+        <item>Narciarstwo alpejskie</item>
+        <item>Wyścig samolotów</item>
+        <item>Wyścig balonów</item>
+        <item>Wyścig samochodowy</item>
+        <item>Wyścig off-road</item>
+        <item>Karting</item>
+        <item>Wyścig motocykli</item>
+        <item>Wyścig quadów</item>
+        <item>Wyścig skuterów śnieżnych</item>
+        <item>Kajakarstwo</item>
+        <item>Wioślarstwo</item>
+        <item>Inne</item>
+    </string-array>
     <attr format="reference" name="drawerArrowStyle"/>
     <attr format="dimension" name="height"/>
     <attr format="boolean" name="isLightTheme"/>
@@ -66,6 +88,7 @@
     <color name="highlighted_text_material_light">#66009688</color>
     <color name="hint_foreground_material_dark">@color/bright_foreground_disabled_material_dark</color>
     <color name="hint_foreground_material_light">@color/bright_foreground_disabled_material_light</color>
+    <color name="lightgrey">#d3d3d3</color>
     <color name="link_text_material_dark">@color/material_deep_teal_200</color>
     <color name="link_text_material_light">@color/material_deep_teal_500</color>
     <color name="material_blue_grey_800">#ff37474f</color>
@@ -73,6 +96,7 @@
     <color name="material_blue_grey_950">#ff21272b</color>
     <color name="material_deep_teal_200">#ff80cbc4</color>
     <color name="material_deep_teal_500">#ff009688</color>
+    <color name="navyblue">#1c2d47</color>
     <color name="obserw">#a64dff</color>
     <color name="primary_dark_material_dark">#ff000000</color>
     <color name="primary_dark_material_light">#ff757575</color>
@@ -114,6 +138,7 @@
     <color name="wallet_holo_blue_light">#ff33b5e5</color>
     <color name="wallet_link_text_light">#0000ee</color>
     <color name="white">#FFFFFF</color>
+    <color name="yellow">#f0e246</color>
     <declare-styleable name="ActionBar"><attr name="navigationMode"><enum name="normal" value="0"/><enum name="listMode" value="1"/><enum name="tabMode" value="2"/></attr><attr name="displayOptions"><flag name="none" value="0"/><flag name="useLogo" value="0x1"/><flag name="showHome" value="0x2"/><flag name="homeAsUp" value="0x4"/><flag name="showTitle" value="0x8"/><flag name="showCustom" value="0x10"/><flag name="disableHome" value="0x20"/></attr><attr name="title"/><attr format="string" name="subtitle"/><attr format="reference" name="titleTextStyle"/><attr format="reference" name="subtitleTextStyle"/><attr format="reference" name="icon"/><attr format="reference" name="logo"/><attr format="reference" name="divider"/><attr format="reference" name="background"/><attr format="reference|color" name="backgroundStacked"/><attr format="reference|color" name="backgroundSplit"/><attr format="reference" name="customNavigationLayout"/><attr name="height"/><attr format="reference" name="homeLayout"/><attr format="reference" name="progressBarStyle"/><attr format="reference" name="indeterminateProgressStyle"/><attr format="dimension" name="progressBarPadding"/><attr name="homeAsUpIndicator"/><attr format="dimension" name="itemPadding"/><attr format="boolean" name="hideOnContentScroll"/><attr format="dimension" name="contentInsetStart"/><attr format="dimension" name="contentInsetEnd"/><attr format="dimension" name="contentInsetLeft"/><attr format="dimension" name="contentInsetRight"/><attr format="dimension" name="elevation"/><attr format="reference" name="popupTheme"/></declare-styleable>
     <declare-styleable name="ActionBarLayout"><attr name="android:layout_gravity"/></declare-styleable>
     <declare-styleable name="ActionMenuItemView"><attr name="android:minWidth"/></declare-styleable>
@@ -332,7 +357,7 @@
     <string name="plec">Płeć: *</string>
     <string name="powiadomienie_haslo"><u>Zapomniałeś hasła? Wygeneruj nowe!</u></string>
     <string name="powiadomienie_log">Zaloguj się</string>
-    <string name="powiadomienie_przypomnienia">Wpisz swój adres e-mail oraz login. \n Na podany adres e-mail zostanie wysłany link, \n który po kliknięciu wygeneruje nowe hasło</string>
+    <string name="powiadomienie_przypomnienia">Wpisz swój adres e-mail oraz login. \nNa podany adres e-mail zostanie wysłany link, który po kliknięciu \nwygeneruje nowe hasło</string>
     <string name="powiadomienie_rej"><u>Nie masz konta? Zarejestruj się!</u></string>
     <string name="powiadomienie_zap">Zapamiętaj mnie</string>
     <string name="powitanie">Witaj w aplikacji</string>
@@ -344,6 +369,7 @@
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="store_picture_message">"Allow Ad to store image in Picture gallery?"</string>
     <string name="store_picture_title">Save image</string>
+    <string name="typ">Wybierz typ zawodów</string>
     <string name="utworz"><b>Utwórz zawody</b></string>
     <string name="wallet_buy_button_place_holder">Buy with Google</string>
     <string name="wiek">Wiek: *</string>

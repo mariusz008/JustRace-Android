@@ -7,7 +7,9 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.drugi.windows.MainActivity" >
+    tools:context="com.example.drugi.windows.MainActivity"
+    android:layout_gravity="center_horizontal"
+    android:layout_centerHorizontal="true">
 
     <Button
         android:id="@+id/LoginButton"
@@ -16,15 +18,16 @@
         android:text="@string/przycisk1"
         android:layout_below="@+id/linearLayout"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="36dp"
-        android:textColor="@color/teal700"/>
+        android:layout_marginTop="50dp"
+        android:background="@color/navyblue"
+        android:textColor="@color/white"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Witaj w aplikacji\n JustRace! :)"
         android:textStyle="bold"
-        android:textColor="#0B7F71"
+        android:textColor="@color/navyblue"
         android:textSize="30sp"
         android:gravity="center"
         android:id="@+id/textView"
@@ -38,22 +41,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/linearLayout2"
-        android:layout_marginTop="46dp"
         android:layout_below="@+id/textView"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_run"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginLeft="10dp"
+            android:tint="@color/navyblue"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Przeglądaj i zapisuj się na wybrane zawody"
             android:layout_marginLeft="10dp"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:tint="@color/navyblue"
+            android:textStyle="bold"/>
 
     </LinearLayout>
 
@@ -69,14 +75,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_timer"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginLeft="10dp"
+            android:tint="@color/navyblue"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Mierz swój czas"
             android:layout_marginLeft="10dp"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:tint="@color/navyblue"
+            android:textStyle="bold"/>
     </LinearLayout>
 
     <LinearLayout
@@ -92,14 +101,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_history"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginLeft="10dp"
+            android:tint="@color/navyblue"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Sprawdzaj swoją historię"
             android:layout_marginLeft="10dp"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:tint="@color/navyblue"
+            android:textStyle="bold"/>
 
     </LinearLayout>
 

@@ -1,22 +1,5 @@
 package com.teamproject.windows;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.ArrayList;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import com.teamproject.conn.TurningOnGPS;
-import com.teamproject.models.competitionDTO;
-import com.teamproject.models.userDTO;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -25,7 +8,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Html;
@@ -41,15 +23,31 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.teamproject.conn.TurningOnGPS;
+import com.teamproject.models.competitionDTO;
+import com.teamproject.models.userDTO;
 
-public class CompInfo extends Activity {	
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+
+
+public class CompInfo extends Activity {
 	private Button button2, button1;
 	final Context context = this;
 	private TextView datarozTV, nazwaTV, miejscowoscTV, typTV, godzrozpTV, datazakTV, godzzakTV, limitTV, oplataTV, opisTV, katTV, kat;
@@ -99,24 +97,24 @@ public class CompInfo extends Activity {
 		sendGetRequest(0, url, "GET");
 		if (whichList1.equals("OGOLNE")){
 			button1.setText("Zapisz się na zawody");
-			button1.setBackgroundResource(R.color.teal700);
+			button1.setBackgroundResource(R.color.navyblue);
 			inn = 1;
 		}
 		if (whichList1.equals("OSOBISTE")){
 			button1.setText("Wypisz się z zawodów");
-			button1.setBackgroundResource(R.color.teal700);
+			button1.setBackgroundResource(R.color.navyblue);
 			inn = 2;
 			if(matrase&&mappc)
-			addButton("START", intent5, R.color.teal2);
+			addButton("START", intent5, R.color.navyblue);
 		}
 		if (whichList1.equals("ORG")){
 			button1.setText("Ustal trasę");
-			button1.setBackgroundResource(R.color.teal700);
+			button1.setBackgroundResource(R.color.navyblue);
 			inn = 3;
 		}
 		if (whichList1.equals("OBSERW")){
 			button1.setText("Zobacz listę uczestników");
-			button1.setBackgroundResource(R.color.teal700);
+			button1.setBackgroundResource(R.color.navyblue);
 			inn = 4;
 		}
 
@@ -314,8 +312,8 @@ public class CompInfo extends Activity {
 		));
 		button.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL);
 		button.setBackgroundResource(z);
-		button.setHeight(70);
-		button.setWidth(150);
+		//button.setHeight(70);
+		//button.setWidth(150);
 		button.setTextColor(getApplication().getResources().getColor(R.color.white));
 		button.setText(x);
 		button.setOnClickListener(new View.OnClickListener() {
@@ -633,9 +631,9 @@ public class CompInfo extends Activity {
 		if(JSON.contains("TRACK_ID")) matrase=true;
 		if (whichList1.equals("OSOBISTE")){
 			if(matrase&&mappc)
-				addButton("START", intent5, R.color.teal2);
+				addButton("START", intent5, R.color.navyblue);
 		}
-		if (mappc && matrase) addButton("Zobacz trasę", intentmapa, R.color.teal1);
+		if (mappc && matrase) addButton("Zobacz trasę", intentmapa, R.color.navyblue);
 		JSONObject obj = new JSONObject(JSON);		
 		String naz = obj.getString("NAME");
 		String miej = obj.getString("MIEJSCOWOSC");

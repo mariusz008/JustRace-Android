@@ -4,7 +4,13 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-
+    <supports-screens
+        android:resizeable="true"
+        android:smallScreens="true"
+        android:normalScreens="true"
+        android:largeScreens="true"
+        android:anyDensity="true"
+        />
     <!-- Internet Permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- Network State Permissions -->

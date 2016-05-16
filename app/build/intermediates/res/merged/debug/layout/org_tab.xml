@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:gravity="center_vertical"
     android:orientation="vertical"
-    android:background="@color/tlo1"    
+    android:background="@color/tlo1"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -23,27 +23,29 @@
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/lay_action"
         android:layout_centerInParent="true">
 
         <Button
             android:id="@+id/button3"
-            android:layout_width="217dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:padding="25dp"
             android:text="Przeglądaj czasy zawodników"
             android:drawableTop="@drawable/ic_time"
-            />
+            android:layout_marginRight="5dp"
+            android:textColor="@color/navyblue"/>
 
         <Button
             android:id="@+id/button4"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Moje zawody"
+            android:text="Moje \nzawody"
             android:drawableTop="@drawable/ic_face"
-            android:padding="25dip" />
+            android:padding="25dp"
+            android:textColor="@color/navyblue"/>
 
     </LinearLayout>
 
@@ -53,7 +55,7 @@
         android:layout_width="352dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:background="@color/teal700"
+        android:background="@color/navyblue"
         android:text="Wyloguj się"
         android:textColor="@color/white"
         android:layout_gravity="center_horizontal"

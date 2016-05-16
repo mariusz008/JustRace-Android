@@ -91,6 +91,7 @@ public class GoogleMap extends FragmentActivity implements OnMapReadyCallback, T
         mTabHost = (FragmentTabHost) findViewById(android.R.id.tabhost);
         mTabHost.setup(this, getSupportFragmentManager(), android.R.id.tabcontent);
 
+
         mTabHost.addTab(
                 mTabHost.newTabSpec("tab1").setIndicator("Dodaj punkty pomiaru czasu", null),
                 TrackPoints.class, null);
@@ -100,11 +101,11 @@ public class GoogleMap extends FragmentActivity implements OnMapReadyCallback, T
         mTabHost.addTab(
                 mTabHost.newTabSpec("tab3").setIndicator("Nagraj trasę", null),
                 TrackRoute.class, null);
-        final int height = 120;
+        //final int height = 270;
 
-        mTabHost.getTabWidget().getChildAt(0).getLayoutParams().height = height;
-        mTabHost.getTabWidget().getChildAt(1).getLayoutParams().height = height;
-        mTabHost.getTabWidget().getChildAt(2).getLayoutParams().height = height;
+        //mTabHost.getTabWidget().getChildAt(0).getLayoutParams().height = height;
+        //mTabHost.getTabWidget().getChildAt(1).getLayoutParams().height = height;
+        //mTabHost.getTabWidget().getChildAt(2).getLayoutParams().height = height;
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         locationListener = new LocationListener() {
             @Override

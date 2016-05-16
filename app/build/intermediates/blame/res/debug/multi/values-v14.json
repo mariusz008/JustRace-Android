@@ -16,10 +16,10 @@
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
-                        "startOffset": 225,
+                        "startOffset": 220,
                         "endLine": 9,
                         "endColumn": 12,
-                        "endOffset": 373
+                        "endOffset": 366
                     }
                 }
             },
@@ -33,15 +33,7 @@
                     "endOffset": 477
                 },
                 "from": {
-                    "file": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\values-v14\\values-v14.xml",
-                    "position": {
-                        "startLine": 4,
-                        "startColumn": 4,
-                        "startOffset": 301,
-                        "endLine": 8,
-                        "endColumn": 12,
-                        "endOffset": 572
-                    }
+                    "file": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\values-v14\\values-v14.xml"
                 }
             },
             {
@@ -53,14 +45,7 @@
                     "endOffset": 548
                 },
                 "from": {
-                    "file": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\values-v14\\values-v14.xml",
-                    "position": {
-                        "startLine": 11,
-                        "startColumn": 4,
-                        "startOffset": 818,
-                        "endColumn": 70,
-                        "endOffset": 884
-                    }
+                    "file": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\values-v14\\values-v14.xml"
                 }
             },
             {
@@ -72,14 +57,7 @@
                     "endOffset": 631
                 },
                 "from": {
-                    "file": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\values-v14\\values-v14.xml",
-                    "position": {
-                        "startLine": 12,
-                        "startColumn": 4,
-                        "startOffset": 889,
-                        "endColumn": 82,
-                        "endOffset": 967
-                    }
+                    "file": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\values-v14\\values-v14.xml"
                 }
             },
             {
@@ -92,15 +70,7 @@
                     "endOffset": 1041
                 },
                 "from": {
-                    "file": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\values-v14\\values-v14.xml",
-                    "position": {
-                        "startLine": 13,
-                        "startColumn": 4,
-                        "startOffset": 972,
-                        "endLine": 18,
-                        "endColumn": 12,
-                        "endOffset": 1377
-                    }
+                    "file": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\values-v14\\values-v14.xml"
                 }
             },
             {
@@ -113,15 +83,7 @@
                     "endOffset": 1463
                 },
                 "from": {
-                    "file": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\values-v14\\values-v14.xml",
-                    "position": {
-                        "startLine": 19,
-                        "startColumn": 4,
-                        "startOffset": 1382,
-                        "endLine": 24,
-                        "endColumn": 12,
-                        "endOffset": 1799
-                    }
+                    "file": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\values-v14\\values-v14.xml"
                 }
             },
             {
@@ -133,14 +95,7 @@
                     "endOffset": 1583
                 },
                 "from": {
-                    "file": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\values-v14\\values-v14.xml",
-                    "position": {
-                        "startLine": 27,
-                        "startColumn": 4,
-                        "startOffset": 2040,
-                        "endColumn": 119,
-                        "endOffset": 2155
-                    }
+                    "file": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\values-v14\\values-v14.xml"
                 }
             },
             {
@@ -152,14 +107,7 @@
                     "endOffset": 1646
                 },
                 "from": {
-                    "file": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\values-v14\\values-v14.xml",
-                    "position": {
-                        "startLine": 28,
-                        "startColumn": 4,
-                        "startOffset": 2160,
-                        "endColumn": 62,
-                        "endOffset": 2218
-                    }
+                    "file": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\values-v14\\values-v14.xml"
                 }
             },
             {
@@ -172,15 +120,7 @@
                     "endOffset": 1800
                 },
                 "from": {
-                    "file": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\values-v14\\values-v14.xml",
-                    "position": {
-                        "startLine": 29,
-                        "startColumn": 4,
-                        "startOffset": 2223,
-                        "endLine": 31,
-                        "endColumn": 12,
-                        "endOffset": 2372
-                    }
+                    "file": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\values-v14\\values-v14.xml"
                 }
             },
             {
@@ -192,14 +132,7 @@
                     "endOffset": 1863
                 },
                 "from": {
-                    "file": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\values-v14\\values-v14.xml",
-                    "position": {
-                        "startLine": 32,
-                        "startColumn": 4,
-                        "startOffset": 2377,
-                        "endColumn": 62,
-                        "endOffset": 2435
-                    }
+                    "file": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\values-v14\\values-v14.xml"
                 }
             },
             {
@@ -211,14 +144,7 @@
                     "endOffset": 1995
                 },
                 "from": {
-                    "file": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\values-v14\\values-v14.xml",
-                    "position": {
-                        "startLine": 33,
-                        "startColumn": 4,
-                        "startOffset": 2440,
-                        "endColumn": 131,
-                        "endOffset": 2567
-                    }
+                    "file": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\values-v14\\values-v14.xml"
                 }
             }
         ]

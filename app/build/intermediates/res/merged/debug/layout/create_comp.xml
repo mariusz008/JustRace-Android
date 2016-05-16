@@ -198,8 +198,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/utworz"
-            android:background="@color/teal700"
-        android:textColor="@color/white"
+            android:background="@color/navyblue"
+            android:textColor="@color/white"
             android:layout_above="@+id/buttonAlert"/>
 
         <Button

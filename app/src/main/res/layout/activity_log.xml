@@ -27,13 +27,13 @@
         android:layout_height="40dp"
         android:ems="13"
         android:hint="Login"
-        android:backgroundTint="@color/teal700"
+        android:backgroundTint="@color/navyblue"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="33dp"
         android:layout_alignEnd="@+id/editText2"
         android:drawableLeft="@drawable/ic_login"
-        android:drawablePadding="10dp"/>
+        android:drawablePadding="10dp" />
 
 
     <EditText
@@ -70,7 +70,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium" 
         android:onClick="onClick"
 		android:clickable="true"
-		android:textColor="@color/teal700"
+		android:textColor="@color/navyblue"
 		/>
 
     <TextView
@@ -83,14 +83,14 @@
         android:text="@string/powiadomienie_haslo"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:clickable="true"
-        android:textColor="@color/teal700"
+        android:textColor="@color/navyblue"
         />
 
     <Button
         android:id="@+id/ObservButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/teal700"
+        android:background="@color/navyblue"
         android:text="@string/obser"
         android:layout_above="@+id/buttonAlert"
         android:layout_alignEnd="@+id/buttonAlert"

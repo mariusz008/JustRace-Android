@@ -66,7 +66,7 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/textView1"
         android:layout_marginTop="20dp"
-        android:background="@color/teal700"
+        android:background="@color/navyblue"
         android:textColor="@color/white"
         android:text="@string/przycisk3" />
 

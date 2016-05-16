@@ -1,20 +1,12 @@
 package com.teamproject.windows;
 
-import com.teamproject.organizer.mainOrg;
-import com.teamproject.participant.mainPart;
-
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTabHost;
-import android.view.View;
-import android.widget.Button;
-import android.view.View.OnClickListener;
+
+import com.teamproject.organizer.mainOrg;
+import com.teamproject.participant.mainPart;
 
 
 public class UserMainActivity extends FragmentActivity {
@@ -35,5 +27,9 @@ public class UserMainActivity extends FragmentActivity {
         mTabHost.addTab(
                 mTabHost.newTabSpec("tab2").setIndicator("Organizator", null),
                 mainOrg.class, null);
+
+
+
     }
+
 }

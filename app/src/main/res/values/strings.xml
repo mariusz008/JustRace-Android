@@ -15,7 +15,7 @@
     <string name="powiadomienie_rej"><u>Nie masz konta? Zarejestruj się!</u></string>
     <string name="powiadomienie_haslo"><u>Zapomniałeś hasła? Wygeneruj nowe!</u></string>
     <string name="powiadomienie_zap">Zapamiętaj mnie</string>
-    <string name="powiadomienie_przypomnienia">Wpisz swój adres e-mail oraz login. \n Na podany adres e-mail zostanie wysłany link, \n który po kliknięciu wygeneruje nowe hasło</string>
+    <string name="powiadomienie_przypomnienia">Wpisz swój adres e-mail oraz login. \nNa podany adres e-mail zostanie wysłany link, który po kliknięciu \nwygeneruje nowe hasło</string>
    	<string name="zgoda"><b>Wyrażam zgodę na przetwarzanie moich danych osobowych</b></string>
     <string name="obser">Kontynuuj jako obserwator</string>
     
@@ -44,5 +44,30 @@
     <string name="ice">Kontakt w nagłym wypadku (ICE):</string>
     <string name="m">M</string> 
     <string name="k">K</string>
+
+    <string-array name="competitions">
+        <item>Bieg przełajowy</item>
+        <item>Bieg maratoński</item>
+        <item>Bieg uliczny</item>
+        <item>Bieg górski</item>
+        <item>Chód</item>
+        <item>Kolarstwo szosowe</item>
+        <item>Kolarstwo górski</item>
+        <item>Bieg narciarski</item>
+        <item>Narciarstwo alpejskie</item>
+        <item>Wyścig samolotów</item>
+        <item>Wyścig balonów</item>
+        <item>Wyścig samochodowy</item>
+        <item>Wyścig off-road</item>
+        <item>Karting</item>
+        <item>Wyścig motocykli</item>
+        <item>Wyścig quadów</item>
+        <item>Wyścig skuterów śnieżnych</item>
+        <item>Kajakarstwo</item>
+        <item>Wioślarstwo</item>
+        <item>Inne</item>
+    </string-array>
+
+    <string name="typ">Wybierz typ zawodów</string>
 
 </resources>

@@ -18,7 +18,7 @@ import com.teamproject.windows.R;
 
 public class mainOrg extends Fragment {
 	Context context;
-	private Button button, button4, button6;
+	private Button button, button3, button4;
 	public static final String costam  = Login.SPF_NAME;
 	Intent intent1, intent2, intent4, intent6;
 	String ktore_zawody="";
@@ -31,6 +31,7 @@ public class mainOrg extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.org_tab, container, false);
         button = (Button) v.findViewById(R.id.buttonAlert);
+        button3 = (Button) v.findViewById(R.id.button3);
 
         button4 = (Button) v.findViewById(R.id.button4);
         
@@ -53,6 +54,9 @@ public class mainOrg extends Fragment {
     			intent4.putExtra("ktore", ktore_zawody);
     			startActivity(intent4);  			
     		}});
+
+        button3.setBackground(getResources().getDrawable(R.drawable.rounded_border_button));
+        button4.setBackground(getResources().getDrawable(R.drawable.rounded_border_button));
         return v;
     }
 

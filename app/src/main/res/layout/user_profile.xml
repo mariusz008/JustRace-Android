@@ -20,7 +20,8 @@
         android:layout_marginRight="60dp"
         android:clickable="true"
         android:onClick="onClick"
-        android:background="@null"/>
+        android:background="@null"
+        android:tint="@color/navyblue"/>
 
     <ImageButton
         android:id="@+id/imageButton2"
@@ -33,7 +34,8 @@
         android:background="@null"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="20dp"
+        android:tint="@color/navyblue"/>
 
 
     <ScrollView
@@ -291,7 +293,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/przycisk3"
-            android:background="@color/teal700"
+            android:background="@color/navyblue"
             android:layout_above="@+id/buttonAlert"
             android:textColor="@color/white"/>
 

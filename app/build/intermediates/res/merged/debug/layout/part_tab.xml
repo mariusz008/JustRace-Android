@@ -21,24 +21,45 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/lay_action"
-        android:layout_centerInParent="true">
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="5dp">
 
         <Button
             android:id="@+id/button1"
             android:layout_width="155dp"
-            android:layout_height="wrap_content"
-            android:text="Profil użytkownika"
+            android:layout_height="match_parent"
+            android:text="Profil \nużytkownika"
             android:drawableTop="@drawable/ic_user"
+            android:layout_marginRight="5dp"
+            android:textColor="@color/navyblue"
             />
         <Button
             android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="217dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Harmonogram zawodów"
-            android:drawableTop="@drawable/ic_schedule" />
+            android:drawableTop="@drawable/ic_schedule"
+            android:textColor="@color/navyblue"/>
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lay_action"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="5dp">
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Moje zawody"
+            android:drawableTop="@drawable/ic_face"
+            android:textColor="@color/navyblue"/>
+    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -47,35 +68,21 @@
         android:layout_centerInParent="true">
 
         <Button
-            android:id="@+id/button3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Moje zawody"
-            android:drawableTop="@drawable/ic_face"
-            />
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/lay_action"
-        android:layout_centerInParent="true">
-
-        <Button
             android:id="@+id/button4"
             android:layout_width="217dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:text="Wyniki innych zawodników"
             android:drawableTop="@drawable/ic_time"
-            />
+            android:layout_marginRight="5dp"
+            android:textColor="@color/navyblue"/>
 
         <Button
             android:id="@+id/button5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Moja historia"
-            android:drawableTop="@drawable/ic_history2" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Moja \nhistoria"
+            android:drawableTop="@drawable/ic_history2"
+            android:textColor="@color/navyblue"/>
     </LinearLayout>
 
 
@@ -84,7 +91,7 @@
         android:layout_width="352dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:background="@color/teal700"
+        android:background="@color/navyblue"
         android:text="Wyloguj się"
         android:textColor="@color/white"
         android:layout_gravity="center_horizontal"

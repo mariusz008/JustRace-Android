@@ -8,6 +8,12 @@
         android:minSdkVersion="18"
         android:targetSdkVersion="21" />
 
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true" />
     <!-- Internet Permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- Network State Permissions -->
