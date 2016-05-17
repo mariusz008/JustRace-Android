@@ -267,7 +267,7 @@ public class GoogleMap extends FragmentActivity implements OnMapReadyCallback, T
             f1 = true;
             szerokoscPoint = szerokosc;
             dlugoscPoint = dlugosc;
-            setPoint(szerokoscPoint, dlugoscPoint, "Początek linii startu", m1, BitmapDescriptorFactory.HUE_BLUE);
+            setPoint(szerokoscPoint, dlugoscPoint, "Początek linii startu", m1, BitmapDescriptorFactory.HUE_AZURE);
             szerPoint = Double.toString(szerokoscPoint);
             dlPoint = Double.toString(dlugoscPoint);
             pk_start.add(dlPoint);
