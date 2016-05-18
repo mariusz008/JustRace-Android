@@ -40,6 +40,7 @@ public class UserProfile extends Activity {
 	private ImageButton przyciskEdycji, przyciskUsuwania;
 	final Context context = this;
 	 private EditText imieET, nazwiskoET, loginET, emailET, wiekET, plecET, klubET, obywET, nrtelET, ICEET;
+	private ImageButton imB;
 	ProgressDialog progress;
 	public static final String costam1  = Login.SPF_NAME;
 	Intent intent, intent1;
@@ -70,7 +71,7 @@ public class UserProfile extends Activity {
 		obywET = (EditText) findViewById(R.id.editText8);
 		nrtelET = (EditText) findViewById(R.id.editText9);
 		ICEET = (EditText) findViewById(R.id.editText10);
-		
+		imB = (ImageButton) findViewById(R.id.imageButton1);
 		String url="http://209785serwer.iiar.pwr.edu.pl/Rest/rest/user?id="+ID_usera;
 		View arg0 = null;
 		sendGetRequest(arg0, url, "GET");
@@ -115,6 +116,7 @@ public class UserProfile extends Activity {
 		przyciskEdycji.setOnClickListener(new OnClickListener() {			
 			public void onClick(View arg0) {
 				czyklik = true;
+				imB.setImageResource(R.drawable.ic_edit2);
 				Toast.makeText(context, "Teraz możesz edytować swoje dane", Toast.LENGTH_LONG).show();
 				editData();
 				}

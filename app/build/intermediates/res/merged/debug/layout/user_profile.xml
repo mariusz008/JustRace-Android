@@ -21,7 +21,7 @@
         android:clickable="true"
         android:onClick="onClick"
         android:background="@null"
-        android:tint="@color/navyblue"/>
+        />
 
     <ImageButton
         android:id="@+id/imageButton2"

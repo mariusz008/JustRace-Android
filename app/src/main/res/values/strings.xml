@@ -46,6 +46,7 @@
     <string name="k">K</string>
 
     <string-array name="competitions">
+        <item></item>
         <item>Bieg przełajowy</item>
         <item>Bieg maratoński</item>
         <item>Bieg uliczny</item>

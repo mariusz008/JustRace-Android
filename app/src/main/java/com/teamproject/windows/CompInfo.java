@@ -11,6 +11,7 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Html;
+import android.text.InputType;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.util.Log;
@@ -22,7 +23,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -30,6 +33,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.teamproject.conn.TurningOnGPS;
+import com.teamproject.functions.timeValidation;
 import com.teamproject.models.competitionDTO;
 import com.teamproject.models.userDTO;
 
@@ -61,11 +65,12 @@ public class CompInfo extends Activity {
 	Spinner mSpinner;
 	final userDTO user1 = Login.user;
 	String ID_usera = user1.getID_uzytkownika();
+	timeValidation tv = new timeValidation();
 	boolean flaga1, flaga2, mappc, mapoi, matrase, mozezapisac;
 	int inn, ilosc_linii=0;
 	Intent intent2, intent3, intent5, intentmapa;
+	String success1;
 	String success = "Udało Ci się zapisać na zawody!";
-	String success1 = "Udało Ci się wypisać z zawodów!";
 	ArrayList<String> category = new ArrayList<String>();
 	ArrayList<String> description = new ArrayList<String>();
 	public void onCreate(Bundle savedInstanceState) {
@@ -104,8 +109,6 @@ public class CompInfo extends Activity {
 			button1.setText("Wypisz się z zawodów");
 			button1.setBackgroundResource(R.color.navyblue);
 			inn = 2;
-			if(matrase&&mappc)
-			addButton("START", intent5, R.color.navyblue);
 		}
 		if (whichList1.equals("ORG")){
 			button1.setText("Ustal trasę");
@@ -312,14 +315,15 @@ public class CompInfo extends Activity {
 		));
 		button.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL);
 		button.setBackgroundResource(z);
-		//button.setHeight(70);
-		//button.setWidth(150);
 		button.setTextColor(getApplication().getResources().getColor(R.color.white));
 		button.setText(x);
 		button.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if(x.equals("START")) {
+				if (y==null){
+					setCompTime();
+				}
+				else if(x.equals("START")) {
 					if (gpssx.checkingGPSStatus()) {
 						startActivity(y);
 					} else {
@@ -333,6 +337,46 @@ public class CompInfo extends Activity {
 		});
 		tableRow.addView(button);
 	}
+	public void setCompTime(){
+		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+				context);
+		final View arg2 = null;
+		final EditText input = new EditText(CompInfo.this);
+		input.setInputType(InputType.TYPE_CLASS_DATETIME | InputType.TYPE_DATETIME_VARIATION_NORMAL);
+		LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+				LinearLayout.LayoutParams.MATCH_PARENT,
+				LinearLayout.LayoutParams.MATCH_PARENT);
+		input.setLayoutParams(lp);
+		alertDialogBuilder.setView(input);
+		alertDialogBuilder.setTitle("Zarządzanie zawodami");
+		alertDialogBuilder
+				.setMessage("Podaj godzinę startu zawodów:")
+				.setCancelable(false)
+				.setNegativeButton("Anuluj", new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int id) {
+						dialog.cancel();
+					}
+				})
+				.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int id) {
+						String time = input.getText().toString();
+						if (time.contains("-")) time = new String(time.replace("-", ":"));
+						else if (time.contains("/")) time = new String(time.replace("/", ":"));
+						if(!tv.validate(time)){
+							Toast.makeText(CompInfo.this, "Wpisz poprawny format daty (hh:mm)", Toast.LENGTH_LONG).show();
+						}
+						else {
+							String url4 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/event/start?competition_id=" + ID_zad +
+									"&owner_id=" + ID_usera + "&time=" + time;
+							sendGetRequest(0, url4, "PUT");
+						}
+					}
+				});
+
+		AlertDialog alertDialog = alertDialogBuilder.create();
+		alertDialog.show();
+	}
+
 	public void sendGetRequest(int i, String url, String oper) {
 		    GetClass getclass = new GetClass(this);
 		    getclass.setAdres(url);
@@ -417,6 +461,9 @@ public class CompInfo extends Activity {
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
+			}
+			else if (akcja == "PUT"){
+				checkResponse1(result);
 			}
         }
         
@@ -583,7 +630,14 @@ public class CompInfo extends Activity {
    		
     		if (wejscie.contains("Ok")){
 			flaga2 = true;
-			}	
+				success1 = "Udało Ci się wypisać z zawodów!";
+				komunikat1 = "Udany wypis z zawodów";
+			}
+			else if (wejscie.contains("Start set")){
+				flaga2 = true;
+				success1 = "Udało Ci się ustalić godzinę startu zawodów";
+				komunikat1 = "Ustalanie godziny startu";
+			}
 			else if (wejscie.contains("No such record")){
     			flaga2 = false;
     			error1 = "Nie jesteś zapisany na te zawody";
@@ -599,9 +653,10 @@ public class CompInfo extends Activity {
 			}
 			else{ 
 				ret1=success1;
-				komunikat1 = "Udany wypis z zawodów";
+
 			}
 			final View arg0 = null;
+		final String tt = wejscie;
     	Context context2 = this;   	
 		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context2);
 		alertDialogBuilder.setTitle(komunikat1);
@@ -611,12 +666,13 @@ public class CompInfo extends Activity {
 			.setNeutralButton("OK",new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog,int id) {
 				dialog.cancel();
-				if (ret1==success1){	    							
+				if ((ret1==success1) && tt.contains("Ok")){
 					ktore_zawody = "OSOBISTE";
 	    			intent2.putExtra("ktore", ktore_zawody);
 	    			intent2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 	    			startActivity(intent2);					
 				}
+
 				}});
 			AlertDialog alertDialog1 = alertDialogBuilder.create();
 			alertDialog1.show();	
@@ -634,6 +690,10 @@ public class CompInfo extends Activity {
 				addButton("START", intent5, R.color.navyblue);
 		}
 		if (mappc && matrase) addButton("Zobacz trasę", intentmapa, R.color.navyblue);
+		if (whichList1.equals("ORG")){
+			if(matrase&&mappc)
+				addButton("Ustal godzinę startu", null, R.color.navyblue);
+		}
 		JSONObject obj = new JSONObject(JSON);		
 		String naz = obj.getString("NAME");
 		String miej = obj.getString("MIEJSCOWOSC");

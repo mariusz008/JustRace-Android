@@ -1,7 +1,7 @@
 package com.teamproject.windows;
 
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
+import android.app.Dialog;
 import android.app.Service;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -37,6 +37,7 @@ import com.teamproject.conn.ConnectionDetector;
 import com.teamproject.conn.TurningOnGPS;
 import com.teamproject.functions.LineIntersection;
 import com.teamproject.models.competitionDTO;
+import com.teamproject.models.userDTO;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -56,7 +57,7 @@ import java.util.concurrent.TimeUnit;
  * Created by 008M on 2016-05-07.
  */
 public class StartComp extends FragmentActivity implements OnMapReadyCallback {
-    boolean flaga1, isInternetPresent;
+    boolean flaga1, isInternetPresent,startB, pkB, metaB, startComp, moznaWyslac;
     private Marker now;
     Polyline polyline;
     float wynikk1;
@@ -73,12 +74,11 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
     private EditText czestotliwosc;
     private Button button1, button2, button3;
     double szerokosc, dlugosc, szerokoscPoint, dlugoscPoint, szerAkt, dlugAkt;
-    String szer, dl, szerPoint, dlPoint, szeraktualny, dlugaktualny, time, nazwa_point;
-    int i, pc, jk;
-    String error1, ret1, success1, s = "";
-    ProgressDialog progress;
+    String szer, dl, szerPoint, dlPoint, szeraktualny, dlugaktualny, time, nazwa_point,error1, ret1, success1, s, timeSend;
     final competitionDTO competition = CompList.comp;
     String ID_zaw = competition.getID_zawodow();
+    final userDTO user1 = Login.user;
+    String ID_usera = user1.getID_uzytkownika();
     List<String> trasa = new ArrayList<String>();
     List<String> pk_start = new ArrayList<String>();
     List<String> pk_pk = new ArrayList<String>();
@@ -86,12 +86,13 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
     List<String> pk_all = new ArrayList<String>();
     List<String> pk_POI = new ArrayList<String>();
     List<String> nazwaPOI = new ArrayList<String>();
+    List<String> ilPunktowPomiaru = new ArrayList<String>();
+    List<String> czasyPrzebiegu = new ArrayList<String>();
     List<Double> countingPK = new ArrayList<Double>();
     List<Polyline> polylines = new ArrayList<Polyline>();
     long startTime, estimatedTime;
     LatLngBounds.Builder builder;
     double start_xSr, start_ySr, odleglosc, j, y1, x1, y2, x2;
-    boolean startB, pkB, metaB, startComp;
     PolylineOptions route, route1;
     LineIntersection line = new LineIntersection();
     LatLng p1, p2, p3;
@@ -99,7 +100,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
     double A[] = new double[2];
     double B[] = new double[2];
     int Z[];
-    int il_poi, ile_route, il_pk, freq, gc, mn, makeLine, ilePomiarowCzasu, ktoryPomiar;
+    int il_poi, ile_route, il_pk, freq, gc, mn, makeLine, ilePomiarowCzasu, ktoryPomiar, i , pc, jk;
     GPStracker gpstracker;
     private long startTime1, startTime2, timeBetween, timeBetween2, tmptime, timeInMilliseconds, timeSwapBuff, updatedTime = 0L;
     private Handler customHandler = new Handler();
@@ -110,20 +111,16 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
         setContentView(R.layout.startcomp);
         startB = true;
         startComp = true;
+        cd = new ConnectionDetector(getApplicationContext());
         gps = new TurningOnGPS(getApplicationContext());
         info = (TextView) findViewById(R.id.TextView2);
         info1 = (TextView) findViewById(R.id.TextView3);
         timerValue = (TextView) findViewById(R.id.timerValue);
-//        info3 = (TextView) findViewById(R.id.textView14);
-//        startPrzed = (Button) findViewById(R.id.ButtonS1);
-//        startZa = (Button) findViewById(R.id.ButtonS2);
-//        stop = (Button) findViewById(R.id.ButtonStop);
-//        stop2 = (Button) findViewById(R.id.ButtonStop2);
-
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-        sendGetRequest();
+        String url1 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/gps/all?competition_id=" + ID_zaw;
+        sendGetRequest(url1, "GET");
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         locationListener = new LocationListener() {
@@ -171,6 +168,11 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                     countDistance(dlugosc, szerokosc, countingPK, pc, location);
                     makeLine++;
                 }
+//                isInternetPresent = cd.isConnectingToInternet();
+//                if (isInternetPresent) {
+//                    //tutaj wysyalnie tablicy
+//
+//                }
             }
         };
 
@@ -185,43 +187,6 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
             Toast.makeText(StartComp.this, "Proszę włączyć usługę GPS", Toast.LENGTH_LONG).show();
             startActivity(intent);
         }
-
-//        startPrzed.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View arg0) {
-//                startTime2 = System.currentTimeMillis();
-//            }
-//        });
-//        startZa.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View arg0) {
-//                startTime1 = (System.currentTimeMillis() + startTime2) / 2;
-//                String czas1 = String.valueOf(startTime1);
-//                info3.setText(czas1);
-//                startTime = (SystemClock.uptimeMillis() + (startTime2 - startTime1));
-//                customHandler.postDelayed(updateTimerThread, 0);
-//            }
-//        });
-//        stop.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View arg0) {
-//                tmptime  = System.currentTimeMillis();
-//                timeBetween = System.currentTimeMillis() - startTime1;
-//                info3.setText(timeFormat(timeBetween));
-//            }
-//        });
-//        stop2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View arg0) {
-//
-//                timeBetween2 = (System.currentTimeMillis()-tmptime)/2 + timeBetween;
-//                tmptime = (System.currentTimeMillis()-tmptime)/2;
-//                //timeSwapBuff += timeInMilliseconds;
-//                //customHandler.removeCallbacks(updateTimerThread);
-//                //String czas2 = String.valueOf(timeBetween);
-//                info3.setText(timeFormat(timeBetween2));
-//            }
-//        });
     }
 
 
@@ -234,53 +199,68 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                 || (line.przynaleznosc(countingPK.get(z + 1), countingPK.get(z), countingPK.get(z + 3), countingPK.get(z + 2), x2, y2) == 1)
                 || (line.przynaleznosc(x1, y1, x2, y2, countingPK.get(z + 1), countingPK.get(z)) == 1)
                 || (line.przynaleznosc(x1, y1, x2, y2, countingPK.get(z + 3), countingPK.get(z + 2)) == 1)) {
-//            if(z==0){
-//                if(line.przynaleznosc(countingPK.get(z+1), countingPK.get(z),countingPK.get(z+3), countingPK.get(z+2), x1, y1)==1){
-//                    startTime1 = SystemClock.uptimeMillis();
-//                }
-//                else if(line.przynaleznosc(countingPK.get(z+1), countingPK.get(z),countingPK.get(z+3), countingPK.get(z+2), x2, y2)==1){
-//                    //pobranie czasu w punkcie A - startTime2;
-//                }
-//                info1.setText("Rozpocząłeś wyścig");
-//                customHandler.postDelayed(updateTimerThread, 0);
-//                Z[0]=1;
-//                pc=pc+4;
-//            }
-//            else if(z==pk_all.size()-4){
-//                if(line.przynaleznosc(countingPK.get(z+1), countingPK.get(z),countingPK.get(z+3), countingPK.get(z+2), x1, y1)==1){
-//                    timeBetween = SystemClock.uptimeMillis() - startTime1;
-//                }
-//                else if(line.przynaleznosc(countingPK.get(z+1), countingPK.get(z),countingPK.get(z+3), countingPK.get(z+2), x2, y2)==1){
-//                    //pobranie czasu w punkcie A - startTime2;
-//                }
-//                else {
-//
-//                }
-//                timeBetween = (startTime1 - startTime2)/2;
-//                timeSwapBuff += timeInMilliseconds;
-//                customHandler.removeCallbacks(updateTimerThread);
-//
-////                String.format("%02d:%02d",
-////                        TimeUnit.MILLISECONDS.toMinutes(estimatedTime),
-////                        TimeUnit.MILLISECONDS.toSeconds(estimatedTime) -
-////                                TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(estimatedTime))
-////                );
-//                info1.setText("Zakończyłeś wyścig z czasem " + timeBetween);
-//                info.setText("Koniec");
-//                startComp=false;
-//            }
-//            else{
-//                timeBetween = (startTime1 - startTime2)/2;
-////                time  = String.format("%02d:%02d",
-////                        TimeUnit.MILLISECONDS.toMinutes(estimatedTime),
-////                        TimeUnit.MILLISECONDS.toSeconds(estimatedTime) -
-////                                TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(estimatedTime))
-////                );
-//                info1.setText("Przekroczyłeś punkt kontrolny nr: " + z/4 + " w czasie "+ timeBetween);
-//                Z[ktoryPomiar]=1;
-//                pc=pc+4;
-//            }
-
+            if(z==0){
+                if(line.przynaleznosc(countingPK.get(z+1), countingPK.get(z),countingPK.get(z+3), countingPK.get(z+2), x1, y1)==1){
+                    startTime1 = System.currentTimeMillis();
+                    startTime = SystemClock.uptimeMillis();
+                }
+                else if(line.przynaleznosc(countingPK.get(z+1), countingPK.get(z),countingPK.get(z+3), countingPK.get(z+2), x2, y2)==1){
+                    tmptime = System.currentTimeMillis();
+                    startTime1 = startTime2;
+                    startTime = (SystemClock.uptimeMillis() + (tmptime - startTime1));
+                }
+                info1.setText("Rozpocząłeś wyścig");
+                customHandler.postDelayed(updateTimerThread, 0);
+                Z[0]=1;
+                pc=pc+4;
+            }
+            else if(z==pk_all.size()-4){
+                if(line.przynaleznosc(countingPK.get(z+1), countingPK.get(z),countingPK.get(z+3), countingPK.get(z+2), x1, y1)==1){
+                    timeBetween2 = System.currentTimeMillis() - startTime1;
+                }
+                else if(line.przynaleznosc(countingPK.get(z+1), countingPK.get(z),countingPK.get(z+3), countingPK.get(z+2), x2, y2)==1){
+                    timeBetween2 = timeBetween;
+                }
+                customHandler.removeCallbacks(updateTimerThread);
+                timeSend = timeFormat(timeBetween2);
+                if (isInternetPresent) {
+                    String url2 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/event/time?competition_id=" + ID_zaw+
+                            "&user_id="+ID_usera+"&point_nr="+z/4+"&time="+timeSend;
+                    sendGetRequest(url2, "PUT");
+                } else {
+                    String pkt = String.valueOf(z/4);
+                    ilPunktowPomiaru.add(pkt);
+                    czasyPrzebiegu.add(timeSend);
+                    Toast.makeText(StartComp.this, "Proszę włączyć internet aby przesłać wyniki do bazy", Toast.LENGTH_LONG).show();
+                    moznaWyslac=true;
+                }
+                info1.setText("Zakończyłeś wyścig");
+                info.setText("Koniec");
+                startComp=false;
+            }
+            else{
+                if(line.przynaleznosc(countingPK.get(z+1), countingPK.get(z),countingPK.get(z+3), countingPK.get(z+2), x1, y1)==1){
+                    timeBetween2 = System.currentTimeMillis() - startTime1;
+                }
+                else if(line.przynaleznosc(countingPK.get(z+1), countingPK.get(z),countingPK.get(z+3), countingPK.get(z+2), x2, y2)==1){
+                    timeBetween2 = timeBetween;
+                }
+                timeSend = timeFormat(timeBetween2);
+                info1.setText("Przekroczyłeś punkt kontrolny nr: " + z / 4 + " w czasie " + timeSend);
+                isInternetPresent = cd.isConnectingToInternet();
+                if (isInternetPresent) {
+                    String url2 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/event/time?competition_id=" + ID_zaw+
+                            "&user_id="+ID_usera+"&point_nr="+z/4+"&time="+timeSend;
+                    sendGetRequest(url2, "PUT");
+                } else {
+                    String pkt = String.valueOf(z/4);
+                    ilPunktowPomiaru.add(pkt);
+                    czasyPrzebiegu.add(timeSend);
+                    Toast.makeText(StartComp.this, "Zapisanie wyniku do tablicy", Toast.LENGTH_LONG).show();
+                }
+                Z[ktoryPomiar] = 1;
+                pc = pc + 4;
+            }
         } else if ((line.det_matrix(countingPK.get(z + 1), countingPK.get(z), countingPK.get(z + 3), countingPK.get(z + 2), x1, y1)) *
                 (line.det_matrix(countingPK.get(z + 1), countingPK.get(z), countingPK.get(z + 3), countingPK.get(z + 2), x2, y2)) >= 0)
             ;
@@ -298,24 +278,37 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
             } else if (z == pk_all.size() - 4) {
                 timeBetween2 = (System.currentTimeMillis()-startTime2)/2 + timeBetween;
                 customHandler.removeCallbacks(updateTimerThread);
+                timeSend = timeFormat(timeBetween2);
                 info1.setText("Zakończyłeś wyścig");
+                isInternetPresent = cd.isConnectingToInternet();
                 if (isInternetPresent) {
-                    //wyslanie http
+                    String url2 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/event/time?competition_id=" + ID_zaw+
+                            "&user_id="+ID_usera+"&point_nr="+z/4+"&time="+timeSend;
+                    sendGetRequest(url2, "PUT");
                 } else {
-                    //zapisanie do tablicy
+                    String pkt = String.valueOf(z/4);
+                    ilPunktowPomiaru.add(pkt);
+                    czasyPrzebiegu.add(timeSend);
+                    Toast.makeText(StartComp.this, "Proszę włączyć internet aby przesłać wyniki do bazy", Toast.LENGTH_LONG).show();
+                    moznaWyslac=true;
                 }
                 info.setText("Koniec");
                 startComp = false;
             } else {
                 timeBetween2 = (System.currentTimeMillis()-startTime2)/2 + timeBetween;
-                info1.setText("Przekroczyłeś punkt kontrolny nr: " + z / 4 + " w czasie " + timeFormat(timeBetween2));
+                timeSend = timeFormat(timeBetween2);
+                info1.setText("Przekroczyłeś punkt kontrolny nr: " + z / 4 + " w czasie " + timeSend);
                 isInternetPresent = cd.isConnectingToInternet();
                 if (isInternetPresent) {
-                    //wyslanie http
+                    String url2 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/event/time?competition_id=" + ID_zaw+
+                            "&user_id="+ID_usera+"&point_nr="+z/4+"&time="+timeSend;
+                    sendGetRequest(url2, "PUT");
                 } else {
-                    //zapisanie do tablicy
+                    String pkt = String.valueOf(z/4);
+                    ilPunktowPomiaru.add(pkt);
+                    czasyPrzebiegu.add(timeSend);
+                    Toast.makeText(StartComp.this, "Zapisanie wyniku do tablicy", Toast.LENGTH_LONG).show();
                 }
-
                 Z[ktoryPomiar] = 1;
                 pc = pc + 4;
             }
@@ -597,32 +590,29 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
 
     }
 
-    public void sendGetRequest() {
+    public void sendGetRequest(String url, String akcja) {
         GetClass getclass = new GetClass(this);
+        getclass.setAdres(url);
+        getclass.setAkcja(akcja);
         getclass.execute();
     }
 
     private class GetClass extends AsyncTask<String, Void, String> {
 
         private final Context context;
-
+        private String adres;
+        private String akcja;
         public GetClass(Context c) {
             this.context = c;
         }
-
-//        protected void onPreExecute() {
-//            progress = new ProgressDialog(this.context);
-//            progress.setMessage("Loading");
-//            progress.show();
-//        }
 
         @Override
         protected String doInBackground(String... params) {
             String wynik1 = "";
             try {
-                URL url = new URL("http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/gps/all?competition_id=" + ID_zaw);
+                URL url = new URL(adres);
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                connection.setRequestMethod("GET");
+                connection.setRequestMethod(akcja);
                 BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
                 String line = "";
                 StringBuilder responseOutput = new StringBuilder();
@@ -635,7 +625,6 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                 StartComp.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        progress.dismiss();
                     }
                 });
             } catch (MalformedURLException e) {
@@ -645,18 +634,39 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
-            if (progress.isShowing())
-                progress.dismiss();
             return wynik1;
         }
 
         protected void onPostExecute(String result) {
-            try {
-                parsingJSON(result);
-                //maps.parsingJSON(result);
-            } catch (JSONException e) {
-                Toast.makeText(StartComp.this, e.toString(), Toast.LENGTH_LONG).show();
+            if(akcja.equals("GET")) {
+                try {
+                    parsingJSON(result);
+                    //maps.parsingJSON(result);
+                } catch (JSONException e) {
+                    Toast.makeText(StartComp.this, e.toString(), Toast.LENGTH_LONG).show();
+                }
             }
+//            else if(akcja.equals("PUT"))
+//            {
+//               // if (result.contains("Ok."))
+//                //Toast.makeText(StartComp.this, "Dajesz, dajesz, nie przestajesz!", Toast.LENGTH_SHORT).show();
+//            }
+        }
+
+        public String getAdres() {
+            return adres;
+        }
+
+        public void setAdres(String adres) {
+            this.adres = adres;
+        }
+
+        public String getAkcja() {
+            return akcja;
+        }
+
+        public void setAkcja(String akcja) {
+            this.akcja = akcja;
         }
     }
 

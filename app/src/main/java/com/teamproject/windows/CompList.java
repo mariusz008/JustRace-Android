@@ -33,14 +33,17 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 
 public class CompList extends Activity {
 	private Button button, button1;
-	private EditText typET, nazwaET, miejsET;
+	private EditText nazwaET, miejsET;
 	final Context context = this;
 	boolean flaga, flaga1;
 	String error, ret, success = "";
@@ -50,14 +53,13 @@ public class CompList extends Activity {
 	SlidingDrawer slidingdrawer;
 	Button SlidingButton;
 	int flow;
-	String whichList = "";
+	String whichList, typ;
 	boolean focus = false;
 	ArrayList<String> stringArray = new ArrayList<String>();
 	ArrayList<String> stringArray1 = new ArrayList<String>();
 	ArrayList<String> stringArray2 = new ArrayList<String>();
 	ArrayList<String> stringArray3 = new ArrayList<String>();
 	ArrayList<String> stringArray4 = new ArrayList<String>();
-
 	Spinner spinner;
 	ArrayAdapter<CharSequence> adapter;
 
@@ -71,10 +73,9 @@ public class CompList extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.comp_list);
 		Intent intentX = getIntent();
-
+		focus = false;
 		whichList = intentX.getExtras().getString("ktore");
 		intent = new Intent(this, CompInfo.class);
-		typET = (EditText) findViewById(R.id.editText1);
 		nazwaET = (EditText) findViewById(R.id.editText2);
 		miejsET = (EditText) findViewById(R.id.editText3);
 		button = (Button) findViewById(R.id.buttonAlert);
@@ -105,22 +106,23 @@ public class CompList extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				String url2 = "";
-				String typ = typET.getText().toString();
+				typ = String.valueOf(spinner.getSelectedItem());
+				String typ1 = new String(typ.replace(" ", "%20"));
+				//Toast.makeText(CompList.this, typ1, Toast.LENGTH_SHORT).show();
 				String nazwa = nazwaET.getText().toString();
 				String miejsc = miejsET.getText().toString();
 				if (whichList.equals("OGOLNE")) {
 
 					url2 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/all?"
-							+ "type=" + typ + "&name=" + nazwa + "&place=" + miejsc;
+							+ "type=" + typ1 + "&name=" + nazwa + "&place=" + miejsc;
 				}
 				if (whichList.equals("OSOBISTE")) {
 					url2 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/user/list?"
-							+ "user_id=" + ID_usera + "&type=" + typ + "&name=" + nazwa + "&place=" + miejsc;
+							+ "user_id=" + ID_usera + "&type=" + typ1 + "&name=" + nazwa + "&place=" + miejsc;
 				}
 				if (whichList.equals("ORG")) {
 					url2 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/my?"
-							+ "user_id=" + ID_usera + "&type=" + typ + "&name=" + nazwa + "&place=" + miejsc;
-
+							+ "user_id=" + ID_usera + "&type=" + typ1 + "&name=" + nazwa + "&place=" + miejsc;
 				}
 
 				sendGetRequest(arg0, url2);
@@ -131,6 +133,7 @@ public class CompList extends Activity {
 		adapter = ArrayAdapter.createFromResource(this, R.array.competitions, android.R.layout.simple_spinner_item);
 		adapter.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
 		spinner.setAdapter(adapter);
+
 	}
 
 	private void populateButtons(int i, ArrayList<String> data, ArrayList<String> nazwa, ArrayList<String> miasto,
@@ -153,8 +156,7 @@ public class CompList extends Activity {
 			));
 			final String id_zawodow = id.get(row);
 			button.setGravity(Gravity.LEFT | Gravity.CENTER_VERTICAL);
-			//button.setHeight(100);
-			//button.setWidth(750);
+
 			if (typ.get(row).contains("arciars")) {
 				button.setCompoundDrawablesWithIntrinsicBounds(R.mipmap.ic_narciarskie, 0, 0, 0);
 			} else if (typ.get(row).contains("Kolarstwo") || typ.get(row).contains("kolarstwo")) {
@@ -205,6 +207,11 @@ public class CompList extends Activity {
 
 
 	public void parsingJSON(String JSON) throws JSONException {
+		stringArray.clear();
+		stringArray1.clear();
+		stringArray2.clear();
+		stringArray3.clear();
+		stringArray4.clear();
 		int i;
 		JSONArray jsonarray = new JSONArray(JSON);
 		for (i = 0; i < jsonarray.length(); i++) {
