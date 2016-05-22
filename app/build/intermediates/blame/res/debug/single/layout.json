@@ -1,47 +1,47 @@
 [
     {
-        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\layout\\org_tab.xml",
-        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\layout\\org_tab.xml"
+        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
+        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\layout\\abc_list_menu_item_radio.xml"
     },
     {
         "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
         "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
     },
     {
-        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
-        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\layout\\abc_list_menu_item_radio.xml"
-    },
-    {
-        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\layout\\mr_media_route_chooser_dialog.xml",
-        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\22.2.0\\res\\layout\\mr_media_route_chooser_dialog.xml"
+        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\layout\\org_tab.xml",
+        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\layout\\org_tab.xml"
     },
     {
         "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view.xml",
         "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\layout\\abc_activity_chooser_view.xml"
     },
     {
-        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\layout\\tracker.xml",
-        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\layout\\tracker.xml"
+        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\layout\\mr_media_route_chooser_dialog.xml",
+        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\22.2.0\\res\\layout\\mr_media_route_chooser_dialog.xml"
     },
     {
         "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_material.xml",
         "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\layout\\abc_alert_dialog_material.xml"
     },
     {
-        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\layout\\mapa.xml",
-        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\layout\\mapa.xml"
+        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\layout\\tracker.xml",
+        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\layout\\tracker.xml"
     },
     {
         "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\layout\\startcomp.xml",
         "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\layout\\startcomp.xml"
     },
     {
-        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\layout\\my_dialog_layout.xml",
-        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\layout\\my_dialog_layout.xml"
+        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\layout\\mapa.xml",
+        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\layout\\mapa.xml"
     },
     {
         "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
         "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\layout\\abc_activity_chooser_view_list_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\layout\\my_dialog_layout.xml",
+        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\layout\\my_dialog_layout.xml"
     },
     {
         "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
@@ -72,12 +72,12 @@
         "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\layout\\test.xml"
     },
     {
-        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\layout\\part_tab.xml",
-        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\layout\\part_tab.xml"
-    },
-    {
         "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",
         "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\layout\\abc_list_menu_item_checkbox.xml"
+    },
+    {
+        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\layout\\part_tab.xml",
+        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\layout\\part_tab.xml"
     },
     {
         "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_user.xml",
@@ -100,12 +100,12 @@
         "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\layout\\abc_action_bar_title_item.xml"
     },
     {
-        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_content_include.xml",
-        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\layout\\abc_screen_content_include.xml"
-    },
-    {
         "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_lines.xml",
         "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\layout\\notification_template_lines.xml"
+    },
+    {
+        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_content_include.xml",
+        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\layout\\abc_screen_content_include.xml"
     },
     {
         "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
@@ -136,16 +136,16 @@
         "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\layout\\abc_list_menu_item_icon.xml"
     },
     {
-        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\layout\\trackrecord_tab.xml",
-        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\layout\\trackrecord_tab.xml"
+        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\layout\\mr_media_route_list_item.xml",
+        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\22.2.0\\res\\layout\\mr_media_route_list_item.xml"
     },
     {
         "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_obser.xml",
         "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\layout\\activity_obser.xml"
     },
     {
-        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\layout\\mr_media_route_list_item.xml",
-        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\22.2.0\\res\\layout\\mr_media_route_list_item.xml"
+        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\layout\\trackrecord_tab.xml",
+        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\layout\\trackrecord_tab.xml"
     },
     {
         "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\layout\\mr_media_route_controller_material_dialog_b.xml",
@@ -156,16 +156,16 @@
         "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
     },
     {
-        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\layout\\tescik.xml",
-        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\layout\\tescik.xml"
+        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_toolbar.xml",
+        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\layout\\abc_screen_toolbar.xml"
     },
     {
         "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_close_item_material.xml",
         "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\layout\\abc_action_mode_close_item_material.xml"
     },
     {
-        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_toolbar.xml",
-        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\layout\\abc_screen_toolbar.xml"
+        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\layout\\tescik.xml",
+        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\layout\\tescik.xml"
     },
     {
         "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_dialog_title_material.xml",
@@ -244,12 +244,12 @@
         "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\layout\\change_pass.xml"
     },
     {
-        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
-        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\layout\\abc_action_mode_bar.xml"
-    },
-    {
         "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_reg.xml",
         "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\layout\\activity_reg.xml"
+    },
+    {
+        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
+        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\layout\\abc_action_mode_bar.xml"
     },
     {
         "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_media.xml",

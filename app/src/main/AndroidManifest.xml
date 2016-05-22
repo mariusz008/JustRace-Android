@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.teamproject.windows"
+    package="com.teamproject.activity"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -35,7 +35,7 @@
             android:value="@string/google_maps_key" />
         
         <activity
-            android:name=".MainActivity"
+            android:name="com.teamproject.activity.MainActivity"
             android:label="@string/app_name" 
             android:screenOrientation="portrait"
             android:icon="@mipmap/ic_launcher2">
@@ -47,49 +47,43 @@
         	
         </activity>
         <activity
-        android:name=".Login"
+        android:name="com.teamproject.activity.Login"
        	android:label="@string/app_name1" 
        	android:screenOrientation="portrait"
             android:icon="@drawable/ic_run2">
         </activity>
         <activity
-        android:name=".Registration"
+        android:name="com.teamproject.activity.Registration"
        	android:label="@string/app_name2" 
        	android:screenOrientation="portrait"
             android:icon="@drawable/ic_run2">
         </activity>
         <activity
-        android:name=".ObserverActivity"
+        android:name="com.teamproject.activity.ObserverActivity"
        	android:label="@string/app_name3" 
        	android:screenOrientation="portrait"
             android:icon="@drawable/ic_run2">
         </activity>
         <activity
-        android:name=".UserMainActivity"
+        android:name="com.teamproject.maintabs.UserMain"
        	android:label="@string/app_name4"
             android:icon="@drawable/ic_run2">
        	android:screenOrientation="portrait">         
         </activity>
         <activity
-        android:name=".ReminderPass"
+        android:name="com.teamproject.activity.ReminderPass"
        	android:label="@string/app_name5" 
        	android:screenOrientation="portrait"
             android:icon="@drawable/ic_run2">
         </activity>
         <activity
-        android:name=".Test"
-       	android:label="@string/app_name1" 
-       	android:screenOrientation="portrait"
-            android:icon="@drawable/ic_run2">
-        </activity>
-        <activity
-        android:name=".CompList"
+        android:name="com.teamproject.activity.CompList"
        	android:label="@string/app_name7" 
        	android:screenOrientation="portrait"
             android:icon="@drawable/ic_run2">
         </activity>
         <activity
-        android:name=".CompInfo"
+        android:name="com.teamproject.activity.CompInfo"
        	android:label="Informacje o zawodach" 
        	android:screenOrientation="portrait"
             android:icon="@drawable/ic_run2">
@@ -101,25 +95,25 @@
             android:icon="@drawable/ic_run2">
         </activity>
         <activity
-        android:name=".ChangePass"
+        android:name="com.teamproject.activity.ChangePass"
        	android:label="Zmienianie hasła" 
        	android:screenOrientation="portrait"
             android:icon="@drawable/ic_run2">
         </activity>
         <activity
-        android:name=".MapsActivity"
+        android:name=".DrawRoute"
        	android:label="Mapa" 
        	android:screenOrientation="portrait"
             android:icon="@drawable/ic_run2">
         </activity>
         <activity
-            android:name=".StartComp"
+            android:name="com.teamproject.activity.StartComp"
             android:label="Zawody"
             android:screenOrientation="portrait"
             android:icon="@drawable/ic_run2">
         </activity>
         <activity
-            android:name=".GoogleMap"
+            android:name=".MakingRoute"
             android:label="Tworzenie trasy"
             android:screenOrientation="portrait"
             android:icon="@drawable/ic_run2">

@@ -43,7 +43,7 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name="com.teamproject.windows.MainActivity"
+            android:name="com.teamproject.activity.MainActivity"
             android:icon="@mipmap/ic_launcher2"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
@@ -54,79 +54,73 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.teamproject.windows.Login"
+            android:name="com.teamproject.activity.Login"
             android:icon="@drawable/ic_run2"
             android:label="@string/app_name1"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.teamproject.windows.Registration"
+            android:name="com.teamproject.activity.Registration"
             android:icon="@drawable/ic_run2"
             android:label="@string/app_name2"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.teamproject.windows.ObserverActivity"
+            android:name="com.teamproject.activity.ObserverActivity"
             android:icon="@drawable/ic_run2"
             android:label="@string/app_name3"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.teamproject.windows.UserMainActivity"
+            android:name="com.teamproject.maintabs.UserMain"
             android:icon="@drawable/ic_run2"
             android:label="@string/app_name4" >
        	android:screenOrientation="portrait">         
         </activity>
         <activity
-            android:name="com.teamproject.windows.ReminderPass"
+            android:name="com.teamproject.activity.ReminderPass"
             android:icon="@drawable/ic_run2"
             android:label="@string/app_name5"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.teamproject.windows.Test"
-            android:icon="@drawable/ic_run2"
-            android:label="@string/app_name1"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name="com.teamproject.windows.CompList"
+            android:name="com.teamproject.activity.CompList"
             android:icon="@drawable/ic_run2"
             android:label="@string/app_name7"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.teamproject.windows.CompInfo"
+            android:name="com.teamproject.activity.CompInfo"
             android:icon="@drawable/ic_run2"
             android:label="Informacje o zawodach"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.teamproject.windows.UserProfile"
+            android:name="com.teamproject.activity.UserProfile"
             android:icon="@drawable/ic_run2"
             android:label="Profil użytkownika"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.teamproject.windows.ChangePass"
+            android:name="com.teamproject.activity.ChangePass"
             android:icon="@drawable/ic_run2"
             android:label="Zmienianie hasła"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.teamproject.windows.MapsActivity"
+            android:name="com.teamproject.activity.DrawRoute"
             android:icon="@drawable/ic_run2"
             android:label="Mapa"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.teamproject.windows.StartComp"
+            android:name="com.teamproject.activity.StartComp"
             android:icon="@drawable/ic_run2"
             android:label="Zawody"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.teamproject.windows.GoogleMap"
+            android:name="com.teamproject.activity.MakingRoute"
             android:icon="@drawable/ic_run2"
             android:label="Tworzenie trasy"
             android:screenOrientation="portrait" >

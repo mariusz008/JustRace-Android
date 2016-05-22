@@ -28,12 +28,12 @@
         "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\mipmap-xxhdpi\\arrow1.png"
     },
     {
-        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\ic_powietrzne.png",
-        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_powietrzne.png"
-    },
-    {
         "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\ic_launcher2.png",
         "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher2.png"
+    },
+    {
+        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\ic_powietrzne.png",
+        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_powietrzne.png"
     },
     {
         "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\ic_inne.png",
