@@ -10,6 +10,8 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+
+import com.teamproject.functions.DialogCommunications;
 import com.teamproject.functions.RestController;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -23,6 +25,7 @@ public class Registration extends Activity {
 	private CheckBox checkBox1, checkBox2, checkBox3;
 	private EditText imieT, nazwiskoT, loginT, haslo1T, haslo2T, emailT, wiekT, klubT, obywT, nrtelT, iceT;
 	String error, success, ret;
+	DialogCommunications comm;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +46,7 @@ public class Registration extends Activity {
         obywT = (EditText) findViewById(R.id.editText9);
         nrtelT = (EditText) findViewById(R.id.editText10);
         iceT = (EditText) findViewById(R.id.editText11);
+		comm = new DialogCommunications(context);
 		button.setOnClickListener(new OnClickListener() {
 		@Override
 		public void onClick(View arg0) {
@@ -214,19 +218,7 @@ public class Registration extends Activity {
         	error = "Proszę wypełnić wszystkie wymagane pola (oznaczone gwiazdką)";
         }
     	if (flaga == false){
-    		Context context1 = this;
-			AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context1);
-			alertDialogBuilder.setTitle("Komunikat o błędzie");
-			alertDialogBuilder
-				.setMessage(error)
-				.setCancelable(false)
-				.setNeutralButton("OK",new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog,int id) {
-						dialog.cancel();
-					}
-				});
-				AlertDialog alertDialog = alertDialogBuilder.create();
-				alertDialog.show();			
+			comm.alertDialog("Komunikat o błędzie", error);
     	}
     	else {	
     		url = URLaddress(imie, nazwisko, login, haslo, email, wiek, plec, klub, obywatelstwo, nr_tel, ICE); 

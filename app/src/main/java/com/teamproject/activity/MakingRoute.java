@@ -1,8 +1,6 @@
 package com.teamproject.activity;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.location.Location;
@@ -12,7 +10,6 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTabHost;
-import android.view.View;
 import android.widget.Toast;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.maps.CameraUpdate;
@@ -26,6 +23,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.teamproject.conn.TurningOnGPS;
+import com.teamproject.functions.DialogCommunications;
 import com.teamproject.functions.GpsTracker;
 import com.teamproject.functions.RestController;
 import com.teamproject.models.GpsDTO;
@@ -70,12 +68,13 @@ public class MakingRoute extends FragmentActivity implements OnMapReadyCallback,
     final String ownerID = us.getID_uzytkownika();
     final competitionDTO competition = CompList.comp;
     String ID_zaw = competition.getID_zawodow();
-
+    DialogCommunications comm;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tracker);
         gps = new TurningOnGPS(getApplicationContext());
+        comm = new DialogCommunications(context);
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -101,19 +100,7 @@ public class MakingRoute extends FragmentActivity implements OnMapReadyCallback,
             public void onProviderEnabled(String provider) {}
             @Override
             public void onProviderDisabled(String provider) {
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                        context);
-                alertDialogBuilder.setTitle("Pobieranie lokalizacji");
-                alertDialogBuilder
-                        .setMessage("Proszę włączyć usługę GPS")
-                        .setCancelable(false)
-                        .setNeutralButton("OK", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                dialog.cancel();
-                            }
-                        });
-                AlertDialog alertDialog = alertDialogBuilder.create();
-                alertDialog.show();
+                comm.alertDialog("Pobieranie lokalizacji", "Proszę włączyć usługę GPS");
             }
             @Override
             public void onLocationChanged(Location location) {
@@ -181,19 +168,7 @@ public class MakingRoute extends FragmentActivity implements OnMapReadyCallback,
                 dlugosc = gpstracker.getLongitude();
                 }
         } else {
-            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                    context);
-            alertDialogBuilder.setTitle("Pobieranie lokalizacji");
-            alertDialogBuilder
-                    .setMessage("Proszę włączyć usługę GPS")
-                    .setCancelable(false)
-                    .setNeutralButton("OK", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.cancel();
-                        }
-                    });
-            AlertDialog alertDialog = alertDialogBuilder.create();
-            alertDialog.show();
+            comm.alertDialog("Pobieranie lokalizacji","Proszę włączyć usługę GPS");
         }
 
     }
@@ -520,21 +495,9 @@ public class MakingRoute extends FragmentActivity implements OnMapReadyCallback,
            ret1 = success1;
            komunikat1 = "Tworzenie trasy";
        }
-       final View arg0 = null;
-       Context context2 = this;
-       AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context2);
-       alertDialogBuilder.setTitle(komunikat1);
-       alertDialogBuilder
-               .setMessage(ret1)
-               .setCancelable(false)
-               .setNeutralButton("OK",new DialogInterface.OnClickListener() {
-                   public void onClick(DialogInterface dialog,int id) {
-                       dialog.cancel();
-                       }
-                   });
-       AlertDialog alertDialog1 = alertDialogBuilder.create();
-       alertDialog1.show();
+        comm.alertDialog(komunikat1, ret1);
 
-       return flaga2;
+
+        return flaga2;
    }
 }

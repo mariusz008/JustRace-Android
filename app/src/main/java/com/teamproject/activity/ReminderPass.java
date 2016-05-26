@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.teamproject.functions.DialogCommunications;
 import com.teamproject.functions.RestController;
 
 public class ReminderPass extends Activity {
@@ -16,7 +18,7 @@ public class ReminderPass extends Activity {
 	final Context context = this;
 	String error, success = "";
 	private EditText emailT, loginT;
-	
+	DialogCommunications comm;
 	  @Override
 	    public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
@@ -25,6 +27,7 @@ public class ReminderPass extends Activity {
 	        loginT = (EditText) findViewById(R.id.editText2);
 			Button button = (Button) findViewById(R.id.buttonAlert);
 			Button button1 = (Button) findViewById(R.id.submitButton);
+		    comm = new DialogCommunications(context);
 			button.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
@@ -96,19 +99,7 @@ public class ReminderPass extends Activity {
 	        	error = "Proszę wypełnić wszystkie oba pola";
 	        }
 	    	if (flaga == false){
-	    		Context context1 = this;
-				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context1);
-				alertDialogBuilder.setTitle("Komunikat o błędzie");
-				alertDialogBuilder
-					.setMessage(error)
-					.setCancelable(false)
-					.setNeutralButton("OK",new DialogInterface.OnClickListener() {
-						public void onClick(DialogInterface dialog,int id) {
-							dialog.cancel();
-						}
-					});
-					AlertDialog alertDialog = alertDialogBuilder.create();
-					alertDialog.show();			
+				comm.alertDialog("Komunikat o błędzie", error);
 	    	}
 	    	else {	
 	    		url = URLaddress(login, email); 

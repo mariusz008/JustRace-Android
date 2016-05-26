@@ -10,8 +10,7 @@ import android.widget.Button;
 
 public class ObserverActivity extends Activity {
 	  private Button button, button1, button2;
-	  Intent intent1;
-	  String ktore_zawody = "OBSERW";
+	  Intent intent1, intent2;
 	  @Override
 	    public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
@@ -20,7 +19,6 @@ public class ObserverActivity extends Activity {
 			button = (Button) findViewById(R.id.buttonAlert);
 		  	button1 = (Button) findViewById(R.id.button1);
 			button2 = (Button) findViewById(R.id.button2);
-
 		   intent1 = new Intent(ObserverActivity.this, CompList.class);
 			button.setOnClickListener(new OnClickListener() {
 				@Override
@@ -31,10 +29,17 @@ public class ObserverActivity extends Activity {
 			  button2.setOnClickListener(new OnClickListener() {
 				  @Override
 				  public void onClick(View arg0) {
-					  intent1.putExtra("ktore", ktore_zawody);
+					  intent1.putExtra("ktore", "OBSERW");
 					  startActivity(intent1);
 				  }
 			  });
+		  button1.setOnClickListener(new OnClickListener() {
+			  @Override
+			  public void onClick(View arg0) {
+				  intent1.putExtra("ktore", "OBSERWRESULTS");
+				  startActivity(intent1);
+			  }
+		  });
 		  button1.setBackground(getResources().getDrawable(R.drawable.rounded_border_button));
 		  button2.setBackground(getResources().getDrawable(R.drawable.rounded_border_button));
     }

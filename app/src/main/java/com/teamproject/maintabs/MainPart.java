@@ -22,9 +22,8 @@ public class MainPart extends Fragment {
 	Context context;
 	private Button button, button1, button2, button3, button4, button5;
 	public static final String costam  = Login.SPF_NAME;
-    TurningOnGPS gps;
-	Intent intent1, intent2, intent3, intent6;
-    String ktore_zawody="";
+	Intent intent1, intent2, intent3;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +42,6 @@ public class MainPart extends Fragment {
         intent1 = new Intent(getActivity(), Login.class);
         intent2 = new Intent(getActivity(), CompList.class);
         intent3 = new Intent(getActivity(), UserProfile.class);
-                
         button.setOnClickListener(new OnClickListener() {
     		@Override
     		public void onClick(View arg0) {
@@ -62,8 +60,7 @@ public class MainPart extends Fragment {
         button2.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                ktore_zawody = "OGOLNE";
-                intent2.putExtra("ktore", ktore_zawody);
+                intent2.putExtra("ktore", "OGOLNE");
                 startActivity(intent2);
             }
         });
@@ -71,13 +68,25 @@ public class MainPart extends Fragment {
         button3.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                ktore_zawody = "OSOBISTE";
-                intent2.putExtra("ktore", ktore_zawody);
+                intent2.putExtra("ktore", "OSOBISTE");
                 startActivity(intent2);
             }
         });
         button3.setBackground(getResources().getDrawable(R.drawable.rounded_border_button));
-
+        button4.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                intent2.putExtra("ktore", "OGOLNERESULTS");
+                startActivity(intent2);
+            }
+        });
+        button5.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                intent2.putExtra("ktore", "OSOBISTERESULTS");
+                startActivity(intent2);
+            }
+        });
         button4.setBackground(getResources().getDrawable(R.drawable.rounded_border_button));
         button5.setBackground(getResources().getDrawable(R.drawable.rounded_border_button));
 

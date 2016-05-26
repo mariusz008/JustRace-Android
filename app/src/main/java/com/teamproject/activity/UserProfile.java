@@ -16,6 +16,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.teamproject.functions.DialogCommunications;
 import com.teamproject.functions.RestController;
 import com.teamproject.models.userDTO;
 import org.json.JSONException;
@@ -34,6 +35,7 @@ public class UserProfile extends Activity {
 	boolean flaga,flaga1, czyklik;
 	final userDTO user1 = Login.user;
 	String ID_usera = user1.getID_uzytkownika();
+	DialogCommunications comm;
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.user_profile);
@@ -56,6 +58,7 @@ public class UserProfile extends Activity {
 		obywET = (EditText) findViewById(R.id.editText8);
 		nrtelET = (EditText) findViewById(R.id.editText9);
 		ICEET = (EditText) findViewById(R.id.editText10);
+		comm = new DialogCommunications(context);
 		String url="http://209785serwer.iiar.pwr.edu.pl/Rest/rest/user?id="+ID_usera;
 		sendHttpRequest(url, "GET");
 		przyciskWyjscia.setOnClickListener(new OnClickListener() {
@@ -209,20 +212,8 @@ public class UserProfile extends Activity {
         	error = "Proszę wypełnić wszystkie wymagane pola (imię, nazwisko, e-mail, wiek)";
         }
     	if (flaga == false){
-    		Context context1 = this;
-			AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context1);
-			alertDialogBuilder.setTitle("Komunikat o błędzie");
-			alertDialogBuilder
-				.setMessage(error)
-				.setCancelable(false)
-				.setNeutralButton("OK",new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog,int id) {
-						dialog.cancel();
-					}
-				});
-				AlertDialog alertDialog = alertDialogBuilder.create();
-				alertDialog.show();			
-    	}
+			comm.alertDialog("Komunikat o błędzie", error);
+		}
     	else {	
     		url = URLaddress(imie, nazwisko, email, ID, wiek, klub, nr_tel, ICE, obywatelstwo); 
     	}
@@ -303,23 +294,10 @@ public class UserProfile extends Activity {
 				ret=success;
 				komunikat = "Udana edycja danych";
 			}
-			
-    	Context context2 = this;   	
-		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context2);
-		alertDialogBuilder.setTitle(komunikat);
-		alertDialogBuilder
-			.setMessage(ret)
-			.setCancelable(false)
-			.setNeutralButton("OK",new DialogInterface.OnClickListener() {
-				public void onClick(DialogInterface dialog,int id) {
-				dialog.cancel();
-				if (ret==success){
-					//UserProfile.this.finish();
-				}
-				}});
-			AlertDialog alertDialog1 = alertDialogBuilder.create();
-			alertDialog1.show();
-    }
+
+		comm.alertDialog(komunikat, ret);
+
+	}
 	public void checkResponseDelete(String wejscie)
 	{
 	    	String komunikat="";

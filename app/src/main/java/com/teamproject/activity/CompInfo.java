@@ -2,7 +2,6 @@ package com.teamproject.activity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -31,24 +30,16 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.teamproject.conn.TurningOnGPS;
+import com.teamproject.functions.DialogCommunications;
 import com.teamproject.functions.RestController;
 import com.teamproject.functions.TimeValidation;
 import com.teamproject.models.competitionDTO;
 import com.teamproject.models.userDTO;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 
 
@@ -61,6 +52,7 @@ public class CompInfo extends Activity {
 	String error, error1, ret, ret1, whichList1, kategoria, ktore_zawody= "";
 	final competitionDTO competition = CompList.comp;
 	String ID_zad = competition.getID_zawodow();
+	DialogCommunications comm = new DialogCommunications(context);
 	ImageView typIV;
 	Spinner mSpinner;
 	final userDTO user1 = Login.user;
@@ -68,7 +60,7 @@ public class CompInfo extends Activity {
 	TimeValidation tv = new TimeValidation();
 	boolean flaga1, flaga2, mappc, mapoi, matrase, mozezapisac;
 	int inn, ilosc_linii;
-	Intent intent2, intent3, intent5, intentmapa;
+	Intent intent2, intent3, intent5, intentmapa, intentlista;
 	String success1, success;
 	ArrayList<String> category = new ArrayList<String>();
 	ArrayList<String> description = new ArrayList<String>();
@@ -96,6 +88,7 @@ public class CompInfo extends Activity {
 		intent2 = new Intent(CompInfo.this, CompList.class);
 		intent3 = new Intent(CompInfo.this, MakingRoute.class);
 		intent5 = new Intent(CompInfo.this, StartComp.class);
+		intentlista = new Intent(CompInfo.this, CompetitorsList.class);
 		intentmapa = new Intent(CompInfo.this, DrawRoute.class);
 		String url="http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition?id="+ID_zad;
 		sendHttpRequest(url, "GET", 0, true);
@@ -148,7 +141,6 @@ public class CompInfo extends Activity {
 								})
 								.setPositiveButton("Zgadzam się", new DialogInterface.OnClickListener() {
 									public void onClick(DialogInterface dialog, int id) {
-										//positiveResponse();
 										addSpinners();
 									}
 								});
@@ -156,19 +148,7 @@ public class CompInfo extends Activity {
 						alertDialog.show();
 					}
 					else{
-						AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-								context);
-						alertDialogBuilder.setTitle("Zapis na zawody");
-						alertDialogBuilder
-								.setMessage("Organizator nie stworzył kategorii do tych zawodów. Nie możesz się na nie zapisać")
-								.setCancelable(false)
-								.setNeutralButton("OK", new DialogInterface.OnClickListener() {
-									public void onClick(DialogInterface dialog, int id) {
-										dialog.dismiss();
-									}
-								});
-						AlertDialog alertDialog = alertDialogBuilder.create();
-						alertDialog.show();
+						comm.alertDialog("Zapis na zawody", "Organizator nie stworzył kategorii do tych zawodów. Nie możesz się na nie zapisać");
 					}
 					
 				}
@@ -187,7 +167,6 @@ public class CompInfo extends Activity {
 							.setPositiveButton("Tak", new DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface dialog, int id) {
 									String url3 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/event/leave?competition_id=" + ID_zad + "&user_id=" + ID_usera;
-									//sendGetRequest(0, url3, "DELETE");
 									sendHttpRequest(url3, "DELETE", 0, true);
 								}
 							});
@@ -219,23 +198,11 @@ public class CompInfo extends Activity {
 						}
 						else startActivity(intent3);
 					} else {
-						AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-								context);
-						alertDialogBuilder.setTitle("Pobieranie lokalizacji");
-						alertDialogBuilder
-								.setMessage("Proszę włączyć usługę GPS")
-								.setCancelable(false)
-								.setNeutralButton("OK", new DialogInterface.OnClickListener() {
-									public void onClick(DialogInterface dialog, int id) {
-										dialog.cancel();
-									}
-								});
-						AlertDialog alertDialog = alertDialogBuilder.create();
-						alertDialog.show();
+						comm.alertDialog("Pobieranie lokalizacji", "Proszę włączyć usługę GPS");
 					}
 				}
 				if (inn == 4){
-						Toast.makeText(CompInfo.this, "W trakcie tworzenia", Toast.LENGTH_LONG).show();
+					startActivity(intentlista);
 				}
 				
 				}
@@ -339,21 +306,8 @@ public class CompInfo extends Activity {
 						String url = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/event/user/start?competition_id="
 								+ID_zad+"&user_id="+ID_usera;
 						sendHttpRequest(url, "PUT", 0, true);
-						//startActivity(y);
 					} else {
-						AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-								context);
-						alertDialogBuilder.setTitle("Pobieranie lokalizacji");
-						alertDialogBuilder
-								.setMessage("Proszę włączyć usługę GPS")
-								.setCancelable(false)
-								.setNeutralButton("OK", new DialogInterface.OnClickListener() {
-									public void onClick(DialogInterface dialog, int id) {
-										dialog.cancel();
-									}
-								});
-						AlertDialog alertDialog = alertDialogBuilder.create();
-						alertDialog.show();
+						comm.alertDialog("Pobieranie lokalizacji", "Proszę włączyć usługę GPS");
 					}
 				} else
 					startActivity(y);
@@ -389,7 +343,7 @@ public class CompInfo extends Activity {
 						if (time.contains("-")) time = new String(time.replace("-", ":"));
 						else if (time.contains("/")) time = new String(time.replace("/", ":"));
 						if (!tv.validate(time)) {
-							Toast.makeText(CompInfo.this, "Wpisz poprawny format daty (hh:mm)", Toast.LENGTH_LONG).show();
+							comm.alertDialog("Komunikat", "Wpisz poprawny format daty (hh:mm)");
 						} else {
 							String url4 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/event/start?competition_id=" + ID_zad +
 									"&owner_id=" + ID_usera + "&time=" + time;
@@ -601,9 +555,9 @@ public class CompInfo extends Activity {
 			if(matrase&&mappc)
 				addButton("START", intent5, R.color.navyblue);
 		}
-		if (mappc && matrase) addButton("Zobacz trasę", intentmapa, R.color.navyblue);
+		if (mappc || matrase) addButton("Zobacz trasę", intentmapa, R.color.navyblue);
 		if (whichList1.equals("ORG")){
-			if(matrase&&mappc)
+			if(matrase && mappc)
 				addButton("Ustal godzinę startu", null, R.color.navyblue);
 		}
 		JSONObject obj = new JSONObject(JSON);		
@@ -617,7 +571,8 @@ public class CompInfo extends Activity {
 		String lim = obj.getString("LIMIT_UCZ");
 		String opl = obj.getString("OPLATA");
 		String opis = obj.getString("OPIS");
-		
+
+
 		datarozTV.setText(datro);
 		nazwaTV.setText(naz);
 		miejscowoscTV.setText(miej);

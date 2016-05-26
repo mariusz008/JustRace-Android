@@ -1,8 +1,6 @@
 package com.teamproject.activity;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.location.Location;
@@ -24,6 +22,7 @@ import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.teamproject.conn.ConnectionDetector;
 import com.teamproject.conn.TurningOnGPS;
+import com.teamproject.functions.DialogCommunications;
 import com.teamproject.functions.GpsTracker;
 import com.teamproject.functions.LineIntersection;
 import com.teamproject.functions.RestController;
@@ -40,7 +39,7 @@ import java.util.List;
  */
 public class StartComp extends FragmentActivity implements OnMapReadyCallback {
     final Context context = this;
-    boolean flaga1, isInternetPresent, startB, startComp, moznaWyslac, czySaNiewyslaneCzasy;
+    boolean flaga1, startB, startComp, moznaWyslac, czySaNiewyslaneCzasy;
     private Marker now;
     private TextView info, info1, timerValue, info3;
     private com.google.android.gms.maps.GoogleMap mMap;
@@ -67,6 +66,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
     List<Double> countingPK = new ArrayList<Double>();
     List<Polyline> polylines = new ArrayList<Polyline>();
     LineIntersection line = new LineIntersection();
+    DialogCommunications comm = new DialogCommunications(context);
     LatLng p1, p2, p3;
     Marker tmpm;
     double A[] = new double[2];
@@ -105,7 +105,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
             public void onProviderEnabled(String provider) {}
             @Override
             public void onProviderDisabled(String provider) {
-                alertDialog("Pobieranie lokalizacji", "Proszę włączyć usługę GPS");
+                comm.alertDialog("Pobieranie lokalizacji", "Proszę włączyć usługę GPS");
             }
             @Override
             public void onLocationChanged(Location location) {
@@ -137,8 +137,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                     countDistance(dlugosc, szerokosc, countingPK, pc, location);
                     makeLine++;
                 }
-                isInternetPresent = cd.isConnectingToInternet();
-                if (isInternetPresent && czySaNiewyslaneCzasy) {
+                if (cd.isConnectingToInternet() && czySaNiewyslaneCzasy) {
                     //tutaj wysyalnie tablicy
                     String nrPoints = ilPunktowPomiaru.toString();
                     String timeOnPoint = czasyPrzebiegu.toString();
@@ -179,7 +178,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                 dlugosc = gpstracker.getLongitude();
             }
         } else {
-            alertDialog("Pobieranie lokalizacji", "Proszę włączyć usługę GPS");
+            comm.alertDialog("Pobieranie lokalizacji", "Proszę włączyć usługę GPS");
         }
     }
 
@@ -220,8 +219,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                 }
                 customHandler.removeCallbacks(updateTimerThread);
                 timeSend = timeFormat(timeBetween2);
-                isInternetPresent = cd.isConnectingToInternet();
-                if (isInternetPresent) {
+                if (cd.isConnectingToInternet()) {
                     String url2 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/event/time?competition_id=" + ID_zaw+
                             "&user_id="+ID_usera+"&point_nr="+z/4+"&time="+timeSend;
                     sendHttpRequest(url2, "PUT");
@@ -229,8 +227,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                     String pkt = String.valueOf(z/4);
                     ilPunktowPomiaru.add(pkt);
                     czasyPrzebiegu.add(timeSend);
-                    alertDialog("Pomiar czasu", "Proszę włączyć połączenie z siecią aby przesłać wyniki do bazy");
-                    //Toast.makeText(StartComp.this, "Proszę włączyć połączenie z siecią aby przesłać wyniki do bazy", Toast.LENGTH_LONG).show();
+                    comm.alertDialog("Pomiar czasu", "Proszę włączyć połączenie z siecią aby przesłać wyniki do bazy");
                     czySaNiewyslaneCzasy=true;
                 }
                 info1.setText("Zakończyłeś wyścig");
@@ -243,8 +240,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                 }
                 timeSend = timeFormat(timeBetween2);
                 info1.setText("Przekroczyłeś punkt kontrolny nr: " + z / 4 + " w czasie " + timeSend);
-                isInternetPresent = cd.isConnectingToInternet();
-                if (isInternetPresent) {
+                if (cd.isConnectingToInternet()) {
                     String url2 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/event/time?competition_id=" + ID_zaw+
                             "&user_id="+ID_usera+"&point_nr="+z/4+"&time="+timeSend;
                     sendHttpRequest(url2, "PUT");
@@ -252,7 +248,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                     String pkt = String.valueOf(z/4);
                     ilPunktowPomiaru.add(pkt);
                     czasyPrzebiegu.add(timeSend);
-                    Toast.makeText(StartComp.this, "Brak połączenia z siecią. Zapisanie wyniku do tablicy", Toast.LENGTH_LONG).show();
+                    //Toast.makeText(StartComp.this, "Brak połączenia z siecią. Zapisanie wyniku do tablicy", Toast.LENGTH_LONG).show();
                     czySaNiewyslaneCzasy=true;
                 }
                 Z[ktoryPomiar] = 1;
@@ -277,8 +273,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                 customHandler.removeCallbacks(updateTimerThread);
                 timeSend = timeFormat(timeBetween2);
                 info1.setText("Zakończyłeś wyścig");
-                isInternetPresent = cd.isConnectingToInternet();
-                if (isInternetPresent) {
+                if (cd.isConnectingToInternet()) {
                     String url2 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/event/time?competition_id=" + ID_zaw+
                             "&user_id="+ID_usera+"&point_nr="+z/4+"&time="+timeSend;
                     sendHttpRequest(url2, "PUT");
@@ -286,8 +281,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                     String pkt = String.valueOf(z/4);
                     ilPunktowPomiaru.add(pkt);
                     czasyPrzebiegu.add(timeSend);
-                    alertDialog("Pomiar czasu", "Proszę włączyć połączenie z siecią aby przesłać wyniki do bazy");
-                    //Toast.makeText(StartComp.this, "Proszę włączyć połączenie z siecią aby przesłać wyniki do bazy", Toast.LENGTH_LONG).show();
+                    comm.alertDialog("Pomiar czasu", "Proszę włączyć połączenie z siecią aby przesłać wyniki do bazy");
                     czySaNiewyslaneCzasy=true;
                 }
                 info.setText("Koniec");
@@ -296,8 +290,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                 timeBetween2 = (System.currentTimeMillis()-startTime2)/2 + timeBetween;
                 timeSend = timeFormat(timeBetween2);
                 info1.setText("Przekroczyłeś punkt kontrolny nr: " + z / 4 + " w czasie " + timeSend);
-                isInternetPresent = cd.isConnectingToInternet();
-                if (isInternetPresent) {
+                if (cd.isConnectingToInternet()) {
                     String url2 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/event/time?competition_id=" + ID_zaw+
                             "&user_id="+ID_usera+"&point_nr="+z/4+"&time="+timeSend;
                     sendHttpRequest(url2, "PUT");
@@ -305,7 +298,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                     String pkt = String.valueOf(z/4);
                     ilPunktowPomiaru.add(pkt);
                     czasyPrzebiegu.add(timeSend);
-                    Toast.makeText(StartComp.this, "Brak połączenia z siecią. Zapisanie wyniku do tablicy", Toast.LENGTH_LONG).show();
+                    //Toast.makeText(StartComp.this, "Brak połączenia z siecią. Zapisanie wyniku do tablicy", Toast.LENGTH_LONG).show();
                     czySaNiewyslaneCzasy=true;
                 }
                 Z[ktoryPomiar] = 1;
@@ -416,10 +409,6 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                         Toast.makeText(StartComp.this, e.toString(), Toast.LENGTH_LONG).show();
                     }
                 }
-            else if(operation.equals("PUT"))
-            {
-                Toast.makeText(StartComp.this, "Zanotowanie czasu w bazie", Toast.LENGTH_SHORT).show();
-            }
             }
         };
         rc.setAddress(url);
@@ -501,20 +490,5 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                 + String.format("%02d", secs) + ":"
                 + String.format("%03d", milliseconds);
         return ret;
-    }
-    public void alertDialog(String title, String msg){
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                context);
-        alertDialogBuilder.setTitle("Pobieranie lokalizacji");
-        alertDialogBuilder
-                .setMessage("Proszę włączyć usługę GPS")
-                .setCancelable(false)
-                .setNeutralButton("OK", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-        AlertDialog alertDialog = alertDialogBuilder.create();
-        alertDialog.show();
     }
 }

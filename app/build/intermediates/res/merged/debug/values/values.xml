@@ -23,6 +23,11 @@
         <item>Wioślarstwo</item>
         <item>Inne</item>
     </string-array>
+    <string-array name="sex">
+    <item/>
+    <item>M</item>
+    <item>K</item>
+    </string-array>
     <attr format="reference" name="drawerArrowStyle"/>
     <attr format="dimension" name="height"/>
     <attr format="boolean" name="isLightTheme"/>

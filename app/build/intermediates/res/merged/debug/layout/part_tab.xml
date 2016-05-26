@@ -71,7 +71,7 @@
             android:id="@+id/button4"
             android:layout_width="217dp"
             android:layout_height="match_parent"
-            android:text="Wyniki innych zawodników"
+            android:text="Wyniki zawodów"
             android:drawableTop="@drawable/ic_time"
             android:layout_marginRight="5dp"
             android:textColor="@color/navyblue"/>

@@ -7,58 +7,69 @@
     android:background="@color/tlo1">
 
 
+    <ScrollView
+        android:id="@+id/ScrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/LinearLayout2"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:fillViewport="true"
+        android:isScrollContainer="false">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
 
+            <LinearLayout
+                android:id="@+id/LinearLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/Button2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="START"
+                    android:layout_weight="1"/>
+
+                <Button
+                    android:id="@+id/Button3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="META"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/Button4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Resetuj trasę"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:layout_below="@+id/LinearLayout1"/>
+
+
+        </RelativeLayout>
+    </ScrollView>
 
     <LinearLayout
-        android:id="@+id/linearLayout1"
+        android:id="@+id/LinearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="2"
-        android:layout_marginTop="10dp"
-        android:layout_above="@+id/Button4">
-
+        android:layout_alignParentBottom="true">
         <Button
-            android:id="@+id/Button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="START"
-            android:layout_weight="1"/>
-
-        <Button
-            android:id="@+id/Button3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="META"
-            android:layout_weight="1"/>
-
-
+            android:id="@+id/ButtonZapisz"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Zapisz trasę"
+            android:background="@color/navyblue"
+            android:textColor="@color/white"/>
     </LinearLayout>
-    <Button
-        android:id="@+id/Button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="Resetuj trasę"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="10dp"
-        android:layout_above="@+id/ButtonZapisz"/>
-
-
-    <Button
-        android:id="@+id/ButtonZapisz"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="Zapisz trasę"
-        android:background="@color/navyblue"
-        android:textColor="@color/white"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dp"/>
-
-
-
-
-
 
 </RelativeLayout>

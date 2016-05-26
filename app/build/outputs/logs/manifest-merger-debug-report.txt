@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:2:1-129:12
+ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:2:1-141:12
 	xmlns:android
 		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:2:11-69
 	package
@@ -198,7 +198,7 @@ MERGED from [com.android.support:support-v4:22.2.0] C:\Users\008M\Desktop\apka6\
 		INJECTED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml
 application
-ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:27:5-126:19
+ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:27:5-138:19
 MERGED from [com.google.android.gms:play-services:8.3.0] C:\Users\008M\Desktop\apka6\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\8.3.0\AndroidManifest.xml:19:5-20
 MERGED from [com.google.android.gms:play-services-ads:8.3.0] C:\Users\008M\Desktop\apka6\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\8.3.0\AndroidManifest.xml:24:5-32:19
 MERGED from [com.google.android.gms:play-services-basement:8.3.0] C:\Users\008M\Desktop\apka6\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.3.0\AndroidManifest.xml:20:5-24:19
@@ -445,8 +445,28 @@ ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:115:9-12
 		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:119:13-45
 	android:name
 		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:116:13-40
+activity#com.teamproject.activity.CompetitorsList
+ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:121:9-126:16
+	android:screenOrientation
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:124:9-45
+	android:label
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:123:9-41
+	android:icon
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:125:9-41
+	android:name
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:122:9-40
+activity#com.teamproject.activity.ResultsList
+ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:127:9-132:20
+	android:screenOrientation
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:130:13-49
+	android:label
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:129:13-35
+	android:icon
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:131:13-45
+	android:name
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:128:13-40
 meta-data#com.google.android.gms.version
-ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:123:9-125:69
+ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:135:9-137:69
 MERGED from [com.google.android.gms:play-services-basement:8.3.0] C:\Users\008M\Desktop\apka6\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.3.0\AndroidManifest.xml:21:9-23:69
 MERGED from [com.google.android.gms:play-services-basement:8.3.0] C:\Users\008M\Desktop\apka6\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.3.0\AndroidManifest.xml:21:9-23:69
 MERGED from [com.google.android.gms:play-services-basement:8.3.0] C:\Users\008M\Desktop\apka6\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.3.0\AndroidManifest.xml:21:9-23:69
@@ -479,9 +499,9 @@ MERGED from [com.google.android.gms:play-services-basement:8.3.0] C:\Users\008M\
 MERGED from [com.google.android.gms:play-services-basement:8.3.0] C:\Users\008M\Desktop\apka6\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.3.0\AndroidManifest.xml:21:9-23:69
 MERGED from [com.google.android.gms:play-services-basement:8.3.0] C:\Users\008M\Desktop\apka6\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.3.0\AndroidManifest.xml:21:9-23:69
 	android:name
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:124:13-58
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:136:13-58
 	android:value
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:125:13-66
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:137:13-66
 activity#com.google.android.gms.ads.AdActivity
 ADDED from [com.google.android.gms:play-services-ads:8.3.0] C:\Users\008M\Desktop\apka6\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\8.3.0\AndroidManifest.xml:26:9-29:64
 	android:configChanges

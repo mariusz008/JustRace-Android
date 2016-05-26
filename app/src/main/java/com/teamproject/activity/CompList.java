@@ -35,17 +35,19 @@ public class CompList extends Activity {
 	private EditText nazwaET, miejsET;
 	final Context context = this;
 	static competitionDTO comp = new competitionDTO();
-	Intent intent;
+	Intent intent, intent1;
 	SlidingDrawer slidingdrawer;
 	Button SlidingButton;
 	int flow, row;
-	String whichList, typ, url1;
+	String whichList, typ, url1, ileOsob;
 	boolean focus;
 	ArrayList<String> stringArray = new ArrayList<String>();
 	ArrayList<String> stringArray1 = new ArrayList<String>();
 	ArrayList<String> stringArray2 = new ArrayList<String>();
 	ArrayList<String> stringArray3 = new ArrayList<String>();
 	ArrayList<String> stringArray4 = new ArrayList<String>();
+	ArrayList<String> stringArray5 = new ArrayList<String>();
+	ArrayList<String> stringArray6 = new ArrayList<String>();
 	Spinner spinner;
 	ArrayAdapter<CharSequence> adapter;
 
@@ -60,18 +62,19 @@ public class CompList extends Activity {
 		Intent intentX = getIntent();
 		whichList = intentX.getExtras().getString("ktore");
 		intent = new Intent(this, CompInfo.class);
+		intent1 = new Intent(this, ResultsList.class);
 		nazwaET = (EditText) findViewById(R.id.editText2);
 		miejsET = (EditText) findViewById(R.id.editText3);
 		button = (Button) findViewById(R.id.buttonAlert);
 		button1 = (Button) findViewById(R.id.button1);
 
-		if (whichList.equals("OGOLNE") || whichList.equals("OBSERW")) {
+		if (whichList.contains("OGOLNE") || whichList.contains("OBSERW")) {
 			url1 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/all?type=&name=&place=";
 		}
-		if (whichList.equals("OSOBISTE")) {
+		if (whichList.contains("OSOBISTE")) {
 			url1 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/user/list?user_id=" + ID_usera + "&type=&name=&place=";
 		}
-		if (whichList.equals("ORG")) {
+		if (whichList.contains("ORG")) {
 			url1 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/my?user_id=" + ID_usera + "&type=&name=&place=";
 		}
 		sendHttpRequest(url1, "GET");
@@ -90,7 +93,7 @@ public class CompList extends Activity {
 				String typ1 = new String(typ.replace(" ", "%20"));
 				String nazwa = nazwaET.getText().toString();
 				String miejsc = miejsET.getText().toString();
-				if (whichList.equals("OGOLNE")) {
+				if (whichList.equals("OGOLNE") || whichList.contains("OBSERW")) {
 
 					url2 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/all?"
 							+ "type=" + typ1 + "&name=" + nazwa + "&place=" + miejsc;
@@ -115,7 +118,8 @@ public class CompList extends Activity {
 	}
 
 	private void populateButtons(int i, ArrayList<String> data, ArrayList<String> nazwa, ArrayList<String> miasto,
-								 final ArrayList<String> id, ArrayList<String> typ) {
+								 final ArrayList<String> id, ArrayList<String> typ, ArrayList<String> ileOsob,
+								 ArrayList<String> pcc) {
 		TableLayout table = (TableLayout) findViewById(R.id.tableButtons);
 
 
@@ -162,22 +166,43 @@ public class CompList extends Activity {
 					focus = true;
 					flow = row + 4;
 				}
+
 			} else {
 				if (row == flow) {
+					button.setFocusable(true);
 					button.setFocusableInTouchMode(true);
 					button.requestFocus();
 				}
 			}
 			final int tmp = row;
-			button.setOnClickListener(new View.OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					comp.setID_zawodow(id_zawodow);
-					intent.putExtra("ktory", whichList);
-					startActivity(intent);
-				}
+			if(whichList.contains("RESULTS")) {
+				button.setOnClickListener(new View.OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						comp.setID_zawodow(id_zawodow);
+						//intent.putExtra("ktory", whichList);
+						startActivity(intent1);
+					}
 
-			});
+				});
+			}
+			else {
+				button.setOnClickListener(new View.OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						comp.setID_zawodow(id_zawodow);
+						intent.putExtra("ktory", whichList);
+						startActivity(intent);
+					}
+
+				});
+			}
+			if(whichList.contains("RESULTS"))
+			{
+				if(!(ileOsob.get(row).equals("0"))&&(pcc.get(row).equals("1")))
+					tableRow.addView(button);
+			}
+			else
 			tableRow.addView(button);
 		}
 	}
@@ -189,6 +214,8 @@ public class CompList extends Activity {
 		stringArray2.clear();
 		stringArray3.clear();
 		stringArray4.clear();
+		stringArray5.clear();
+		stringArray6.clear();
 		int i;
 		JSONArray jsonarray = new JSONArray(JSON);
 		for (i = 0; i < jsonarray.length(); i++) {
@@ -199,9 +226,14 @@ public class CompList extends Activity {
 			stringArray2.add(obj.getString("MIEJSCOWOSC"));
 			stringArray3.add(obj.getString("COMPETITION_ID"));
 			stringArray4.add(obj.getString("TYP"));
+			if(obj.toString().contains("ILE_OSOB"))
+					stringArray5.add(obj.getString("ILE_OSOB"));
+			else stringArray5.add("");
+			if(obj.toString().contains("ROUTE_ID"))
+				stringArray6.add("1");
+			else stringArray6.add("0");
 		}
-		populateButtons(i, stringArray, stringArray1, stringArray2, stringArray3, stringArray4);
-		Toast.makeText(CompList.this, i + " zawodów", Toast.LENGTH_SHORT).show();
+		populateButtons(i, stringArray, stringArray1, stringArray2, stringArray3, stringArray4, stringArray5, stringArray6);
 	}
 
 	public void sendHttpRequest(String url, String operation){

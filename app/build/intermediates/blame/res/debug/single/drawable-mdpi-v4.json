@@ -92,24 +92,24 @@
         "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.3.0\\res\\drawable-mdpi\\common_plus_signin_btn_icon_light_disabled.9.png"
     },
     {
-        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\ic_delete.png",
-        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\drawable-mdpi\\ic_delete.png"
-    },
-    {
         "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\common_google_signin_btn_icon_dark_disabled.9.png",
         "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.3.0\\res\\drawable-mdpi\\common_google_signin_btn_icon_dark_disabled.9.png"
     },
     {
-        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\ic_history2.png",
-        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\drawable-mdpi\\ic_history2.png"
+        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\ic_delete.png",
+        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\drawable-mdpi\\ic_delete.png"
+    },
+    {
+        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\powered_by_google_dark.png",
+        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-location\\8.3.0\\res\\drawable-mdpi\\powered_by_google_dark.png"
     },
     {
         "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\common_plus_signin_btn_icon_light_focused.9.png",
         "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.3.0\\res\\drawable-mdpi\\common_plus_signin_btn_icon_light_focused.9.png"
     },
     {
-        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\powered_by_google_dark.png",
-        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-location\\8.3.0\\res\\drawable-mdpi\\powered_by_google_dark.png"
+        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\ic_history2.png",
+        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\drawable-mdpi\\ic_history2.png"
     },
     {
         "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\abc_textfield_search_default_mtrl_alpha.9.png",
@@ -156,12 +156,12 @@
         "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\22.2.0\\res\\drawable-mdpi\\ic_cast_on_1_light.png"
     },
     {
-        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\ic_edit.png",
-        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\drawable-mdpi\\ic_edit.png"
-    },
-    {
         "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\ic_plusone_standard_off_client.png",
         "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-plus\\8.3.0\\res\\drawable-mdpi\\ic_plusone_standard_off_client.png"
+    },
+    {
+        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\ic_edit.png",
+        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\drawable-mdpi\\ic_edit.png"
     },
     {
         "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\common_google_signin_btn_icon_light_normal.9.png",
@@ -172,12 +172,12 @@
         "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\22.2.0\\res\\drawable-mdpi\\ic_media_route_on_0_mono_dark.png"
     },
     {
-        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\ic_timer.png",
-        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\drawable-mdpi\\ic_timer.png"
-    },
-    {
         "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\ic_cast_off_light.png",
         "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\22.2.0\\res\\drawable-mdpi\\ic_cast_off_light.png"
+    },
+    {
+        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\ic_timer.png",
+        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\drawable-mdpi\\ic_timer.png"
     },
     {
         "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\ic_time.png",
@@ -188,20 +188,20 @@
         "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\drawable-mdpi\\abc_btn_radio_to_on_mtrl_000.png"
     },
     {
-        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\cast_ic_notification_2.png",
-        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast\\8.3.0\\res\\drawable-mdpi\\cast_ic_notification_2.png"
-    },
-    {
         "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\common_plus_signin_btn_icon_dark_focused.9.png",
         "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.3.0\\res\\drawable-mdpi\\common_plus_signin_btn_icon_dark_focused.9.png"
     },
     {
-        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\ic_mail.png",
-        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\drawable-mdpi\\ic_mail.png"
+        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\cast_ic_notification_2.png",
+        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast\\8.3.0\\res\\drawable-mdpi\\cast_ic_notification_2.png"
     },
     {
         "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\ic_pause_dark.png",
         "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\22.2.0\\res\\drawable-mdpi\\ic_pause_dark.png"
+    },
+    {
+        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\ic_mail.png",
+        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\drawable-mdpi\\ic_mail.png"
     },
     {
         "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\common_plus_signin_btn_icon_dark_pressed.9.png",
@@ -384,12 +384,12 @@
         "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.3.0\\res\\drawable-mdpi\\common_google_signin_btn_text_light_normal.9.png"
     },
     {
-        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\ic_run.png",
-        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\drawable-mdpi\\ic_run.png"
-    },
-    {
         "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\ic_cast_on_0_light.png",
         "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\22.2.0\\res\\drawable-mdpi\\ic_cast_on_0_light.png"
+    },
+    {
+        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\ic_run.png",
+        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\drawable-mdpi\\ic_run.png"
     },
     {
         "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\common_plus_signin_btn_text_light_normal.9.png",

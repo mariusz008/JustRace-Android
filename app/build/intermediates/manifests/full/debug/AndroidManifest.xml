@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="18"
+        android:minSdkVersion="17"
         android:targetSdkVersion="21" />
 
     <supports-screens
@@ -123,6 +123,18 @@
             android:name="com.teamproject.activity.MakingRoute"
             android:icon="@drawable/ic_run2"
             android:label="Tworzenie trasy"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.teamproject.activity.CompetitorsList"
+            android:icon="@drawable/ic_run2"
+            android:label="Lista zawodników"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.teamproject.activity.ResultsList"
+            android:icon="@drawable/ic_run2"
+            android:label="Wyniki"
             android:screenOrientation="portrait" >
         </activity>
         <!--

@@ -50,10 +50,15 @@ public class MainOrg extends Fragment {
         button4.setOnClickListener(new OnClickListener() {
     		@Override
     		public void onClick(View arg0) {
-    			ktore_zawody = "ORG";
-    			intent4.putExtra("ktore", ktore_zawody);
+    			intent4.putExtra("ktore", "ORG");
     			startActivity(intent4);  			
     		}});
+        button3.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                intent4.putExtra("ktore", "ORGRESULTS");
+                startActivity(intent4);
+            }});
 
         button3.setBackground(getResources().getDrawable(R.drawable.rounded_border_button));
         button4.setBackground(getResources().getDrawable(R.drawable.rounded_border_button));

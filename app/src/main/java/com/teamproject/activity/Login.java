@@ -15,6 +15,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.teamproject.conn.ConnectionDetector;
+import com.teamproject.functions.DialogCommunications;
 import com.teamproject.functions.RestController;
 import com.teamproject.maintabs.UserMain;
 import com.teamproject.models.userDTO;
@@ -38,7 +40,8 @@ public class Login extends Activity {
 	private EditText login, haslo;
 	private CheckBox remember_pass;
 	Intent intent, intent1, intent2, intent3;
-
+	DialogCommunications comm;
+	ConnectionDetector cd = new ConnectionDetector(context);
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);		
 		setContentView(R.layout.activity_log);
@@ -54,6 +57,7 @@ public class Login extends Activity {
 		intent1 = new Intent(this, ObserverActivity.class);
 		intent2 = new Intent(this, UserMain.class);
 		intent3 = new Intent(this, ReminderPass.class);
+		comm = new DialogCommunications(context);
 		SharedPreferences loginPreferences = getSharedPreferences(SPF_NAME,
 	            Context.MODE_PRIVATE);
 	    login.setText(loginPreferences.getString(USERNAME, ""));
@@ -133,21 +137,21 @@ public class Login extends Activity {
 	}
 
 	public void sendHttpRequest(String url, String operation){
-		RestController rc = new RestController(this){
-			@Override
-			public void onResponseReceived(String result) {
-				try {
-					checkResponse(result);
-					parsingJSON(result);
-				} catch (JSONException e) {
-					e.printStackTrace();
+			RestController rc = new RestController(this) {
+				@Override
+				public void onResponseReceived(String result) {
+					try {
+						checkResponse(result);
+						parsingJSON(result);
+					} catch (JSONException e) {
+						e.printStackTrace();
+					}
 				}
-			}
-		};
-		rc.setAddress(url);
-		rc.setOperation(operation);
-		rc.setShowPD(true);
-		rc.execute();
+			};
+			rc.setAddress(url);
+			rc.setOperation(operation);
+			rc.setShowPD(true);
+			rc.execute();
 	}
 
     public void checkResponse(String wejscie) throws JSONException
@@ -168,18 +172,7 @@ public class Login extends Activity {
 			}
 									
 			if (flaga1==false){
-	    	Context context2 = this;   	
-			AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context2);
-			alertDialogBuilder.setTitle("Komunikat");
-			alertDialogBuilder
-			.setMessage(error)
-			.setCancelable(false)
-			.setNeutralButton("OK",new DialogInterface.OnClickListener() {
-				public void onClick(DialogInterface dialog,int id) {
-				dialog.cancel();
-				}});
-			AlertDialog alertDialog1 = alertDialogBuilder.create();
-			alertDialog1.show();
+				comm.alertDialog("Komunikat", error);
 			}
 			else {
 				Login.this.finish();
@@ -211,19 +204,7 @@ public class Login extends Activity {
         	error = "Proszę wypełnić pola login oraz hasło";
         }  
     	if (flaga == false){
-    		Context context1 = this;
-			AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context1);
-			alertDialogBuilder.setTitle("Komunikat o błędzie");
-			alertDialogBuilder
-				.setMessage(error)
-				.setCancelable(false)
-				.setNeutralButton("OK",new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog,int id) {
-						dialog.cancel();
-					}
-				});
-				AlertDialog alertDialog = alertDialogBuilder.create();
-				alertDialog.show();					
+			comm.alertDialog("Komunikat o błędzie", error);
     	}
     	else {   		
     		url = URLaddress(loginC, hasloC); 

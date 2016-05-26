@@ -24,26 +24,26 @@
 
 
 
-        <EditText
-            android:id="@+id/editText1"
-            android:layout_width="200dp"
-            android:layout_height="40dp"
-            android:hint="Nazwa POI"
-            android:backgroundTint="@color/teal700"
-            android:layout_marginTop="20dp"
-            android:layout_centerHorizontal="true"
-            android:gravity="center_horizontal"/>
+            <EditText
+                android:id="@+id/editText1"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:hint="Nazwa POI"
+                android:backgroundTint="@color/teal700"
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_horizontal"/>
 
 
 
-        <Button
-            android:id="@+id/Button1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Potwierdź punkt"
-            android:layout_below="@+id/editText1"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp" />
+            <Button
+                android:id="@+id/Button1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Potwierdź punkt"
+                android:layout_below="@+id/editText1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp" />
 
 
 
@@ -60,13 +60,13 @@
 
 
         <Button
-        android:id="@+id/Button2"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="Zapisz wszystkie punkty"
-        android:background="@color/navyblue"
-        android:textColor="@color/white"
-        />
+            android:id="@+id/Button2"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Zapisz wszystkie punkty"
+            android:background="@color/navyblue"
+            android:textColor="@color/white"
+            />
 
     </LinearLayout>
 

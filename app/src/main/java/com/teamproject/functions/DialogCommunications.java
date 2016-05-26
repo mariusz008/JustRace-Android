@@ -14,7 +14,7 @@ public class DialogCommunications {
         this.context = c;
     }
 
-    public void jeden(String com, String mes, final int close){
+    public void one(String com, String mes, final int close){
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
         alertDialogBuilder.setTitle(com);
         alertDialogBuilder
@@ -29,5 +29,20 @@ public class DialogCommunications {
                     }});
         AlertDialog alertDialog1 = alertDialogBuilder.create();
         alertDialog1.show();
+    }
+    public void alertDialog(String title, String msg){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                context);
+        alertDialogBuilder.setTitle(title);
+        alertDialogBuilder
+                .setMessage(msg)
+                .setCancelable(false)
+                .setNeutralButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
     }
 }

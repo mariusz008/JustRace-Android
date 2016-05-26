@@ -45,6 +45,13 @@
     <string name="m">M</string> 
     <string name="k">K</string>
 
+
+    <string-array name="sex">
+    <item></item>
+    <item>M</item>
+    <item>K</item>
+    </string-array>
+
     <string-array name="competitions">
         <item></item>
         <item>Bieg przełajowy</item>
