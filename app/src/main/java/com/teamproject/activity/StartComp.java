@@ -6,11 +6,18 @@ import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.media.MediaPlayer;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.provider.Settings;
 import android.support.v4.app.FragmentActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.gms.maps.*;
@@ -39,8 +46,9 @@ import java.util.List;
  */
 public class StartComp extends FragmentActivity implements OnMapReadyCallback {
     final Context context = this;
-    boolean flaga1, startB, startComp, moznaWyslac, czySaNiewyslaneCzasy;
+    boolean flaga1, startB, startComp, moznaWyslac, czySaNiewyslaneCzasy, przekroczonyStart, soundOn;
     private Marker now;
+    private ImageButton buttonSound;
     private TextView info, info1, timerValue, info3;
     private com.google.android.gms.maps.GoogleMap mMap;
     private LocationManager locationManager;
@@ -52,6 +60,8 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
     PolylineOptions route;
     ConnectionDetector cd;
     double szerokosc, dlugosc, start_xSr, start_ySr, j, y1, x1, y2, x2, tmpResult;
+    float minX;
+    float min;
     long startTime, estimatedTime;
     String szer, dl, time, nazwa_point, timeSend;
     List<String> trasa = new ArrayList<String>();
@@ -64,6 +74,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
     List<String> ilPunktowPomiaru = new ArrayList<String>();
     List<String> czasyPrzebiegu = new ArrayList<String>();
     List<Double> countingPK = new ArrayList<Double>();
+    List<Double> routeDouble = new ArrayList<Double>();
     List<Polyline> polylines = new ArrayList<Polyline>();
     LineIntersection line = new LineIntersection();
     DialogCommunications comm = new DialogCommunications(context);
@@ -83,6 +94,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.startcomp);
+        soundOn=true;
         startB = true;
         tmpResult=501;
         startComp = true;
@@ -90,12 +102,28 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
         gps = new TurningOnGPS(getApplicationContext());
         info = (TextView) findViewById(R.id.TextView2);
         info1 = (TextView) findViewById(R.id.TextView3);
+        buttonSound = (ImageButton) findViewById(R.id.buttonSound);
         timerValue = (TextView) findViewById(R.id.timerValue);
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         String url1 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/gps/all?competition_id=" + ID_zaw;
         sendHttpRequest(url1, "GET");
+        buttonSound.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+            if(soundOn)
+            {
+                soundOn=false;
+                Toast.makeText(StartComp.this, "Wyłączyłeś efekty dźwiękowe", Toast.LENGTH_SHORT).show();
+                buttonSound.setBackgroundResource(R.mipmap.ic_volume_off);
+            }
+                else if (!soundOn){
+                    soundOn=true;
+                    Toast.makeText(StartComp.this, "Włączyłeś efekty dźwiękowe", Toast.LENGTH_SHORT).show();
+                    buttonSound.setBackgroundResource(R.mipmap.ic_volume_on);
+                }
+            }
+        });
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         locationListener = new LocationListener() {
@@ -121,7 +149,6 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(p2));
                 if (startComp) {
                     if (Z[ktoryPomiar] != 0) ktoryPomiar++;
-
                     if (makeLine == 0) {
                         A[0] = dlugosc;
                         A[1] = szerokosc;
@@ -135,6 +162,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                         A[1] = B[1];
                     }
                     countDistance(dlugosc, szerokosc, countingPK, pc, location);
+                    if((przekroczonyStart)&&makeLine%3==0) ifIsFarAwayFromRoute(dlugosc, szerokosc);
                     makeLine++;
                 }
                 if (cd.isConnectingToInternet() && czySaNiewyslaneCzasy) {
@@ -194,6 +222,69 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
             mMap.animateCamera(cu);
         }
     }
+    public void ifIsFarAwayFromRoute(double x, double y){
+        min = Float.MAX_VALUE;
+        for(int xc=0;xc<routeDouble.size(); xc=xc+2) {
+            minX = checkDistanceFromRoute(x, y, routeDouble, xc);
+            if(minX<min) min=minX;
+        }
+        if(min>500.00) {
+            Toast.makeText(StartComp.this, "Opuściłeś trasę!", Toast.LENGTH_SHORT).show();
+            playVoiceSound(R.raw.opuscilestrase);
+        }
+    }
+    public void playSound(){
+        try {
+            Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+            Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
+            r.play();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void playVoiceSound(int id){
+        if(soundOn) {
+            MediaPlayer mediaPlayer = MediaPlayer.create(this, id);
+            mediaPlayer.start();
+        }
+    }
+    public int whichPKSound(int tmp){
+        int Rx=11;
+        switch(tmp){
+            case 1 :
+                Rx=R.raw.pk1;
+                break;
+            case 2 :
+                Rx=R.raw.pk2;
+                break;
+            case 3 :
+                Rx=R.raw.pk3;
+                break;
+            case 4 :
+                Rx=R.raw.pk4;
+                break;
+            case 5 :
+                Rx=R.raw.pk5;
+                break;
+            case 6 :
+                Rx=R.raw.pk6;
+                break;
+            case 7 :
+                Rx=R.raw.pk7;
+                break;
+            case 8 :
+                Rx=R.raw.pk8;
+                break;
+            case 9 :
+                Rx=R.raw.pk9;
+                break;
+            case 10 :
+                Rx=R.raw.pk10;
+                break;
+            default : Rx=R.raw.pkx;
+        }
+        return Rx;
+    }
     public void timeMeasure(double x1, double y1, double x2, double y2, int z) {
         if (polyliness != null) polyliness.remove();
         polyliness = this.mMap.addPolyline(new PolylineOptions()
@@ -209,9 +300,11 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                     startTime = SystemClock.uptimeMillis();
                 }
                 info1.setText("Rozpocząłeś wyścig");
+                playVoiceSound(R.raw.rozpoczaleswyscig);
                 customHandler.postDelayed(updateTimerThread, 0);
                 Z[0]=1;
                 pc=pc+4;
+                przekroczonyStart = true;
             }
             else if(z==pk_all.size()-4){
                 if(line.przynaleznosc(countingPK.get(z+1), countingPK.get(z),countingPK.get(z+3), countingPK.get(z+2), x1, y1)==1){
@@ -231,15 +324,17 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                     czySaNiewyslaneCzasy=true;
                 }
                 info1.setText("Zakończyłeś wyścig");
+                playVoiceSound(R.raw.zakonczyleswyscig);
                 info.setText("Koniec");
                 startComp=false;
             }
             else{
-                if(line.przynaleznosc(countingPK.get(z+1), countingPK.get(z),countingPK.get(z+3), countingPK.get(z+2), x1, y1)==1){
+                if(line.przynaleznosc(countingPK.get(z+1), countingPK.get(z), countingPK.get(z + 3), countingPK.get(z + 2), x1, y1) == 1) {
                     timeBetween2 = System.currentTimeMillis() - startTime1;
                 }
                 timeSend = timeFormat(timeBetween2);
                 info1.setText("Przekroczyłeś punkt kontrolny nr: " + z / 4 + " w czasie " + timeSend);
+                playVoiceSound(whichPKSound(z/4));
                 if (cd.isConnectingToInternet()) {
                     String url2 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/event/time?competition_id=" + ID_zaw+
                             "&user_id="+ID_usera+"&point_nr="+z/4+"&time="+timeSend;
@@ -263,16 +358,19 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
         else {
             if (z == 0) {
                 info1.setText("Rozpocząłeś wyścig");
+                playVoiceSound(R.raw.rozpoczaleswyscig);
                 startTime1 = (System.currentTimeMillis() + startTime2) / 2;
                 startTime = (SystemClock.uptimeMillis() + (startTime2 - startTime1));
                 customHandler.postDelayed(updateTimerThread, 0);
                 Z[0] = 1;
                 pc = pc + 4;
+                przekroczonyStart = true;
             } else if (z == pk_all.size() - 4) {
                 timeBetween2 = (System.currentTimeMillis()-startTime2)/2 + timeBetween;
                 customHandler.removeCallbacks(updateTimerThread);
                 timeSend = timeFormat(timeBetween2);
                 info1.setText("Zakończyłeś wyścig");
+                playVoiceSound(R.raw.zakonczyleswyscig);
                 if (cd.isConnectingToInternet()) {
                     String url2 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/event/time?competition_id=" + ID_zaw+
                             "&user_id="+ID_usera+"&point_nr="+z/4+"&time="+timeSend;
@@ -290,6 +388,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                 timeBetween2 = (System.currentTimeMillis()-startTime2)/2 + timeBetween;
                 timeSend = timeFormat(timeBetween2);
                 info1.setText("Przekroczyłeś punkt kontrolny nr: " + z / 4 + " w czasie " + timeSend);
+                playVoiceSound(whichPKSound(z / 4));
                 if (cd.isConnectingToInternet()) {
                     String url2 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/event/time?competition_id=" + ID_zaw+
                             "&user_id="+ID_usera+"&point_nr="+z/4+"&time="+timeSend;
@@ -306,16 +405,34 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
             }
         }
     }
-    public void changeStringToDoubles(List<String> p) {
-        for (int g = 0; g < p.size(); g++) {
-            countingPK.add(Double.parseDouble(p.get(g)));
+    public void changeStringToDoubles(List<String> p, int k) {
+        if(k==0) {
+            for (int g = 0; g < p.size(); g++) {
+                countingPK.add(Double.parseDouble(p.get(g)));
+            }
         }
+        else if(k==1){
+            for (int g = 0; g < p.size(); g++) {
+                routeDouble.add(Double.parseDouble(p.get(g)));
+            }
+        }
+    }
+    public float checkDistanceFromRoute(double x, double y, List<Double> p, int d) {
+        start_ySr = p.get(d);
+        start_xSr = p.get(d + 1);
+        float[] results = new float[1];
+        Location.distanceBetween(y, x,
+                start_ySr, start_xSr, results);
+        results[0] *= 100;
+        results[0] = Math.round(results[0]);
+        results[0] /= 100;
+        return results[0];
     }
     public void countDistance(double x, double y, List<Double> p, int d, Location loc) {
         start_ySr = (p.get(d) + p.get(d + 2)) / 2;
         start_xSr = (p.get(d + 1) + p.get(d + 3)) / 2;
         float[] results = new float[1];
-        Location.distanceBetween(szerokosc, dlugosc,
+        Location.distanceBetween(y, x,
                 start_ySr, start_xSr, results);
         results[0] *= 100;
         results[0] = Math.round(results[0]);
@@ -443,7 +560,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
             pk_all.addAll(pk_meta);
             ilePomiarowCzasu = pk_all.size() / 4;
             Z = new int[ilePomiarowCzasu];
-            changeStringToDoubles(pk_all);
+            changeStringToDoubles(pk_all, 0);
             if (JSON.contains("POINT_POINAME")) {
                 String ilosc_poi = poi.getString("COUNT");
                 il_poi = Integer.parseInt(ilosc_poi);
@@ -460,6 +577,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                 trasa.add(route.getString("POINTY" + i));
                 trasa.add(route.getString("POINTX" + i));
             }
+            changeStringToDoubles(trasa, 1);
 
             drawRoute(trasa);
             setPoint(pk_start, "Start ", BitmapDescriptorFactory.HUE_AZURE, 0);

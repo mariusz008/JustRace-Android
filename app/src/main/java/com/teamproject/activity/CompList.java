@@ -133,8 +133,8 @@ public class CompList extends Activity {
 			table.addView(tableRow);
 			Button button = new Button(this);
 			button.setLayoutParams(new TableRow.LayoutParams(
-					TableRow.LayoutParams.MATCH_PARENT,
-					TableRow.LayoutParams.MATCH_PARENT
+					TableRow.LayoutParams.WRAP_CONTENT,
+					TableRow.LayoutParams.WRAP_CONTENT
 			));
 			final String id_zawodow = id.get(row);
 			button.setGravity(Gravity.LEFT | Gravity.CENTER_VERTICAL);

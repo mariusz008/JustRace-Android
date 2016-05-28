@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -26,8 +27,7 @@ import java.util.ArrayList;
  */
 public class ResultsList extends Activity {
     private Button buttonWyjdz;
-    private TextView tv1;
-    private LinearLayout linearLayout;
+    private ImageButton refresh;
     final Context context = this;
     final competitionDTO competition = CompList.comp;
     String ID_zaw = competition.getID_zawodow();
@@ -37,14 +37,15 @@ public class ResultsList extends Activity {
     ArrayList<String> wiekAL = new ArrayList<String>();
     ArrayList<String> kategoriaAL = new ArrayList<String>();
     ArrayList<String> czas = new ArrayList<String>();
-    int row, ileP;
-    String ilePKT;
+    int row, ileP, rotation;
+    String ilePKT, url;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.results_list);
         buttonWyjdz = (Button) findViewById(R.id.buttonAlert);
-        String url = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/result/list?" +
+        refresh = (ImageButton) findViewById(R.id.imageButton);
+        url = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/result/list?" +
                 "competition_id=" + ID_zaw;
         sendHttpRequest(url, "GET");
         buttonWyjdz.setOnClickListener(new View.OnClickListener() {
@@ -53,6 +54,15 @@ public class ResultsList extends Activity {
                 ResultsList.this.finish();
             }
         });
+        refresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                rotation++;
+                refresh.setRotation(rotation*90);
+                sendHttpRequest(url, "GET");
+            }
+        });
+
     }
 
     public void sendHttpRequest(String url, final String operation){
@@ -96,7 +106,7 @@ public class ResultsList extends Activity {
             for (int j = 1; j <= ileP; j++){
                 if(obj.toString().contains("POINT"))
                 czas.add(obj.getString("POINT"+j+"_TIME"));
-                else czas.add("");
+                else czas.add("       ");
             }
         }
         pupulateButtons(i-1, imieAL, nazwiskoAL, kategoriaAL, numerAL, wiekAL, czas);
@@ -114,21 +124,21 @@ public class ResultsList extends Activity {
             table.addView(tableRow);
             Button button = new Button(this);
             button.setLayoutParams(new TableRow.LayoutParams(
-                    TableRow.LayoutParams.MATCH_PARENT,
-                    TableRow.LayoutParams.MATCH_PARENT
+                    TableRow.LayoutParams.WRAP_CONTENT,
+                    TableRow.LayoutParams.WRAP_CONTENT
             ));
             button.setGravity(Gravity.LEFT | Gravity.CENTER_VERTICAL);
-            button.setTextColor(getApplication().getResources().getColor(R.color.navyblue));
             button.setCompoundDrawablePadding(30);
             if (row % 2 == 0){
                 button.setBackground(getResources().getDrawable(R.drawable.rounded_border_competitorslist));
-                button.setTextColor(getResources().getColor(R.color.white));
             }
             else             button.setBackground(getResources().getDrawable(R.drawable.rounded_border_competitorslist1));
-            button.setText("   " + numer.get(row) + "   " + imie.get(row) + " " + nazwisko.get(row) + "   " + kategoria.get(row) + "  " + wiek.get(row) + "\n");
+            button.setText("   " + numer.get(row) + "   " + imie.get(row) + " " + nazwisko.get(row) + "   " + kategoria.get(row) + "  " + wiek.get(row)
+                    + "\n\n");
             for(int h=ileP*row;h<(ileP*row+ileP);h++){
                 button.append(czas.get(h)+"    ");
             }
+            button.setTextSize(21);
             tableRow.addView(button);
         }
     }

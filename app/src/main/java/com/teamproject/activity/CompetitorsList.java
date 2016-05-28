@@ -130,19 +130,17 @@ public class CompetitorsList extends Activity {
             table.addView(tableRow);
             Button button = new Button(this);
             button.setLayoutParams(new TableRow.LayoutParams(
-                    TableRow.LayoutParams.MATCH_PARENT,
-                    TableRow.LayoutParams.MATCH_PARENT
+                    TableRow.LayoutParams.WRAP_CONTENT,
+                    TableRow.LayoutParams.WRAP_CONTENT
             ));
             button.setGravity(Gravity.LEFT | Gravity.CENTER_VERTICAL);
-            button.setTextColor(getApplication().getResources().getColor(R.color.navyblue));
             button.setCompoundDrawablePadding(30);
             if (row % 2 == 0){
                 button.setBackground(getResources().getDrawable(R.drawable.rounded_border_competitorslist));
-                button.setTextColor(getResources().getColor(R.color.white));
         }
             else             button.setBackground(getResources().getDrawable(R.drawable.rounded_border_competitorslist1));
             button.setText("\n  " +numer.get(row) + "   " + imie.get(row) + " " + nazwisko.get(row) + "   " + kategoria.get(row) + "  " + wiek.get(row)+"\n");
-
+            button.setTextSize(19);
             tableRow.addView(button);
         }
     }

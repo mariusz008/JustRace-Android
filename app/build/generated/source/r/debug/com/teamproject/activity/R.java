@@ -2122,18 +2122,18 @@ containing a value of this type.
     public static final class id {
         public static final int Button1=0x7f0e00bb;
         public static final int Button2=0x7f0e00bc;
-        public static final int Button3=0x7f0e00e5;
-        public static final int Button4=0x7f0e00e7;
-        public static final int Button5=0x7f0e00e8;
-        public static final int Button6=0x7f0e00ea;
-        public static final int Button7=0x7f0e00eb;
+        public static final int Button3=0x7f0e00e7;
+        public static final int Button4=0x7f0e00e9;
+        public static final int Button5=0x7f0e00ea;
+        public static final int Button6=0x7f0e00ec;
+        public static final int Button7=0x7f0e00ed;
         public static final int ButtonPotwierdz=0x7f0e00d0;
-        public static final int ButtonZapisz=0x7f0e00ec;
-        public static final int ConfirmButton=0x7f0e00f0;
+        public static final int ButtonZapisz=0x7f0e00ee;
+        public static final int ConfirmButton=0x7f0e00f2;
         public static final int CreateButton=0x7f0e00bd;
-        public static final int LinearLayout1=0x7f0e00ed;
-        public static final int LinearLayout2=0x7f0e00e6;
-        public static final int LinearLayout3=0x7f0e00e9;
+        public static final int LinearLayout1=0x7f0e00ef;
+        public static final int LinearLayout2=0x7f0e00e8;
+        public static final int LinearLayout3=0x7f0e00eb;
         public static final int LinearLayout5=0x7f0e00cd;
         public static final int LoginButton=0x7f0e007b;
         public static final int ObservButton=0x7f0e007d;
@@ -2174,7 +2174,7 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f0e0064;
         public static final int action_mode_bar_stub=0x7f0e0063;
         public static final int action_mode_close_button=0x7f0e004c;
-        public static final int action_settings=0x7f0e00f1;
+        public static final int action_settings=0x7f0e00f3;
         public static final int activity_chooser_view_content=0x7f0e004d;
         public static final int adjust_height=0x7f0e0018;
         public static final int adjust_width=0x7f0e0019;
@@ -2197,6 +2197,7 @@ containing a value of this type.
         public static final int button5=0x7f0e00e1;
         public static final int buttonAlert=0x7f0e0076;
         public static final int buttonPanel=0x7f0e005d;
+        public static final int buttonSound=0x7f0e00e4;
         public static final int buttons=0x7f0e00ca;
         public static final int buyButton=0x7f0e0036;
         public static final int buy_now=0x7f0e003a;
@@ -2255,8 +2256,9 @@ containing a value of this type.
         public static final int icon_only=0x7f0e0022;
         public static final int ifRoom=0x7f0e001f;
         public static final int image=0x7f0e004f;
-        public static final int imageButton1=0x7f0e00ee;
-        public static final int imageButton2=0x7f0e00ef;
+        public static final int imageButton=0x7f0e00e2;
+        public static final int imageButton1=0x7f0e00f0;
+        public static final int imageButton2=0x7f0e00f1;
         public static final int imageView1=0x7f0e00a4;
         public static final int info=0x7f0e00dc;
         public static final int lay_action=0x7f0e00de;
@@ -2285,7 +2287,7 @@ containing a value of this type.
         public static final int never=0x7f0e0020;
         public static final int none=0x7f0e000f;
         public static final int normal=0x7f0e000b;
-        public static final int one=0x7f0e00f2;
+        public static final int one=0x7f0e00f4;
         public static final int parentPanel=0x7f0e0054;
         public static final int play_pause=0x7f0e00c5;
         public static final int production=0x7f0e0032;
@@ -2309,12 +2311,12 @@ containing a value of this type.
         public static final int search_voice_btn=0x7f0e0074;
         public static final int select_dialog_listview=0x7f0e0075;
         public static final int selectionDetails=0x7f0e0037;
-        public static final int sendGet=0x7f0e00e4;
+        public static final int sendGet=0x7f0e00e6;
         public static final int settings=0x7f0e00c1;
         public static final int shortcut=0x7f0e0060;
         public static final int showCustom=0x7f0e0010;
         public static final int showHome=0x7f0e0011;
-        public static final int showOutput=0x7f0e00e3;
+        public static final int showOutput=0x7f0e00e5;
         public static final int showTitle=0x7f0e0012;
         public static final int slide=0x7f0e0014;
         public static final int slidingDrawer1=0x7f0e00a0;
@@ -2352,14 +2354,14 @@ containing a value of this type.
         public static final int textView8=0x7f0e0090;
         public static final int textView9=0x7f0e0092;
         public static final int text_wrapper=0x7f0e00c6;
-        public static final int three=0x7f0e00f4;
+        public static final int three=0x7f0e00f6;
         public static final int time=0x7f0e00d7;
-        public static final int timerValue=0x7f0e00e2;
+        public static final int timerValue=0x7f0e00e3;
         public static final int title=0x7f0e0053;
         public static final int title_bar=0x7f0e00bf;
         public static final int title_template=0x7f0e0056;
         public static final int topPanel=0x7f0e0055;
-        public static final int two=0x7f0e00f3;
+        public static final int two=0x7f0e00f5;
         public static final int up=0x7f0e0009;
         public static final int useLogo=0x7f0e0013;
         public static final int wide=0x7f0e0024;
@@ -2456,10 +2458,27 @@ containing a value of this type.
         public static final int ic_motorowe=0x7f030007;
         public static final int ic_narciarskie=0x7f030008;
         public static final int ic_powietrzne=0x7f030009;
-        public static final int ic_rowerowe=0x7f03000a;
+        public static final int ic_refresh=0x7f03000a;
+        public static final int ic_rowerowe=0x7f03000b;
+        public static final int ic_volume_off=0x7f03000c;
+        public static final int ic_volume_on=0x7f03000d;
     }
     public static final class raw {
         public static final int gtm_analytics=0x7f060000;
+        public static final int opuscilestrase=0x7f060001;
+        public static final int pk1=0x7f060002;
+        public static final int pk10=0x7f060003;
+        public static final int pk2=0x7f060004;
+        public static final int pk3=0x7f060005;
+        public static final int pk4=0x7f060006;
+        public static final int pk5=0x7f060007;
+        public static final int pk6=0x7f060008;
+        public static final int pk7=0x7f060009;
+        public static final int pk8=0x7f06000a;
+        public static final int pk9=0x7f06000b;
+        public static final int pkx=0x7f06000c;
+        public static final int rozpoczaleswyscig=0x7f06000d;
+        public static final int zakonczyleswyscig=0x7f06000e;
     }
     public static final class string {
         public static final int abc_action_bar_home_description=0x7f070000;

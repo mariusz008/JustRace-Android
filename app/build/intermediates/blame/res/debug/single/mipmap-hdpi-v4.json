@@ -1,5 +1,9 @@
 [
     {
+        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi-v4\\ic_volume_on.png",
+        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\mipmap-hdpi\\ic_volume_on.png"
+    },
+    {
         "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi-v4\\ic_biegi.png",
         "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\mipmap-hdpi\\ic_biegi.png"
     },
@@ -12,12 +16,12 @@
         "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher2.png"
     },
     {
-        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi-v4\\arrow2.png",
-        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\mipmap-hdpi\\arrow2.png"
-    },
-    {
         "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi-v4\\ic_lodzie.png",
         "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\mipmap-hdpi\\ic_lodzie.png"
+    },
+    {
+        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi-v4\\arrow2.png",
+        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\mipmap-hdpi\\arrow2.png"
     },
     {
         "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi-v4\\ic_motorowe.png",
@@ -40,7 +44,15 @@
         "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\mipmap-hdpi\\ic_inne.png"
     },
     {
+        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi-v4\\ic_refresh.png",
+        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\mipmap-hdpi\\ic_refresh.png"
+    },
+    {
         "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi-v4\\ic_rowerowe.png",
         "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\mipmap-hdpi\\ic_rowerowe.png"
+    },
+    {
+        "merged": "C:\\Users\\008M\\Desktop\\apka6\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi-v4\\ic_volume_off.png",
+        "source": "C:\\Users\\008M\\Desktop\\apka6\\app\\src\\main\\res\\mipmap-hdpi\\ic_volume_off.png"
     }
 ]
