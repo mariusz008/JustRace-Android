@@ -117,7 +117,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         String url1 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/gps/all?competition_id=" + ID_zaw;
-        sendHttpRequest(url1, "GET");
+        sendHttpRequest(url1, "GET", 0);
         buttonSound.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
             if(soundOn)
@@ -151,11 +151,6 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                     now.remove();
                 }
                 flaga1 = true;
-//                if(h==1) playVoiceSound(R.raw.rozpoczaleswyscig);
-//                if(h==2) playVoiceSound(R.raw.zakonczyleswyscig);
-//                if(h==3) playVoiceSound(R.raw.opuscilestrase);
-//                if(h>3)playVoiceSound(whichPKSound(h-3));
-
 
                 szerokosc = location.getLatitude();
                 dlugosc = location.getLongitude();
@@ -193,9 +188,8 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                     timeOnPoint = timeOnPoint.replaceAll("\\s+", "");
                     String url2 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/event/time?competition_id=" + ID_zaw+
                             "&user_id="+ID_usera+"&point_nr="+nrPoints+"&time="+timeOnPoint;
-                    sendHttpRequest(url2, "PUT");
+                    sendHttpRequest(url2, "PUT", 1);
                     czySaNiewyslaneCzasy = false;
-                    if (!startComp) comm.alertDialog("Pomiar czasu", "Poprawnie przesłano wszystkie wyniki do bazy");
                 }
 
             }
@@ -333,12 +327,12 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                 if (cd.isConnectingToInternet()) {
                     String url2 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/event/time?competition_id=" + ID_zaw+
                             "&user_id="+ID_usera+"&point_nr="+z/4+"&time="+timeSend;
-                    sendHttpRequest(url2, "PUT");
+                    sendHttpRequest(url2, "PUT", 1);
                 } else {
                     String pkt = String.valueOf(z/4);
                     ilPunktowPomiaru.add(pkt);
                     czasyPrzebiegu.add(timeSend);
-                    comm.alertDialog("Pomiar czasu", "Proszę włączyć połączenie z siecią aby przesłać wyniki do bazy");
+                    comm.alertDialog("Pomiar czasu", "Gratulacje, zakończyłeś wyścig! Proszę włączyć połączenie z siecią aby przesłać wyniki do bazy");
                     czySaNiewyslaneCzasy=true;
                 }
                 info1.setText("Zakończyłeś wyścig");
@@ -356,7 +350,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                 if (cd.isConnectingToInternet()) {
                     String url2 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/event/time?competition_id=" + ID_zaw+
                             "&user_id="+ID_usera+"&point_nr="+z/4+"&time="+timeSend;
-                    sendHttpRequest(url2, "PUT");
+                    sendHttpRequest(url2, "PUT", 0);
                 } else {
                     String pkt = String.valueOf(z/4);
                     ilPunktowPomiaru.add(pkt);
@@ -391,12 +385,12 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                 if (cd.isConnectingToInternet()) {
                     String url2 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/event/time?competition_id=" + ID_zaw+
                             "&user_id="+ID_usera+"&point_nr="+z/4+"&time="+timeSend;
-                    sendHttpRequest(url2, "PUT");
+                    sendHttpRequest(url2, "PUT", 1);
                 } else {
                     String pkt = String.valueOf(z/4);
                     ilPunktowPomiaru.add(pkt);
                     czasyPrzebiegu.add(timeSend);
-                    comm.alertDialog("Pomiar czasu", "Proszę włączyć połączenie z siecią aby przesłać wyniki do bazy");
+                    comm.alertDialog("Pomiar czasu", "Gratulacje, zakończyłeś wyścig! Proszę włączyć połączenie z siecią aby przesłać wyniki do bazy");
                     czySaNiewyslaneCzasy=true;
                 }
                 info.setText("Koniec");
@@ -409,7 +403,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                 if (cd.isConnectingToInternet()) {
                     String url2 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/event/time?competition_id=" + ID_zaw+
                             "&user_id="+ID_usera+"&point_nr="+z/4+"&time="+timeSend;
-                    sendHttpRequest(url2, "PUT");
+                    sendHttpRequest(url2, "PUT", 0);
                 } else {
                     String pkt = String.valueOf(z/4);
                     ilPunktowPomiaru.add(pkt);
@@ -548,7 +542,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
         AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();
     }
-    public void sendHttpRequest(String url, final String operation){
+    public void sendHttpRequest(String url, final String operation, final int k){
         RestController rc = new RestController(this){
             @Override
             public void onResponseReceived(String result) {
@@ -559,11 +553,15 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                         //Toast.makeText(StartComp.this, e.toString(), Toast.LENGTH_LONG).show();
                     }
                 }
+                if(k==1){
+                    if (!startComp) comm.alertDialog("Pomiar czasu", "Poprawnie przesłano wszystkie wyniki do bazy");
+                }
             }
         };
         rc.setAddress(url);
         rc.setOperation(operation);
-        rc.setShowPD(false);
+        if(k==1) rc.setShowPD(true);
+        else rc.setShowPD(false);
         rc.execute();
     }
     public void parsingJSON(String JSON) throws JSONException {
