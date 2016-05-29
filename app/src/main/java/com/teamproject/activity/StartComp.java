@@ -1,6 +1,9 @@
 package com.teamproject.activity;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.location.Location;
@@ -16,7 +19,7 @@ import android.os.SystemClock;
 import android.provider.Settings;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
-import android.widget.Button;
+import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -90,10 +93,16 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
     String ID_zaw = competition.getID_zawodow();
     final userDTO user1 = Login.user;
     String ID_usera = user1.getID_uzytkownika();
+    int h=0;
+    MediaPlayer mediaPlayer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.startcomp);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON |
+                WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD |
+                WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED |
+                WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
         soundOn=true;
         startB = true;
         tmpResult=501;
@@ -137,10 +146,17 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
             }
             @Override
             public void onLocationChanged(Location location) {
+                //h++;
                 if (now != null) {
                     now.remove();
                 }
                 flaga1 = true;
+//                if(h==1) playVoiceSound(R.raw.rozpoczaleswyscig);
+//                if(h==2) playVoiceSound(R.raw.zakonczyleswyscig);
+//                if(h==3) playVoiceSound(R.raw.opuscilestrase);
+//                if(h>3)playVoiceSound(whichPKSound(h-3));
+
+
                 szerokosc = location.getLatitude();
                 dlugosc = location.getLongitude();
                 gpstracker.stopUsingGPS();
@@ -179,12 +195,14 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                             "&user_id="+ID_usera+"&point_nr="+nrPoints+"&time="+timeOnPoint;
                     sendHttpRequest(url2, "PUT");
                     czySaNiewyslaneCzasy = false;
+                    if (!startComp) comm.alertDialog("Pomiar czasu", "Poprawnie przesłano wszystkie wyniki do bazy");
                 }
+
             }
         };
 
         if (gps.checkingGPSStatus()) {
-            locationManager.requestLocationUpdates("gps", 2000, 0, locationListener); //0, 2, 4
+            locationManager.requestLocationUpdates("gps", 5000, 0, locationListener);
             if (!flaga1) {
                 gpstracker = new GpsTracker(this){
                     @Override
@@ -244,7 +262,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
     }
     public void playVoiceSound(int id){
         if(soundOn) {
-            MediaPlayer mediaPlayer = MediaPlayer.create(this, id);
+            mediaPlayer = MediaPlayer.create(this, id);
             mediaPlayer.start();
         }
     }
@@ -343,7 +361,6 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                     String pkt = String.valueOf(z/4);
                     ilPunktowPomiaru.add(pkt);
                     czasyPrzebiegu.add(timeSend);
-                    //Toast.makeText(StartComp.this, "Brak połączenia z siecią. Zapisanie wyniku do tablicy", Toast.LENGTH_LONG).show();
                     czySaNiewyslaneCzasy=true;
                 }
                 Z[ktoryPomiar] = 1;
@@ -397,7 +414,6 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                     String pkt = String.valueOf(z/4);
                     ilPunktowPomiaru.add(pkt);
                     czasyPrzebiegu.add(timeSend);
-                    //Toast.makeText(StartComp.this, "Brak połączenia z siecią. Zapisanie wyniku do tablicy", Toast.LENGTH_LONG).show();
                     czySaNiewyslaneCzasy=true;
                 }
                 Z[ktoryPomiar] = 1;
@@ -507,13 +523,30 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
         x1 = Double.parseDouble(p.get(1));
         p3 = new LatLng(y1, x1);
     }
+    @Override
     public void onBackPressed() {
-        super.onBackPressed();
-        if (gpstracker != null)
-            gpstracker.stopUsingGPS();
-        if (locationManager != null)
-            locationManager.removeUpdates(locationListener);
-        this.finish();
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                context);
+        alertDialogBuilder.setTitle("Pomiar czasu");
+        alertDialogBuilder
+                .setMessage("Czy na pewno chcesz opuścić zawody?")
+                .setCancelable(false)
+                .setPositiveButton("Tak", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        if (gpstracker != null)
+                            gpstracker.stopUsingGPS();
+                        if (locationManager != null)
+                            locationManager.removeUpdates(locationListener);
+                        ((Activity) context).finish();
+                    }
+                })
+                .setNegativeButton("Nie", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
     }
     public void sendHttpRequest(String url, final String operation){
         RestController rc = new RestController(this){
@@ -523,7 +556,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                     try {
                         parsingJSON(result);
                     } catch (JSONException e) {
-                        Toast.makeText(StartComp.this, e.toString(), Toast.LENGTH_LONG).show();
+                        //Toast.makeText(StartComp.this, e.toString(), Toast.LENGTH_LONG).show();
                     }
                 }
             }

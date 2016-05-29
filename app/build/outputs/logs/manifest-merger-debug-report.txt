@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:2:1-141:12
+ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:2:1-140:12
 	xmlns:android
 		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:2:11-69
 	package
@@ -68,7 +68,7 @@ ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:21:5-81
 	android:name
 		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:21:22-78
 uses-sdk
-ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:23:5-25:41
+ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:22:5-24:41
 MERGED from [com.google.android.gms:play-services:8.3.0] C:\Users\008M\Desktop\apka6\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\8.3.0\AndroidManifest.xml:18:5-42
 MERGED from [com.google.android.gms:play-services-ads:8.3.0] C:\Users\008M\Desktop\apka6\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\8.3.0\AndroidManifest.xml:23:5-42
 MERGED from [com.google.android.gms:play-services-basement:8.3.0] C:\Users\008M\Desktop\apka6\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.3.0\AndroidManifest.xml:18:5-42
@@ -190,15 +190,15 @@ MERGED from [com.google.android.gms:play-services-base:8.3.0] C:\Users\008M\Desk
 MERGED from [com.google.android.gms:play-services-basement:8.3.0] C:\Users\008M\Desktop\apka6\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.3.0\AndroidManifest.xml:18:5-42
 MERGED from [com.android.support:support-v4:22.2.0] C:\Users\008M\Desktop\apka6\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\AndroidManifest.xml:20:5-43
 	android:targetSdkVersion
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:25:9-38
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:24:9-38
 		INJECTED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:24:9-35
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:23:9-35
 		INJECTED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml
 application
-ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:27:5-138:19
+ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:26:5-137:19
 MERGED from [com.google.android.gms:play-services:8.3.0] C:\Users\008M\Desktop\apka6\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\8.3.0\AndroidManifest.xml:19:5-20
 MERGED from [com.google.android.gms:play-services-ads:8.3.0] C:\Users\008M\Desktop\apka6\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\8.3.0\AndroidManifest.xml:24:5-32:19
 MERGED from [com.google.android.gms:play-services-basement:8.3.0] C:\Users\008M\Desktop\apka6\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.3.0\AndroidManifest.xml:20:5-24:19
@@ -294,179 +294,179 @@ MERGED from [com.google.android.gms:play-services-wearable:8.3.0] C:\Users\008M\
 MERGED from [com.google.android.gms:play-services-basement:8.3.0] C:\Users\008M\Desktop\apka6\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.3.0\AndroidManifest.xml:20:5-24:19
 MERGED from [com.android.support:support-v4:22.2.0] C:\Users\008M\Desktop\apka6\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\AndroidManifest.xml:22:5-20
 	android:label
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:30:9-41
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:29:9-41
 	android:allowBackup
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:28:9-35
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:27:9-35
 	android:icon
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:29:9-44
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:28:9-44
 	android:theme
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:31:9-40
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:30:9-40
 meta-data#com.google.android.geo.API_KEY
-ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:33:9-35:55
+ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:32:9-34:55
 	android:name
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:34:13-58
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:33:13-58
 	android:value
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:35:13-52
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:34:13-52
 activity#com.teamproject.activity.MainActivity
-ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:37:9-48:20
+ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:36:9-47:20
 	android:screenOrientation
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:40:13-49
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:39:13-49
 	android:label
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:39:13-45
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:38:13-45
 	android:icon
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:41:13-48
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:40:13-48
 	android:name
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:38:13-65
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:37:13-65
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:42:13-46:29
+ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:41:13-45:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:43:17-69
+ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:42:17-69
 	android:name
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:43:25-66
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:42:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:45:17-77
+ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:44:17-77
 	android:name
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:45:27-74
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:44:27-74
 activity#com.teamproject.activity.Login
-ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:49:9-54:20
+ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:48:9-53:20
 	android:screenOrientation
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:52:9-45
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:51:9-45
 	android:label
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:51:9-42
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:50:9-42
 	android:icon
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:53:13-45
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:52:13-45
 	android:name
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:50:9-54
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:49:9-54
 activity#com.teamproject.activity.Registration
-ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:55:9-60:20
+ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:54:9-59:20
 	android:screenOrientation
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:58:9-45
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:57:9-45
 	android:label
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:57:9-42
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:56:9-42
 	android:icon
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:59:13-45
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:58:13-45
 	android:name
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:56:9-61
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:55:9-61
 activity#com.teamproject.activity.ObserverActivity
-ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:61:9-66:20
+ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:60:9-65:20
 	android:screenOrientation
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:64:9-45
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:63:9-45
 	android:label
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:63:9-42
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:62:9-42
 	android:icon
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:65:13-45
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:64:13-45
 	android:name
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:62:9-65
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:61:9-65
 activity#com.teamproject.maintabs.UserMain
-ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:67:9-72:20
+ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:66:9-71:20
 	android:label
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:69:9-42
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:68:9-42
 	android:icon
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:70:13-45
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:69:13-45
 	android:name
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:68:9-57
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:67:9-57
 activity#com.teamproject.activity.ReminderPass
-ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:73:9-78:20
+ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:72:9-77:20
 	android:screenOrientation
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:76:9-45
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:75:9-45
 	android:label
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:75:9-42
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:74:9-42
 	android:icon
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:77:13-45
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:76:13-45
 	android:name
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:74:9-61
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:73:9-61
 activity#com.teamproject.activity.CompList
-ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:79:9-84:20
+ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:78:9-83:20
 	android:screenOrientation
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:82:9-45
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:81:9-45
 	android:label
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:81:9-42
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:80:9-42
 	android:icon
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:83:13-45
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:82:13-45
 	android:name
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:80:9-57
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:79:9-57
 activity#com.teamproject.activity.CompInfo
-ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:85:9-90:20
+ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:84:9-89:20
 	android:screenOrientation
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:88:9-45
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:87:9-45
 	android:label
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:87:9-46
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:86:9-46
 	android:icon
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:89:13-45
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:88:13-45
 	android:name
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:86:9-57
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:85:9-57
 activity#com.teamproject.activity.UserProfile
-ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:91:9-96:20
+ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:90:9-95:20
 	android:screenOrientation
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:94:9-45
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:93:9-45
 	android:label
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:93:9-43
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:92:9-43
 	android:icon
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:95:13-45
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:94:13-45
 	android:name
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:92:9-36
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:91:9-36
 activity#com.teamproject.activity.ChangePass
-ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:97:9-102:20
+ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:96:9-101:20
 	android:screenOrientation
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:100:9-45
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:99:9-45
 	android:label
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:99:9-41
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:98:9-41
 	android:icon
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:101:13-45
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:100:13-45
 	android:name
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:98:9-59
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:97:9-59
 activity#com.teamproject.activity.DrawRoute
-ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:103:9-108:20
+ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:102:9-107:20
 	android:screenOrientation
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:106:9-45
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:105:9-45
 	android:label
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:105:9-29
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:104:9-29
 	android:icon
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:107:13-45
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:106:13-45
 	android:name
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:104:9-34
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:103:9-34
 activity#com.teamproject.activity.StartComp
-ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:109:9-114:20
+ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:108:9-113:20
 	android:screenOrientation
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:112:13-49
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:111:13-49
 	android:label
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:111:13-35
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:110:13-35
 	android:icon
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:113:13-45
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:112:13-45
 	android:name
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:110:13-62
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:109:13-62
 activity#com.teamproject.activity.MakingRoute
-ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:115:9-120:20
+ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:114:9-119:20
 	android:screenOrientation
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:118:13-49
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:117:13-49
 	android:label
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:117:13-44
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:116:13-44
 	android:icon
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:119:13-45
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:118:13-45
 	android:name
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:116:13-40
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:115:13-40
 activity#com.teamproject.activity.CompetitorsList
-ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:121:9-126:16
+ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:120:9-125:16
 	android:screenOrientation
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:124:9-45
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:123:9-45
 	android:label
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:123:9-41
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:122:9-41
 	android:icon
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:125:9-41
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:124:9-41
 	android:name
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:122:9-40
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:121:9-40
 activity#com.teamproject.activity.ResultsList
-ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:127:9-132:20
+ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:126:9-131:20
 	android:screenOrientation
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:130:13-49
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:129:13-49
 	android:label
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:129:13-35
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:128:13-35
 	android:icon
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:131:13-45
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:130:13-45
 	android:name
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:128:13-40
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:127:13-40
 meta-data#com.google.android.gms.version
-ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:135:9-137:69
+ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:134:9-136:69
 MERGED from [com.google.android.gms:play-services-basement:8.3.0] C:\Users\008M\Desktop\apka6\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.3.0\AndroidManifest.xml:21:9-23:69
 MERGED from [com.google.android.gms:play-services-basement:8.3.0] C:\Users\008M\Desktop\apka6\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.3.0\AndroidManifest.xml:21:9-23:69
 MERGED from [com.google.android.gms:play-services-basement:8.3.0] C:\Users\008M\Desktop\apka6\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.3.0\AndroidManifest.xml:21:9-23:69
@@ -499,9 +499,9 @@ MERGED from [com.google.android.gms:play-services-basement:8.3.0] C:\Users\008M\
 MERGED from [com.google.android.gms:play-services-basement:8.3.0] C:\Users\008M\Desktop\apka6\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.3.0\AndroidManifest.xml:21:9-23:69
 MERGED from [com.google.android.gms:play-services-basement:8.3.0] C:\Users\008M\Desktop\apka6\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.3.0\AndroidManifest.xml:21:9-23:69
 	android:name
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:136:13-58
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:135:13-58
 	android:value
-		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:137:13-66
+		ADDED from C:\Users\008M\Desktop\apka6\app\src\main\AndroidManifest.xml:136:13-66
 activity#com.google.android.gms.ads.AdActivity
 ADDED from [com.google.android.gms:play-services-ads:8.3.0] C:\Users\008M\Desktop\apka6\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\8.3.0\AndroidManifest.xml:26:9-29:64
 	android:configChanges
