@@ -144,7 +144,7 @@ public class CompList extends Activity {
 			} else if (typ.get(row).contains("Kolarstwo") || typ.get(row).contains("kolarstwo")) {
 				button.setCompoundDrawablesWithIntrinsicBounds(R.mipmap.ic_rowerowe, 0, 0, 0);
 			} else if
-					(typ.get(row).contains("Bieg") || typ.get(row) == "Chód" || typ.get(row).contains("bieg")) {
+					(typ.get(row).contains("Bieg") || typ.get(row).contains("Chód") || typ.get(row).contains("bieg")) {
 				button.setCompoundDrawablesWithIntrinsicBounds(R.mipmap.ic_biegi, 0, 0, 0);
 			} else if (typ.get(row).equals("Wyścig samolotów") || typ.get(row).equals("Wyścig balonów")) {
 				button.setCompoundDrawablesWithIntrinsicBounds(R.mipmap.ic_powietrzne, 0, 0, 0);

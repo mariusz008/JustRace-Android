@@ -10,10 +10,13 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTabHost;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
@@ -46,6 +49,7 @@ public class MakingRoute extends FragmentActivity implements OnMapReadyCallback,
     private LocationManager locationManager;
     private LocationListener locationListener;
     private com.google.android.gms.maps.GoogleMap mMap;
+    private RadioGroup rg;
     Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
     Intent intent2;
     TurningOnGPS gps;
@@ -80,7 +84,7 @@ public class MakingRoute extends FragmentActivity implements OnMapReadyCallback,
         mapFragment.getMapAsync(this);
         mTabHost = (FragmentTabHost) findViewById(android.R.id.tabhost);
         mTabHost.setup(this, getSupportFragmentManager(), android.R.id.tabcontent);
-
+        rg = (RadioGroup) findViewById(R.id.radio_group_list_selector);
 
         mTabHost.addTab(
                 mTabHost.newTabSpec("tab1").setIndicator("Dodaj punkty pomiaru czasu", null),
@@ -91,7 +95,27 @@ public class MakingRoute extends FragmentActivity implements OnMapReadyCallback,
         mTabHost.addTab(
                 mTabHost.newTabSpec("tab3").setIndicator("Nagraj trasę", null),
                 TrackRoute.class, null);
-
+        rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId) {
+                    case R.id.radio1:
+                        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+                        break;
+                    case R.id.radio2:
+                        mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+                        break;
+                    case R.id.radio3:
+                        mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+                        break;
+                    case R.id.radio4:
+                        mMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+                        break;
+                    default:
+                        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+                }
+            }
+        });
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         locationListener = new LocationListener() {
             @Override
@@ -351,7 +375,7 @@ public class MakingRoute extends FragmentActivity implements OnMapReadyCallback,
             Toast.makeText(MakingRoute.this, "Najpierw dodaj początek linii mety", Toast.LENGTH_SHORT).show();
 
         //wyslanie punktow
-        if (f2 && f4 && f10 && butZap1 && !f9) {
+        if (f2 && f4 && butZap1 && !f9) {
             for (int i = 0; i < pk_start.size(); i++)
                 pk_all.add(pk_start.get(i));
             for (int i = 0; i < pk_pk.size(); i++)

@@ -29,7 +29,6 @@ import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-import android.widget.Toast;
 import com.teamproject.conn.TurningOnGPS;
 import com.teamproject.functions.DialogCommunications;
 import com.teamproject.functions.RestController;
@@ -365,7 +364,7 @@ public class CompInfo extends Activity {
 					try {
 						parsingJSON(result);
 					} catch (JSONException e) {
-						Toast.makeText(CompInfo.this, e.toString(), Toast.LENGTH_LONG).show();
+
 					}
 					String url1 ="http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/category/list?competition_id="+ID_zad;
 					//pobierz kategorie
@@ -596,7 +595,7 @@ public class CompInfo extends Activity {
 			typIV.setImageResource(R.mipmap.ic_rowerowe);
 			} 
 		else if 
-			(typ.contains("Bieg") || typ == "Chód" || typ.contains("bieg")){
+			(typ.contains("Bieg") || typ.contains("Chód") || typ.contains("bieg")){
 			typIV.setImageResource(R.mipmap.ic_biegi);			
 			}
 		else if (typ.equals("Wyścig samolotów") || typ.equals("Wyścig balonów")){

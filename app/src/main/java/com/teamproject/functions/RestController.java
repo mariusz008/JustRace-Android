@@ -98,7 +98,7 @@ public abstract class RestController extends AsyncTask<String, Void, String> imp
 
 		protected void onPostExecute(String result) {
 			if(result.contains("Action forbidden. Login again.")) {
-				Toast.makeText(context, "Zostałeś zalogowany na innym urządzeniu. Zaloguj się ponownie", Toast.LENGTH_LONG).show();
+				Toast.makeText(context, "Zaloguj się ponownie", Toast.LENGTH_LONG).show();
 				Intent intentLog = new Intent(context, Login.class);
 				intentLog.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
 				((Activity) context).finish();

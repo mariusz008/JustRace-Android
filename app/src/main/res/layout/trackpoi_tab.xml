@@ -30,7 +30,6 @@
                 android:layout_height="40dp"
                 android:hint="Nazwa POI"
                 android:backgroundTint="@color/teal700"
-                android:layout_marginTop="20dp"
                 android:layout_centerHorizontal="true"
                 android:gravity="center_horizontal"/>
 

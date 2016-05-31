@@ -21,10 +21,13 @@ import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.gms.maps.*;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.Circle;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -35,6 +38,7 @@ import com.teamproject.conn.TurningOnGPS;
 import com.teamproject.functions.DialogCommunications;
 import com.teamproject.functions.GpsTracker;
 import com.teamproject.functions.LineIntersection;
+import com.teamproject.functions.ObjectsOnMap;
 import com.teamproject.functions.RestController;
 import com.teamproject.models.competitionDTO;
 import com.teamproject.models.userDTO;
@@ -58,6 +62,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
     private LocationListener locationListener;
     Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
     TurningOnGPS gps;
+    private RadioGroup rg;
     GpsTracker gpstracker;
     Polyline polyliness;
     PolylineOptions route;
@@ -83,6 +88,8 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
     DialogCommunications comm = new DialogCommunications(context);
     LatLng p1, p2, p3;
     Marker tmpm;
+    Circle mapCircle;
+    ObjectsOnMap oom = new ObjectsOnMap();
     double A[] = new double[2];
     double B[] = new double[2];
     int Z[];
@@ -93,7 +100,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
     String ID_zaw = competition.getID_zawodow();
     final userDTO user1 = Login.user;
     String ID_usera = user1.getID_uzytkownika();
-    int h=0;
+    int h=0, radius=4;
     MediaPlayer mediaPlayer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,6 +120,29 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
         info1 = (TextView) findViewById(R.id.TextView3);
         buttonSound = (ImageButton) findViewById(R.id.buttonSound);
         timerValue = (TextView) findViewById(R.id.timerValue);
+        rg = (RadioGroup) findViewById(R.id.radio_group_list_selector);
+        rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch(checkedId)
+                {
+                    case R.id.radio1:
+                        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+                        break;
+                    case R.id.radio2:
+                        mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+                        break;
+                    case R.id.radio3:
+                        mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+                        break;
+                    case R.id.radio4:
+                        mMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+                        break;
+                    default:
+                        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+                }
+            }
+        });
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -151,9 +181,9 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                     now.remove();
                 }
                 flaga1 = true;
-
                 szerokosc = location.getLatitude();
                 dlugosc = location.getLongitude();
+                oom.drawCenteredCircle(dlugosc, szerokosc, radius, Color.RED, mMap);
                 gpstracker.stopUsingGPS();
                 LatLng p2 = new LatLng(szerokosc, dlugosc);
                 now = mMap.addMarker(new MarkerOptions().position(p2).title("Tu jesteś"));
@@ -168,12 +198,13 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                         B[1] = szerokosc;
                         startTime2 = System.currentTimeMillis();
                         if (startTime1!=0) timeBetween = System.currentTimeMillis() - startTime1;
+                        if(timeMeasureByCircle(dlugosc, szerokosc, 4*ktoryPomiar)!=1)
                         timeMeasure(A[0], A[1], B[0], B[1], 4 * ktoryPomiar);
                         A[0] = B[0];
                         A[1] = B[1];
                     }
                     countDistance(dlugosc, szerokosc, countingPK, pc, location);
-                    if((przekroczonyStart)&&makeLine%3==0) ifIsFarAwayFromRoute(dlugosc, szerokosc);
+                    if((przekroczonyStart)&&(makeLine%3==0)&&(routeDouble.size()>1)) ifIsFarAwayFromRoute(dlugosc, szerokosc);
                     makeLine++;
                 }
                 if (cd.isConnectingToInternet() && czySaNiewyslaneCzasy) {
@@ -221,7 +252,31 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
             comm.alertDialog("Pobieranie lokalizacji", "Proszę włączyć usługę GPS");
         }
     }
-
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                context);
+        alertDialogBuilder.setTitle("Pomiar czasu");
+        alertDialogBuilder
+                .setMessage("Czy na pewno chcesz opuścić zawody?")
+                .setCancelable(false)
+                .setPositiveButton("Tak", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        if (gpstracker != null)
+                            gpstracker.stopUsingGPS();
+                        if (locationManager != null)
+                            locationManager.removeUpdates(locationListener);
+                        ((Activity) context).finish();
+                    }
+                })
+                .setNegativeButton("Nie", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
     @Override
     public void onMapReady(com.google.android.gms.maps.GoogleMap googleMap) {
         mMap = googleMap;
@@ -415,6 +470,65 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
             }
         }
     }
+    public int timeMeasureByCircle(double x1, double y1, int z)
+    {
+        int wy=0;
+        float[] distance = new float[1];
+        float[] distance1 = new float[1];
+        Location.distanceBetween(y1, x1,countingPK.get(z), countingPK.get(z + 1), distance);
+        Location.distanceBetween(y1, x1, countingPK.get(z+2),countingPK.get(z + 3), distance1);
+
+        if ((distance[0] < radius) || (distance1[0] < radius)) {
+            if (z == 0) {
+                info1.setText("Rozpocząłeś wyścig");
+                playVoiceSound(R.raw.rozpoczaleswyscig);
+                startTime1 = System.currentTimeMillis();
+                startTime = SystemClock.uptimeMillis();
+                customHandler.postDelayed(updateTimerThread, 0);
+                Z[0] = 1;
+                pc = pc + 4;
+                przekroczonyStart = true;
+            } else if (z == pk_all.size() - 4) {
+                timeBetween2 = System.currentTimeMillis() - startTime1;
+                customHandler.removeCallbacks(updateTimerThread);
+                timeSend = timeFormat(timeBetween2);
+                info1.setText("Zakończyłeś wyścig");
+                playVoiceSound(R.raw.zakonczyleswyscig);
+                if (cd.isConnectingToInternet()) {
+                    String url2 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/event/time?competition_id=" + ID_zaw+
+                            "&user_id="+ID_usera+"&point_nr="+z/4+"&time="+timeSend;
+                    sendHttpRequest(url2, "PUT", 1);
+                } else {
+                    String pkt = String.valueOf(z/4);
+                    ilPunktowPomiaru.add(pkt);
+                    czasyPrzebiegu.add(timeSend);
+                    comm.alertDialog("Pomiar czasu", "Gratulacje, zakończyłeś wyścig! Proszę włączyć połączenie z siecią aby przesłać wyniki do bazy");
+                    czySaNiewyslaneCzasy=true;
+                }
+                info.setText("Koniec");
+                startComp = false;
+            } else {
+                timeBetween2 = System.currentTimeMillis() - startTime1;
+                timeSend = timeFormat(timeBetween2);
+                info1.setText("Przekroczyłeś punkt kontrolny nr: " + z / 4 + " w czasie " + timeSend);
+                playVoiceSound(whichPKSound(z / 4));
+                if (cd.isConnectingToInternet()) {
+                    String url2 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/event/time?competition_id=" + ID_zaw+
+                            "&user_id="+ID_usera+"&point_nr="+z/4+"&time="+timeSend;
+                    sendHttpRequest(url2, "PUT", 0);
+                } else {
+                    String pkt = String.valueOf(z/4);
+                    ilPunktowPomiaru.add(pkt);
+                    czasyPrzebiegu.add(timeSend);
+                    czySaNiewyslaneCzasy=true;
+                }
+                Z[ktoryPomiar] = 1;
+                pc = pc + 4;
+            }
+            wy=1;
+        }
+        return wy;
+    }
     public void changeStringToDoubles(List<String> p, int k) {
         if(k==0) {
             for (int g = 0; g < p.size(); g++) {
@@ -464,83 +578,6 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
         } else
             info.setText("Odległość do najbliższego punktu pomiaru czasu: " + wynikk + "m");
         tmpResult = results[0];
-    }
-    public void setPOI(List<String> p, List<String> name, float x) {
-
-        for (int i = 0; i < (il_poi) * 2; i = i + 2) {
-            y1 = Double.parseDouble(p.get(i));
-            x1 = Double.parseDouble(p.get(i + 1));
-            LatLng p2 = new LatLng(y1, x1);
-            nazwa_point = name.get((i / 2));
-            tmpm = mMap.addMarker(new MarkerOptions().position(p2).title(nazwa_point).icon(BitmapDescriptorFactory.defaultMarker(x)));
-        }
-    }
-    public void setPoint(List<String> p, String name1, float x, int h) {
-        int i;
-        for (i = 0, j = 1.0; i < p.size(); i = i + 2, j++) {
-            y1 = Double.parseDouble(p.get(i));
-            x1 = Double.parseDouble(p.get(i + 1));
-            LatLng p2 = new LatLng(y1, x1);
-            if (h == 1)
-                nazwa_point = name1 + (int) (Math.ceil((j / 2)));
-            else nazwa_point = name1;
-            tmpm = mMap.addMarker(new MarkerOptions().position(p2).title(nazwa_point).icon(BitmapDescriptorFactory.defaultMarker(x)));
-        }
-
-    }
-    public void drawLine(List<String> p, int x) {
-        for (int k = 0; k < p.size(); k = k + 4) {
-            y1 = Double.parseDouble(p.get(k));
-            x1 = Double.parseDouble(p.get(k + 1));
-            y2 = Double.parseDouble(p.get(k + 2));
-            x2 = Double.parseDouble(p.get(k + 3));
-            Polyline route = mMap.addPolyline(new PolylineOptions()
-                            .add(new LatLng(y1, x1), new LatLng(y2, x2))
-                            .width(9).color(x)
-            );
-        }
-    }
-    public void drawRoute(List<String> p) {
-        for (int i = 0; i < p.size(); i = i + 2) {
-            if (!((i + 3) > p.size())) {
-                y1 = Double.parseDouble(p.get(i));
-                x1 = Double.parseDouble(p.get(i + 1));
-                y2 = Double.parseDouble(p.get(i + 2));
-                x2 = Double.parseDouble(p.get(i + 3));
-                route = new PolylineOptions()
-                        .add(new LatLng(y1, x1), new LatLng(y2, x2))
-                        .width(12).color(R.color.teal700);
-                polylines.add(this.mMap.addPolyline(route));
-            }
-        }
-        y1 = Double.parseDouble(p.get(0));
-        x1 = Double.parseDouble(p.get(1));
-        p3 = new LatLng(y1, x1);
-    }
-    @Override
-    public void onBackPressed() {
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                context);
-        alertDialogBuilder.setTitle("Pomiar czasu");
-        alertDialogBuilder
-                .setMessage("Czy na pewno chcesz opuścić zawody?")
-                .setCancelable(false)
-                .setPositiveButton("Tak", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        if (gpstracker != null)
-                            gpstracker.stopUsingGPS();
-                        if (locationManager != null)
-                            locationManager.removeUpdates(locationListener);
-                        ((Activity) context).finish();
-                    }
-                })
-                .setNegativeButton("Nie", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-        AlertDialog alertDialog = alertDialogBuilder.create();
-        alertDialog.show();
     }
     public void sendHttpRequest(String url, final String operation, final int k){
         RestController rc = new RestController(this){
@@ -601,22 +638,25 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                     nazwaPOI.add(poi.getString("POINT_POINAME" + i));
                 }
             }
-            setPOI(pk_POI, nazwaPOI, BitmapDescriptorFactory.HUE_VIOLET);
-            String ilosc_track = route.getString("COUNT");
-            ile_route = Integer.parseInt(ilosc_track);
-            for (int i = 0; i < ile_route; i++) {
-                trasa.add(route.getString("POINTY" + i));
-                trasa.add(route.getString("POINTX" + i));
-            }
-            changeStringToDoubles(trasa, 1);
+          oom.setPOI(pk_POI, nazwaPOI, BitmapDescriptorFactory.HUE_VIOLET, il_poi, mMap);
 
-            drawRoute(trasa);
-            setPoint(pk_start, "Start ", BitmapDescriptorFactory.HUE_AZURE, 0);
-            setPoint(pk_pk, "Punkt kontrolny nr ", BitmapDescriptorFactory.HUE_ORANGE, 1);
-            setPoint(pk_meta, "Meta ", BitmapDescriptorFactory.HUE_GREEN, 0);
-            drawLine(pk_start, Color.BLUE);
-            drawLine(pk_pk, Color.parseColor("#FF6600"));
-            drawLine(pk_meta, Color.GREEN);
+          if(JSON.contains("POINTX0")) {
+                String ilosc_track = route.getString("COUNT");
+                ile_route = Integer.parseInt(ilosc_track);
+                for (int i = 0; i < ile_route; i++) {
+                    trasa.add(route.getString("POINTY" + i));
+                    trasa.add(route.getString("POINTX" + i));
+                }
+                oom.drawRoute(trasa, mMap, polylines);
+                changeStringToDoubles(trasa, 1);
+            }
+        oom.setPoint(pk_start, "Start ", BitmapDescriptorFactory.HUE_AZURE, 0, mMap);
+        oom.setPoint(pk_pk, "Punkt kontrolny nr ", BitmapDescriptorFactory.HUE_ORANGE, 1, mMap);
+        oom.setPoint(pk_meta, "Meta ", BitmapDescriptorFactory.HUE_GREEN, 0, mMap);
+
+        oom.drawLine(pk_start, Color.BLUE, mMap);
+        oom.drawLine(pk_pk, Color.parseColor("#FF6600"), mMap);
+        oom.drawLine(pk_meta, Color.GREEN, mMap);
 
     }
     private Runnable updateTimerThread = new Runnable() {

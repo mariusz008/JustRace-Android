@@ -17,12 +17,85 @@
         android:layout_width="match_parent"
         android:layout_height="380dp"
         tools:context=".CompInfo"/>
+    <RadioGroup
+        android:id="@+id/radio_group_list_selector"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:background="#80000000"
+        >
 
+        <RadioButton
+            android:id="@+id/radio1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="Normal"
+            android:textColor="@color/white"
+            android:gravity="center_horizontal|center_vertical"
+            android:layout_weight="1"
+            />
+        <View
+            android:id="@+id/VerticalLine"
+            android:layout_width="1dip"
+            android:layout_height="match_parent"
+            android:background="#aaa" />
+
+        <RadioButton
+            android:id="@+id/radio2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Hybrid"
+            android:textColor="@color/white"
+            android:layout_weight="1"
+            />
+
+        <View
+            android:id="@+id/VerticalLine1"
+            android:layout_width="1dip"
+            android:layout_height="match_parent"
+            android:background="#aaa" />
+
+        <RadioButton
+            android:id="@+id/radio3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Satellite"
+            android:textColor="@color/white"
+            android:layout_weight="1" />
+        <View
+            android:id="@+id/VerticalLine2"
+            android:layout_width="1dip"
+            android:layout_height="match_parent"
+            android:background="#aaa" />
+
+        <RadioButton
+            android:id="@+id/radio4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Terrain"
+            android:textColor="@color/white"
+            android:layout_weight="1"
+            />
+    </RadioGroup>
+    <ScrollView
+        android:id="@+id/ScrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/map"
+        android:fillViewport="true"
+        android:isScrollContainer="false"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
     <TextView
         android:id="@+id/timerValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/map"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:textSize="40sp"
@@ -53,9 +126,10 @@
         android:layout_height="wrap_content"
         android:background="@mipmap/ic_volume_on"
         android:id="@+id/buttonSound"
-        android:layout_marginRight="5dp"
+        android:layout_marginLeft="25dp"
         android:layout_above="@+id/TextView2"
-        android:layout_alignEnd="@+id/map" />
+        android:layout_toRightOf="@+id/timerValue" />
 
-
+        </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>

@@ -11,16 +11,18 @@
         android:id="@+id/ScrollView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/map"
-        android:layout_above="@+id/LinearLayout5"
         android:fillViewport="true"
         android:isScrollContainer="false"
+        android:layout_above="@+id/LinearLayout5"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp">
+        android:layout_marginBottom="10dp"
+        >
+
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            >
 
 
             <LinearLayout
