@@ -50,6 +50,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by 008M on 2016-05-07.
@@ -194,6 +195,14 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                 LatLng p2 = new LatLng(szerokosc, dlugosc);
                 now = mMap.addMarker(new MarkerOptions().position(p2).title("Tu jesteś"));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(p2));
+//                if(h%2==0)
+//                    startTime1 = (location.getTime());
+//                if(h%2==1){
+//                    timeBetween2 = location.getTime() - startTime1;
+//                    czasGPS1 = new Date(timeBetween2- TimeUnit.HOURS.toMillis(1));
+//                    timeSend = sdf.format(czasGPS1);
+//                    Toast.makeText(StartComp.this, timeSend, Toast.LENGTH_SHORT).show();
+//                }
                 if (startComp) {
                     if (Z[ktoryPomiar] != 0) ktoryPomiar++;
                     if (makeLine == 0) {
@@ -386,7 +395,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                     timeBetween2 = location.getTime() - startTime1;
                 }
                 customHandler.removeCallbacks(updateTimerThread);
-                czasGPS1 = new Date(timeBetween2);
+                czasGPS1 = new Date(timeBetween2- TimeUnit.HOURS.toMillis(1));
                 timeSend = sdf.format(czasGPS1);
                 if (cd.isConnectingToInternet()) {
                     String url2 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/event/time?competition_id=" + ID_zaw+
@@ -408,7 +417,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                 if(line.przynaleznosc(countingPK.get(z+1), countingPK.get(z), countingPK.get(z + 3), countingPK.get(z + 2), x1, y1) == 1) {
                     timeBetween2 = location.getTime() - startTime1;
                 }
-                czasGPS1 = new Date(timeBetween2);
+                czasGPS1 = new Date(timeBetween2- TimeUnit.HOURS.toMillis(1));
                 timeSend = sdf.format(czasGPS1);
                 info1.setText("Przekroczyłeś punkt kontrolny nr: " + z / 4 + " w czasie " + timeSend);
                 playVoiceSound(whichPKSound(z/4));
@@ -444,7 +453,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
             } else if (z == pk_all.size() - 4) {
                 timeBetween2 = (location.getTime()-startTime2)/2 + timeBetween;
                 customHandler.removeCallbacks(updateTimerThread);
-                czasGPS1 = new Date(timeBetween2);
+                czasGPS1 = new Date(timeBetween2- TimeUnit.HOURS.toMillis(1));
                 timeSend = sdf.format(czasGPS1);
                 info1.setText("Zakończyłeś wyścig");
                 playVoiceSound(R.raw.zakonczyleswyscig);
@@ -463,7 +472,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                 startComp = false;
             } else {
                 timeBetween2 = (location.getTime()-startTime2)/2 + timeBetween;
-                czasGPS1 = new Date(timeBetween2);
+                czasGPS1 = new Date(timeBetween2- TimeUnit.HOURS.toMillis(1));
                 timeSend = sdf.format(czasGPS1);
                 info1.setText("Przekroczyłeś punkt kontrolny nr: " + z / 4 + " w czasie " + timeSend);
                 playVoiceSound(whichPKSound(z / 4));
@@ -503,7 +512,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
             } else if (z == pk_all.size() - 4) {
                 timeBetween2 = location.getTime() - startTime1;
                 customHandler.removeCallbacks(updateTimerThread);
-                czasGPS1 = new Date(timeBetween2);
+                czasGPS1 = new Date(timeBetween2- TimeUnit.HOURS.toMillis(1));
                 timeSend = sdf.format(czasGPS1);
                 info1.setText("Zakończyłeś wyścig");
                 playVoiceSound(R.raw.zakonczyleswyscig);
@@ -522,7 +531,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                 startComp = false;
             } else {
                 timeBetween2 = location.getTime() - startTime1;
-                czasGPS1 = new Date(timeBetween2);
+                czasGPS1 = new Date(timeBetween2- TimeUnit.HOURS.toMillis(1));
                 timeSend = sdf.format(czasGPS1);
                 info1.setText("Przekroczyłeś punkt kontrolny nr: " + z / 4 + " w czasie " + timeSend);
                 playVoiceSound(whichPKSound(z / 4));

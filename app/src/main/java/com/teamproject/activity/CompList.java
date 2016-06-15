@@ -195,7 +195,7 @@ public class CompList extends Activity {
 
 				});
 			}
-			if(whichList.contains("RESULTS"))
+			if(whichList.contains("OGOLNERESULTS"))
 			{
 				if(!(ileOsob.get(row).equals("0"))&&(pcc.get(row).equals("1")))
 					tableRow.addView(button);
@@ -207,6 +207,7 @@ public class CompList extends Activity {
 
 
 	public void parsingJSON(String JSON) throws JSONException {
+		//Toast.makeText(CompList.this, JSON, Toast.LENGTH_LONG).show();
 		stringArray.clear();
 		stringArray1.clear();
 		stringArray2.clear();
