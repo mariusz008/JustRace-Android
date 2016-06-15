@@ -121,8 +121,6 @@ public class CompList extends Activity {
 								 final ArrayList<String> id, ArrayList<String> typ, ArrayList<String> ileOsob,
 								 ArrayList<String> pcc) {
 		TableLayout table = (TableLayout) findViewById(R.id.tableButtons);
-
-
 		table.removeAllViews();
 		for (row = 0; row < i; row++) {
 			TableRow tableRow = new TableRow(this);

@@ -53,46 +53,40 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="StartComp.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/teamproject/activity/StartComp.java">
+      <file leaf-file-name="Login.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/teamproject/activity/Login.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.206897">
-              <caret line="102" column="21" selection-start-line="102" selection-start-column="21" selection-end-line="102" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="84" column="13" selection-start-line="84" selection-start-column="13" selection-end-line="84" selection-end-column="13" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2849#2857#0" expanded="true" />
-                <element signature="e#2902#2910#0" expanded="true" />
-                <element signature="class#10603:11306" expanded="false" />
-                <element signature="method#onLocationReceived#0;class#10603:11306" expanded="false" />
-                <element signature="method#onBackPressed#0;class#StartComp#0" expanded="false" />
-                <element signature="method#onMapReady#0;class#StartComp#0" expanded="false" />
-                <element signature="method#ifIsFarAwayFromRoute#0;class#StartComp#0" expanded="false" />
-                <element signature="method#playSound#0;class#StartComp#0" expanded="false" />
-                <element signature="method#playVoiceSound#0;class#StartComp#0" expanded="false" />
-                <element signature="method#whichPKSound#0;class#StartComp#0" expanded="false" />
-                <element signature="method#changeStringToDoubles#0;class#StartComp#0" expanded="false" />
-                <element signature="method#checkDistanceFromRoute#0;class#StartComp#0" expanded="false" />
-                <element signature="method#sendHttpRequest#0;class#StartComp#0" expanded="false" />
-                <element signature="method#parsingJSON#0;class#StartComp#0" expanded="false" />
-                <element signature="method#timeFormat#0;class#StartComp#0" expanded="false" />
+                <element signature="e#2637#3017#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CompInfo.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/teamproject/activity/CompInfo.java">
+      <file leaf-file-name="StartComp.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/teamproject/activity/StartComp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3462963">
-              <caret line="30" column="31" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
+            <state vertical-scroll-proportion="1.0526316">
+              <caret line="268" column="70" selection-start-line="268" selection-start-column="70" selection-end-line="268" selection-end-column="70" />
               <folding>
-                <element signature="method#addSpinners#0;class#CompInfo#0" expanded="false" />
-                <element signature="class#OnSpinnerItemClicked#0;class#CompInfo#0" expanded="false" />
-                <element signature="method#onNothingSelected#0;class#OnSpinnerItemClicked#0;class#CompInfo#0" expanded="false" />
-                <element signature="method#addButton#0;class#CompInfo#0" expanded="false" />
-                <element signature="class#DownloadImageTask#0;class#CompInfo#0" expanded="false" />
-                <element signature="method#checkResponseSignUpAndCheckStart#0;class#CompInfo#0" expanded="false" />
-                <element signature="method#checkResponseSignOutAndSetTime#0;class#CompInfo#0" expanded="false" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#3393#3401#0" expanded="true" />
+                <element signature="e#3449#3457#0" expanded="true" />
+                <element signature="e#3505#3515#0" expanded="true" />
+                <element signature="class#10819:11522" expanded="false" />
+                <element signature="method#onLocationReceived#0;class#10819:11522" expanded="false" />
+                <element signature="method#onMapReady#0;class#StartComp#0" expanded="false" />
+                <element signature="method#ifIsFarAwayFromRoute#0;class#StartComp#0" expanded="false" />
+                <element signature="method#playVoiceSound#0;class#StartComp#0" expanded="false" />
+                <element signature="method#whichPKSound#0;class#StartComp#0" expanded="false" />
+                <element signature="method#changeStringToDoubles#0;class#StartComp#0" expanded="false" />
+                <element signature="method#checkDistanceFromRoute#0;class#StartComp#0" expanded="false" />
+                <element signature="method#countDistance#0;class#StartComp#0" expanded="false" />
+                <element signature="method#sendHttpRequest#0;class#StartComp#0" expanded="false" />
+                <element signature="method#parsingJSON#0;class#StartComp#0" expanded="false" />
+                <element signature="method#timeFormat#0;class#StartComp#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -1961,14 +1955,12 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/teamproject/activity/Registration.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/competitors_list.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/teamproject/activity/Login.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/results_list.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/rounded_border_competitorslist.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/rounded_border_competitorslist1.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/teamproject/activity/CompetitorsList.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/teamproject/activity/ResultsList.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/teamproject/functions/BackgroundAudioService.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/teamproject/activity/CompList.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/org_tab.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/part_tab.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
@@ -1981,8 +1973,10 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/startcomp.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/teamproject/functions/RestController.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/teamproject/functions/ObjectsOnMap.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/teamproject/activity/StartComp.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/teamproject/activity/CompInfo.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/teamproject/activity/Login.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/teamproject/activity/CompList.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/teamproject/activity/StartComp.java" />
       </list>
     </option>
   </component>
@@ -2047,7 +2041,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -2069,10 +2064,6 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -2090,50 +2081,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="teamproject" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="route" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apka6" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="teamproject" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apka6" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="teamproject" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="functions" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -2158,28 +2105,17 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apka6" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="ProjectPane" />
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="6f9dc4ff" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="4df1cd9f3e3a9faf" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexus_5_API_23_x86" />
     <property name="FullScreen" value="false" />
     <property name="OverrideImplement.combined" value="true" />
@@ -2420,8 +2356,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7035176" sideWeight="0.5060514" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.61809045" sideWeight="0.49394855" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.61809045" sideWeight="0.49394855" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998326" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998326" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -2431,6 +2366,7 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21860817" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998326" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -2443,7 +2379,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" x="92" y="92" width="1182" height="554" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998326" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2491,6 +2427,11 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -2508,7 +2449,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/teamproject/activity/CompList.java</url>
-          <line>163</line>
+          <line>161</line>
           <properties />
           <option name="timeStamp" value="32" />
         </line-breakpoint>
@@ -2545,18 +2486,11 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="47" />
+      <option name="time" value="49" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/trackrecord_tab.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6537037">
@@ -2663,13 +2597,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/teamproject/maintabs/MainPart.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="78" column="49" selection-start-line="78" selection-start-column="49" selection-end-line="78" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/competitors_list.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2679,14 +2606,6 @@
       </provider>
       <provider editor-type-id="android-designer">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/teamproject/activity/Login.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="84" column="11" selection-start-line="71" selection-start-column="8" selection-end-line="84" selection-end-column="11" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/rounded_border_comp.xml">
@@ -2733,17 +2652,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34446397">
           <caret line="103" column="30" selection-start-line="103" selection-start-column="30" selection-end-line="103" selection-end-column="69" />
-          <folding>
-            <element signature="method#sendHttpRequest#0;class#UserProfile#0" expanded="false" />
-            <element signature="method#positiveResponse#0;class#UserProfile#0" expanded="false" />
-            <element signature="method#validation#0;class#UserProfile#0" expanded="false" />
-            <element signature="method#URLaddress#0;class#UserProfile#0" expanded="false" />
-            <element signature="method#editData#0;class#UserProfile#0" expanded="false" />
-            <element signature="method#parsingJSON#0;class#UserProfile#0" expanded="false" />
-            <element signature="method#checkResponseChangeData#0;class#UserProfile#0" expanded="false" />
-            <element signature="method#checkResponseDelete#0;class#UserProfile#0" expanded="false" />
-            <element signature="method#logOut#0;class#UserProfile#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2794,7 +2702,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7839806">
           <caret line="139" column="13" selection-start-line="139" selection-start-column="13" selection-end-line="139" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2812,19 +2719,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/teamproject/activity/CompList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3655914">
-          <caret line="146" column="83" selection-start-line="146" selection-start-column="54" selection-end-line="146" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/teamproject/activity/ChangePass.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.11950791">
           <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2851,19 +2749,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3321617">
           <caret line="82" column="13" selection-start-line="82" selection-start-column="13" selection-end-line="82" selection-end-column="13" />
-          <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/mapa.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/part_tab.xml">
@@ -2881,7 +2767,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3321617">
           <caret line="38" column="24" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2889,22 +2774,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="40" column="58" selection-start-line="40" selection-start-column="43" selection-end-line="40" selection-end-column="58" />
-          <folding>
-            <element signature="e#1837#1990#0" expanded="false" />
-            <element signature="e#1989#1990#0" expanded="false" />
-          </folding>
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_maps.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1333333">
-          <caret line="36" column="20" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/trackpoi_tab.xml">
@@ -2936,26 +2806,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/teamproject/activity/DrawRoute.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="67" column="11" selection-start-line="46" selection-start-column="8" selection-end-line="67" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2120#3003#0" expanded="true" />
-            <element signature="e#3002#3003#0" expanded="true" />
-            <element signature="e#3075#3076#0" expanded="true" />
-            <element signature="e#3107#3108#0" expanded="true" />
-            <element signature="method#sendHttpRequest#0;class#DrawRoute#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-21/android/widget/RadioGroup.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3321617">
           <caret line="340" column="20" selection-start-line="340" selection-start-column="20" selection-end-line="340" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2981,17 +2835,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/startcomp.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49707603">
-          <caret line="17" column="32" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/teamproject/functions/RestController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.83655536">
@@ -3004,47 +2847,124 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7012302">
           <caret line="104" column="30" selection-start-line="104" selection-start-column="30" selection-end-line="104" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/teamproject/activity/StartComp.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/mapa.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.206897">
-          <caret line="102" column="21" selection-start-line="102" selection-start-column="21" selection-end-line="102" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/teamproject/activity/DrawRoute.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="67" column="11" selection-start-line="46" selection-start-column="8" selection-end-line="67" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2849#2857#0" expanded="true" />
-            <element signature="e#2902#2910#0" expanded="true" />
-            <element signature="class#10603:11306" expanded="false" />
-            <element signature="method#onLocationReceived#0;class#10603:11306" expanded="false" />
-            <element signature="method#onBackPressed#0;class#StartComp#0" expanded="false" />
-            <element signature="method#onMapReady#0;class#StartComp#0" expanded="false" />
-            <element signature="method#ifIsFarAwayFromRoute#0;class#StartComp#0" expanded="false" />
-            <element signature="method#playSound#0;class#StartComp#0" expanded="false" />
-            <element signature="method#playVoiceSound#0;class#StartComp#0" expanded="false" />
-            <element signature="method#whichPKSound#0;class#StartComp#0" expanded="false" />
-            <element signature="method#changeStringToDoubles#0;class#StartComp#0" expanded="false" />
-            <element signature="method#checkDistanceFromRoute#0;class#StartComp#0" expanded="false" />
-            <element signature="method#sendHttpRequest#0;class#StartComp#0" expanded="false" />
-            <element signature="method#parsingJSON#0;class#StartComp#0" expanded="false" />
-            <element signature="method#timeFormat#0;class#StartComp#0" expanded="false" />
+            <element signature="method#sendHttpRequest#0;class#DrawRoute#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/teamproject/activity/CompInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3462963">
-          <caret line="30" column="31" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
+        <state vertical-scroll-proportion="-0.14938489">
+          <caret line="554" column="25" selection-start-line="554" selection-start-column="16" selection-end-line="554" selection-end-column="25" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#addSpinners#0;class#CompInfo#0" expanded="false" />
             <element signature="class#OnSpinnerItemClicked#0;class#CompInfo#0" expanded="false" />
             <element signature="method#onNothingSelected#0;class#OnSpinnerItemClicked#0;class#CompInfo#0" expanded="false" />
-            <element signature="method#addButton#0;class#CompInfo#0" expanded="false" />
             <element signature="class#DownloadImageTask#0;class#CompInfo#0" expanded="false" />
             <element signature="method#checkResponseSignUpAndCheckStart#0;class#CompInfo#0" expanded="false" />
             <element signature="method#checkResponseSignOutAndSetTime#0;class#CompInfo#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/startcomp.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="32" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_maps.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="50" column="40" selection-start-line="49" selection-start-column="48" selection-end-line="50" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-21/android/widget/TableLayout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33">
+          <caret line="586" column="0" selection-start-line="586" selection-start-column="0" selection-end-line="586" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/teamproject/activity/CompList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.41827768">
+          <caret line="208" column="63" selection-start-line="208" selection-start-column="63" selection-end-line="208" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/teamproject/maintabs/MainPart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.04393673">
+          <caret line="78" column="49" selection-start-line="78" selection-start-column="49" selection-end-line="78" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/teamproject/activity/Login.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="84" column="13" selection-start-line="84" selection-start-column="13" selection-end-line="84" selection-end-column="13" />
+          <folding>
+            <element signature="e#2637#3017#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/teamproject/activity/StartComp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0526316">
+          <caret line="268" column="70" selection-start-line="268" selection-start-column="70" selection-end-line="268" selection-end-column="70" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3393#3401#0" expanded="true" />
+            <element signature="e#3449#3457#0" expanded="true" />
+            <element signature="e#3505#3515#0" expanded="true" />
+            <element signature="class#10819:11522" expanded="false" />
+            <element signature="method#onLocationReceived#0;class#10819:11522" expanded="false" />
+            <element signature="method#onMapReady#0;class#StartComp#0" expanded="false" />
+            <element signature="method#ifIsFarAwayFromRoute#0;class#StartComp#0" expanded="false" />
+            <element signature="method#playVoiceSound#0;class#StartComp#0" expanded="false" />
+            <element signature="method#whichPKSound#0;class#StartComp#0" expanded="false" />
+            <element signature="method#changeStringToDoubles#0;class#StartComp#0" expanded="false" />
+            <element signature="method#checkDistanceFromRoute#0;class#StartComp#0" expanded="false" />
+            <element signature="method#countDistance#0;class#StartComp#0" expanded="false" />
+            <element signature="method#sendHttpRequest#0;class#StartComp#0" expanded="false" />
+            <element signature="method#parsingJSON#0;class#StartComp#0" expanded="false" />
+            <element signature="method#timeFormat#0;class#StartComp#0" expanded="false" />
           </folding>
         </state>
       </provider>

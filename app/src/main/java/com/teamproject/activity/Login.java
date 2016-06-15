@@ -72,6 +72,7 @@ public class Login extends Activity {
 		button1.setOnClickListener(new OnClickListener() {
 			public void onClick(View arg0) {
 				String url1 = validation();
+				if (url1!="") {
 					sendHttpRequest(url1, "GET");
 					try {
 						rememberPass();
@@ -80,7 +81,7 @@ public class Login extends Activity {
 						Toast.makeText(Login.this, e.toString(),
 								Toast.LENGTH_LONG).show();
 					}
-
+				}
 			}
 		});
 		button2.setOnClickListener(new OnClickListener() {

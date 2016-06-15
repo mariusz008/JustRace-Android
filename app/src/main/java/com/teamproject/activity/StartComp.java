@@ -45,7 +45,10 @@ import com.teamproject.models.userDTO;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -95,6 +98,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
     int Z[];
     int il_poi, ile_route, il_pk, freq, gc, mn, makeLine, ilePomiarowCzasu, ktoryPomiar, i , pc, jk;
     private long startTime1, startTime2, timeBetween, timeBetween2, tmptime, timeInMilliseconds, timeSwapBuff, updatedTime = 0L;
+    Date czasGPS1;
     private Handler customHandler = new Handler();
     final competitionDTO competition = CompList.comp;
     String ID_zaw = competition.getID_zawodow();
@@ -102,6 +106,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
     String ID_usera = user1.getID_uzytkownika();
     int h=0, radius=4;
     MediaPlayer mediaPlayer;
+    SimpleDateFormat sdf;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,6 +119,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
         startB = true;
         tmpResult=501;
         startComp = true;
+        sdf = new SimpleDateFormat("HH:mm:ss:SSS");
         cd = new ConnectionDetector(getApplicationContext());
         gps = new TurningOnGPS(getApplicationContext());
         info = (TextView) findViewById(R.id.TextView2);
@@ -196,10 +202,12 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                     } else {
                         B[0] = dlugosc;
                         B[1] = szerokosc;
-                        startTime2 = System.currentTimeMillis();
-                        if (startTime1!=0) timeBetween = System.currentTimeMillis() - startTime1;
-                        if(timeMeasureByCircle(dlugosc, szerokosc, 4*ktoryPomiar)!=1)
-                        timeMeasure(A[0], A[1], B[0], B[1], 4 * ktoryPomiar);
+                        startTime2 = location.getTime();
+                        if (startTime1!=0) {
+                            timeBetween = location.getTime() - startTime1;
+                        }
+                        if(timeMeasureByCircle(dlugosc, szerokosc, 4*ktoryPomiar, location)!=1)
+                        timeMeasure(A[0], A[1], B[0], B[1], 4 * ktoryPomiar, location);
                         A[0] = B[0];
                         A[1] = B[1];
                     }
@@ -258,7 +266,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                 context);
         alertDialogBuilder.setTitle("Pomiar czasu");
         alertDialogBuilder
-                .setMessage("Czy na pewno chcesz opuścić zawody?")
+                .setMessage("Czy na pewno chcesz przerwać pomiar czasu?")
                 .setCancelable(false)
                 .setPositiveButton("Tak", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
@@ -352,7 +360,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
         }
         return Rx;
     }
-    public void timeMeasure(double x1, double y1, double x2, double y2, int z) {
+    public void timeMeasure(double x1, double y1, double x2, double y2, int z, Location location) {
         if (polyliness != null) polyliness.remove();
         polyliness = this.mMap.addPolyline(new PolylineOptions()
                 .add(new LatLng(y1, x1), new LatLng(y2, x2))
@@ -363,7 +371,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                 || (line.przynaleznosc(x1, y1, x2, y2, countingPK.get(z + 3), countingPK.get(z + 2)) == 1)) {
             if(z==0){
                 if(line.przynaleznosc(countingPK.get(z+1), countingPK.get(z),countingPK.get(z+3), countingPK.get(z+2), x1, y1)==1){
-                    startTime1 = System.currentTimeMillis();
+                    startTime1 = location.getTime();
                     startTime = SystemClock.uptimeMillis();
                 }
                 info1.setText("Rozpocząłeś wyścig");
@@ -375,10 +383,11 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
             }
             else if(z==pk_all.size()-4){
                 if(line.przynaleznosc(countingPK.get(z+1), countingPK.get(z),countingPK.get(z+3), countingPK.get(z+2), x1, y1)==1){
-                    timeBetween2 = System.currentTimeMillis() - startTime1;
+                    timeBetween2 = location.getTime() - startTime1;
                 }
                 customHandler.removeCallbacks(updateTimerThread);
-                timeSend = timeFormat(timeBetween2);
+                czasGPS1 = new Date(timeBetween2);
+                timeSend = sdf.format(czasGPS1);
                 if (cd.isConnectingToInternet()) {
                     String url2 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/event/time?competition_id=" + ID_zaw+
                             "&user_id="+ID_usera+"&point_nr="+z/4+"&time="+timeSend;
@@ -397,9 +406,10 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
             }
             else{
                 if(line.przynaleznosc(countingPK.get(z+1), countingPK.get(z), countingPK.get(z + 3), countingPK.get(z + 2), x1, y1) == 1) {
-                    timeBetween2 = System.currentTimeMillis() - startTime1;
+                    timeBetween2 = location.getTime() - startTime1;
                 }
-                timeSend = timeFormat(timeBetween2);
+                czasGPS1 = new Date(timeBetween2);
+                timeSend = sdf.format(czasGPS1);
                 info1.setText("Przekroczyłeś punkt kontrolny nr: " + z / 4 + " w czasie " + timeSend);
                 playVoiceSound(whichPKSound(z/4));
                 if (cd.isConnectingToInternet()) {
@@ -425,16 +435,17 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
             if (z == 0) {
                 info1.setText("Rozpocząłeś wyścig");
                 playVoiceSound(R.raw.rozpoczaleswyscig);
-                startTime1 = (System.currentTimeMillis() + startTime2) / 2;
+                startTime1 = (location.getTime() + startTime2) / 2;
                 startTime = (SystemClock.uptimeMillis() + (startTime2 - startTime1));
                 customHandler.postDelayed(updateTimerThread, 0);
                 Z[0] = 1;
                 pc = pc + 4;
                 przekroczonyStart = true;
             } else if (z == pk_all.size() - 4) {
-                timeBetween2 = (System.currentTimeMillis()-startTime2)/2 + timeBetween;
+                timeBetween2 = (location.getTime()-startTime2)/2 + timeBetween;
                 customHandler.removeCallbacks(updateTimerThread);
-                timeSend = timeFormat(timeBetween2);
+                czasGPS1 = new Date(timeBetween2);
+                timeSend = sdf.format(czasGPS1);
                 info1.setText("Zakończyłeś wyścig");
                 playVoiceSound(R.raw.zakonczyleswyscig);
                 if (cd.isConnectingToInternet()) {
@@ -451,8 +462,9 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                 info.setText("Koniec");
                 startComp = false;
             } else {
-                timeBetween2 = (System.currentTimeMillis()-startTime2)/2 + timeBetween;
-                timeSend = timeFormat(timeBetween2);
+                timeBetween2 = (location.getTime()-startTime2)/2 + timeBetween;
+                czasGPS1 = new Date(timeBetween2);
+                timeSend = sdf.format(czasGPS1);
                 info1.setText("Przekroczyłeś punkt kontrolny nr: " + z / 4 + " w czasie " + timeSend);
                 playVoiceSound(whichPKSound(z / 4));
                 if (cd.isConnectingToInternet()) {
@@ -470,7 +482,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
             }
         }
     }
-    public int timeMeasureByCircle(double x1, double y1, int z)
+    public int timeMeasureByCircle(double x1, double y1, int z, Location location)
     {
         int wy=0;
         float[] distance = new float[1];
@@ -482,16 +494,17 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
             if (z == 0) {
                 info1.setText("Rozpocząłeś wyścig");
                 playVoiceSound(R.raw.rozpoczaleswyscig);
-                startTime1 = System.currentTimeMillis();
+                startTime1 = location.getTime();
                 startTime = SystemClock.uptimeMillis();
                 customHandler.postDelayed(updateTimerThread, 0);
                 Z[0] = 1;
                 pc = pc + 4;
                 przekroczonyStart = true;
             } else if (z == pk_all.size() - 4) {
-                timeBetween2 = System.currentTimeMillis() - startTime1;
+                timeBetween2 = location.getTime() - startTime1;
                 customHandler.removeCallbacks(updateTimerThread);
-                timeSend = timeFormat(timeBetween2);
+                czasGPS1 = new Date(timeBetween2);
+                timeSend = sdf.format(czasGPS1);
                 info1.setText("Zakończyłeś wyścig");
                 playVoiceSound(R.raw.zakonczyleswyscig);
                 if (cd.isConnectingToInternet()) {
@@ -508,8 +521,9 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                 info.setText("Koniec");
                 startComp = false;
             } else {
-                timeBetween2 = System.currentTimeMillis() - startTime1;
-                timeSend = timeFormat(timeBetween2);
+                timeBetween2 = location.getTime() - startTime1;
+                czasGPS1 = new Date(timeBetween2);
+                timeSend = sdf.format(czasGPS1);
                 info1.setText("Przekroczyłeś punkt kontrolny nr: " + z / 4 + " w czasie " + timeSend);
                 playVoiceSound(whichPKSound(z / 4));
                 if (cd.isConnectingToInternet()) {
