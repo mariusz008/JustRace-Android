@@ -215,7 +215,7 @@ public class CompInfo extends Activity {
 		alertDialogBuilder.setView(promptsView);
 
 		alertDialogBuilder.setTitle("Wybierz kategorię");
-		alertDialogBuilder.setIcon(R.drawable.ic_launcher);
+		alertDialogBuilder.setIcon(R.mipmap.ic_launcher2);
 		// create alert dialog
 		final AlertDialog alertDialog = alertDialogBuilder.create();
 		final Spinner mSpinner= (Spinner) promptsView
