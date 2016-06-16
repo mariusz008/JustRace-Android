@@ -29,6 +29,8 @@ import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.teamproject.conn.TurningOnGPS;
 import com.teamproject.functions.DialogCommunications;
 import com.teamproject.functions.RestController;
@@ -247,7 +249,7 @@ public class CompInfo extends Activity {
 			public void onClick(View arg0) {
 				String url2 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/event?user_id=" + ID_usera + "&competition_id=" + ID_zad +
 						"&category_name=" + kategoria;
-				sendHttpRequest(url2, "PUT", 0, true);
+				sendHttpRequest(url2, "PUT", 2, true);
 				alertDialog.cancel();
 			}
 		});
@@ -304,7 +306,7 @@ public class CompInfo extends Activity {
 					if (gpssx.checkingGPSStatus()) {
 						String url = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/event/user/start?competition_id="
 								+ID_zad+"&user_id="+ID_usera;
-						sendHttpRequest(url, "PUT", 0, true);
+						sendHttpRequest(url, "PUT", 2, true);
 					} else {
 						comm.alertDialog("Pobieranie lokalizacji", "Proszę włączyć usługę GPS");
 					}
@@ -384,7 +386,7 @@ public class CompInfo extends Activity {
 				else if (operation == "PUT" && i == 1){
 					checkResponseSignOutAndSetTime(result);
 				} //zapisywanie na zawody
-				else if (operation == "PUT" && i == 0){
+				else if (i == 2){
 					checkResponseSignUpAndCheckStart(result);
 				}
 			}
@@ -429,25 +431,35 @@ public class CompInfo extends Activity {
 				flaga1 = true;
 				success = "Udało Ci się zapisać na zawody!";
 			}
-			else if (wejscie.contains("User set as ready")){
-				flaga1 = true;
-				success = "Jesteś gotowy aby wziąć udział w zawodach. Przejdź do panelu pomiaru czasu";
-			}
 			else if (wejscie.contains("Juz zapisany na te zawody")){
-    			flaga1 = false;
-    			error = "Jesteś już zapisany na te zawody!";
-    			}
-    		else if (wejscie.contains("Brak wolnych miejsc")){
-    			flaga1 = false;
-    			error = "Brak wolnych miejsc!";
-    			}
-    		else if (wejscie.contains("Zawody juz sie odbyly")){
-    			flaga1 = false;
-    			error = "Zawody już się odbyły. Nie możesz się na nie zapisać";
-    			}
+				flaga1 = false;
+				error = "Jesteś już zapisany na te zawody!";
+			}
+			else if (wejscie.contains("Brak wolnych miejsc")){
+				flaga1 = false;
+				error = "Brak wolnych miejsc!";
+			}
+			else if (wejscie.contains("Zawody juz sie odbyly")){
+				flaga1 = false;
+				error = "Zawody już się odbyły. Nie możesz się na nie zapisać";
+			}
 			else if (wejscie.contains("Competition disactivated")){
 				flaga1 = false;
 				error = "Zawody zostały dezaktywowane przez organizatora";
+			}
+			if (wejscie.contains("Ok!")){
+				flaga1 = true;
+				success = "Jesteś gotowy aby wziąć udział w zawodach. Przejdź do panelu pomiaru czasu";
+			}
+			else if (wejscie.contains("Already timed. Action forbidden")){
+				flaga1 = false;
+				error = "Juz wziąłeś udział w tych zawodach";
+			}
+			else if (wejscie.contains("User set as ready")){
+				String url = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/checkpart?user_id="+ID_usera+
+						"&competition_id="+ID_zad;
+				sendHttpRequest(url, "GET", 2, false);
+				flaga1=true;
 			}
 			else if (wejscie.contains("Competition don't have start time set yet")){
 				flaga1 = false;
@@ -461,7 +473,7 @@ public class CompInfo extends Activity {
 				flaga1 = false;
 				error = "Nie masz jeszcze nadanego numeru zawodnika";
 			}
-			else if (wejscie.length()==0){
+			if (wejscie.length()==0){
 				flaga1 = false;
 				error = "Wystąpił problem w połączeniu z serwerem. Spróuj ponownie później";
 			}
@@ -481,12 +493,12 @@ public class CompInfo extends Activity {
 			.setNeutralButton("OK",new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog,int id) {
 				dialog.cancel();
-					if ((ret1==success1) && tt.contains("User set as ready")){
+					if ((ret1==success1) && tt.contains("Ok!")){
 						startActivity(intent5);
 					}
 				}});
 			AlertDialog alertDialog1 = alertDialogBuilder.create();
-			alertDialog1.show();
+			if(!tt.contains("User set as ready")) alertDialog1.show();
     }
 	public void checkResponseSignOutAndSetTime(String wejscie)
 	{

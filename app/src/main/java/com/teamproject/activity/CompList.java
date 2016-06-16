@@ -195,7 +195,7 @@ public class CompList extends Activity {
 
 				});
 			}
-			if(whichList.contains("OGOLNERESULTS"))
+			if(whichList.contains("OGOLNERESULTS") || whichList.contains("OBSERWRESULTS"))
 			{
 				if(!(ileOsob.get(row).equals("0"))&&(pcc.get(row).equals("1")))
 					tableRow.addView(button);
