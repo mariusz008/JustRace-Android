@@ -13,12 +13,14 @@ import android.text.Html;
 import android.text.InputType;
 import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -60,7 +62,8 @@ public class CompInfo extends Activity {
 	String ID_usera = user1.getID_uzytkownika();
 	TimeValidation tv = new TimeValidation();
 	boolean flaga1, flaga2, mappc, mapoi, matrase, mozezapisac;
-	int inn, ilosc_linii;
+	int inn;
+	Spanned spanned;
 	Intent intent2, intent3, intent5, intentmapa, intentlista;
 	String success1, success;
 	ArrayList<String> category = new ArrayList<String>();
@@ -593,12 +596,13 @@ public class CompInfo extends Activity {
 		godzzakTV.setText(godzza);
 		limitTV.setText(lim);
 		oplataTV.setText(opl);
-		Spanned spanned = Html.fromHtml(opis);
-		ilosc_linii=(int)(spanned.length()/25);
-		if (ilosc_linii==0) ilosc_linii=2;
-		++ilosc_linii;
-		opisTV.setLines(ilosc_linii);
+		spanned = Html.fromHtml(opis);
 		opisTV.setText(spanned);
+
+		int ilosc_linii=(int)(spanned.length()/25);
+		++ilosc_linii;
+		if (ilosc_linii==0) ilosc_linii=2;
+		opisTV.setLines(ilosc_linii);
 
 		if (typ.contains("arciars")){
 			typIV.setImageResource(R.mipmap.ic_narciarskie);
@@ -634,7 +638,7 @@ public class CompInfo extends Activity {
 				description.add(obj.getString("DESCRIPTION"));
 				katTV.append(category.get(i) + ": " + description.get(i) + "\n");
 			}
-
+			if(spanned.length()!=0) opisTV.setLines(25);
 		}
 	}
 

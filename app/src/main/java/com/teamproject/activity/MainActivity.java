@@ -8,9 +8,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
 import com.teamproject.conn.ConnectionDetector;
 import com.teamproject.conn.TurningOnGPS;
 import com.teamproject.functions.DialogCommunications;
+import com.teamproject.functions.RestController;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 
 public class MainActivity extends Activity {

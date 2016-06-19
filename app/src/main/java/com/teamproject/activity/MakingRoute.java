@@ -87,10 +87,10 @@ public class MakingRoute extends FragmentActivity implements OnMapReadyCallback,
         rg = (RadioGroup) findViewById(R.id.radio_group_list_selector);
 
         mTabHost.addTab(
-                mTabHost.newTabSpec("tab1").setIndicator("Dodaj punkty pomiaru czasu", null),
+                mTabHost.newTabSpec("tab1").setIndicator("Linie pomiaru", null),
                 TrackPoints.class, null);
         mTabHost.addTab(
-                mTabHost.newTabSpec("tab2").setIndicator("Dodaj POI", null),
+                mTabHost.newTabSpec("tab2").setIndicator("POI", null),
                 TrackPOI.class, null);
         mTabHost.addTab(
                 mTabHost.newTabSpec("tab3").setIndicator("Nagraj trasę", null),
