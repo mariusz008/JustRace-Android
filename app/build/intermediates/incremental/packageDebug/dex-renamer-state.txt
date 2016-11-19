@@ -1,0 +1,7 @@
+#Sat Nov 19 01:14:02 CET 2016
+base.0=D\:\\wsAndroidStudio\\JustRace-Android\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_4e9da2191822ded3b7b01e4ca6a12e56f2e5ecbc
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=D\:\\wsAndroidStudio\\JustRace-Android\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_7083214b237384176f9abdc1f5eca2c9c5ac1497\\classes.dex
+base.1=D\:\\wsAndroidStudio\\JustRace-Android\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_7083214b237384176f9abdc1f5eca2c9c5ac1497
+file.0=D\:\\wsAndroidStudio\\JustRace-Android\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_4e9da2191822ded3b7b01e4ca6a12e56f2e5ecbc\\classes.dex

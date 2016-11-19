@@ -13,14 +13,12 @@ import android.text.Html;
 import android.text.InputType;
 import android.text.Spanned;
 import android.text.TextUtils;
-import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -36,7 +34,7 @@ import android.widget.Toast;
 import com.teamproject.conn.TurningOnGPS;
 import com.teamproject.functions.DialogCommunications;
 import com.teamproject.functions.RestController;
-import com.teamproject.functions.TimeValidation;
+import com.teamproject.functions.timeValidation;
 import com.teamproject.models.competitionDTO;
 import com.teamproject.models.userDTO;
 import org.json.JSONArray;
@@ -47,7 +45,7 @@ import java.util.ArrayList;
 
 
 public class CompInfo extends Activity {
-	private Button button2, button1;
+	private Button button2, button1, button3;
 	final Context context = this;
 	private TextView datarozTV, nazwaTV, miejscowoscTV, typTV, godzrozpTV, datazakTV, godzzakTV, limitTV, oplataTV, opisTV, katTV, kat;
 	Intent intent4 = new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
@@ -60,11 +58,11 @@ public class CompInfo extends Activity {
 	Spinner mSpinner;
 	final userDTO user1 = Login.user;
 	String ID_usera = user1.getID_uzytkownika();
-	TimeValidation tv = new TimeValidation();
+	timeValidation tv = new timeValidation();
 	boolean flaga1, flaga2, mappc, mapoi, matrase, mozezapisac;
 	int inn;
 	Spanned spanned;
-	Intent intent2, intent3, intent5, intentmapa, intentlista;
+	Intent intent2, intent3, intent5, intentmapa, intentmapa1, intentlista;
 	String success1, success;
 	ArrayList<String> category = new ArrayList<String>();
 	ArrayList<String> description = new ArrayList<String>();
@@ -74,6 +72,7 @@ public class CompInfo extends Activity {
 		Intent intentX = getIntent();
 		gpssx = new TurningOnGPS(getApplicationContext());
 		whichList1 = intentX.getExtras().getString("ktory");
+		button3 = (Button) findViewById(R.id.Button3);
 		button2 = (Button) findViewById(R.id.Button2);	
 		button1 = (Button) findViewById(R.id.Button1);
 		datarozTV = (TextView) findViewById(R.id.TextView1);
@@ -94,7 +93,8 @@ public class CompInfo extends Activity {
 		intent5 = new Intent(CompInfo.this, StartComp.class);
 		intentlista = new Intent(CompInfo.this, CompetitorsList.class);
 		intentmapa = new Intent(CompInfo.this, DrawRoute.class);
-		String url="http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition?id="+ID_zad;
+		intentmapa1 = new Intent(CompInfo.this, Transmission.class);
+		String url="http://192.168.0.2:8080/Rest/rest/competition?id="+ID_zad;
 		sendHttpRequest(url, "GET", 0, true);
 
 		if (whichList1.equals("OGOLNE")){
@@ -120,8 +120,14 @@ public class CompInfo extends Activity {
 
 
 		new DownloadImageTask(typIV)
-        .execute("http://209785serwer.iiar.pwr.edu.pl/RestImage/rest/competition/get/image?competition_id="+ID_zad);
-
+        .execute("http://192.168.0.2:8080/RestImage/rest/competition/get/image?competition_id="+ID_zad);
+		button3.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				//Toast.makeText(CompInfo.this, "elo here", Toast.LENGTH_LONG).show();
+				startActivity(intentmapa1);
+			}
+		});
 		button2.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
@@ -170,7 +176,7 @@ public class CompInfo extends Activity {
 								})
 							.setPositiveButton("Tak", new DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface dialog, int id) {
-									String url3 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/event/leave?competition_id=" + ID_zad + "&user_id=" + ID_usera;
+									String url3 = "http://192.168.0.2:8080/Rest/rest/competition/event/leave?competition_id=" + ID_zad + "&user_id=" + ID_usera;
 									sendHttpRequest(url3, "DELETE", 0, true);
 								}
 							});
@@ -250,7 +256,7 @@ public class CompInfo extends Activity {
 		mButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				String url2 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/event?user_id=" + ID_usera + "&competition_id=" + ID_zad +
+				String url2 = "http://192.168.0.2:8080/Rest/rest/competition/event?user_id=" + ID_usera + "&competition_id=" + ID_zad +
 						"&category_name=" + kategoria;
 				sendHttpRequest(url2, "PUT", 2, true);
 				alertDialog.cancel();
@@ -307,7 +313,7 @@ public class CompInfo extends Activity {
 					setCompTime();
 				} else if (x.equals("START")) {
 					if (gpssx.checkingGPSStatus()) {
-						String url = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/event/user/start?competition_id="
+						String url = "http://192.168.0.2:8080/Rest/rest/competition/event/user/start?competition_id="
 								+ID_zad+"&user_id="+ID_usera;
 						sendHttpRequest(url, "PUT", 2, true);
 					} else {
@@ -349,7 +355,7 @@ public class CompInfo extends Activity {
 						if (!tv.validate(time)) {
 							comm.alertDialog("Komunikat", "Wpisz poprawny format daty (hh:mm)");
 						} else {
-							String url4 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/event/start?competition_id=" + ID_zad +
+							String url4 = "http://192.168.0.2:8080/Rest/rest/competition/event/start?competition_id=" + ID_zad +
 									"&owner_id=" + ID_usera + "&time=" + time;
 							sendHttpRequest(url4, "PUT", 1, true);
 						}
@@ -371,7 +377,7 @@ public class CompInfo extends Activity {
 					} catch (JSONException e) {
 
 					}
-					String url1 ="http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/category/list?competition_id="+ID_zad;
+					String url1 ="http://192.168.0.2:8080/Rest/rest/competition/category/list?competition_id="+ID_zad;
 					//pobierz kategorie
 					sendHttpRequest(url1, "GET", 1, false);
 				}
@@ -459,7 +465,7 @@ public class CompInfo extends Activity {
 				error = "Juz wziąłeś udział w tych zawodach";
 			}
 			else if (wejscie.contains("User set as ready")){
-				String url = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/checkpart?user_id="+ID_usera+
+				String url = "http://192.168.0.2:8080/Rest/rest/competition/checkpart?user_id="+ID_usera+
 						"&competition_id="+ID_zad;
 				sendHttpRequest(url, "GET", 2, false);
 				flaga1=true;

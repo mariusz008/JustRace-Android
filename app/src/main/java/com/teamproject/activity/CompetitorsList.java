@@ -52,7 +52,7 @@ public class CompetitorsList extends Activity {
         wiekET = (EditText) findViewById(R.id.editText2);
         kategoriaET = (EditText) findViewById(R.id.editText3);
         frazaET = (EditText) findViewById(R.id.editText4);
-        String url = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/event/list?" +
+        String url = "http://192.168.0.2:8080/Rest/rest/competition/event/list?" +
                 "competition_id="+ID_zaw+"&sex=&age=&phrase=&category=";
         sendHttpRequest(url, "GET");
         buttonWyjdz.setOnClickListener(new View.OnClickListener() {
@@ -68,7 +68,7 @@ public class CompetitorsList extends Activity {
                 String wiek = wiekET.getText().toString();
                 String kat = kategoriaET.getText().toString();
                 String fraza = frazaET.getText().toString();
-                String url = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/event/list?" +
+                String url = "http://192.168.0.2:8080/Rest/rest/competition/event/list?" +
                         "competition_id="+ID_zaw+"&sex="+plec+"&age="+wiek+"&phrase="+fraza+"&category="+kat;
                 sendHttpRequest(url, "GET");
             }

@@ -1,0 +1,58 @@
+[
+    {
+        "merged": "D:\\wsAndroidStudio\\JustRace-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\ic_inne.png",
+        "source": "D:\\wsAndroidStudio\\JustRace-Android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_inne.png"
+    },
+    {
+        "merged": "D:\\wsAndroidStudio\\JustRace-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\ic_launcher.png",
+        "source": "D:\\wsAndroidStudio\\JustRace-Android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\wsAndroidStudio\\JustRace-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\ic_rowerowe.png",
+        "source": "D:\\wsAndroidStudio\\JustRace-Android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_rowerowe.png"
+    },
+    {
+        "merged": "D:\\wsAndroidStudio\\JustRace-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\arrow2.png",
+        "source": "D:\\wsAndroidStudio\\JustRace-Android\\app\\src\\main\\res\\mipmap-xxhdpi\\arrow2.png"
+    },
+    {
+        "merged": "D:\\wsAndroidStudio\\JustRace-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\ic_lodzie.png",
+        "source": "D:\\wsAndroidStudio\\JustRace-Android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_lodzie.png"
+    },
+    {
+        "merged": "D:\\wsAndroidStudio\\JustRace-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\ic_refresh.png",
+        "source": "D:\\wsAndroidStudio\\JustRace-Android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_refresh.png"
+    },
+    {
+        "merged": "D:\\wsAndroidStudio\\JustRace-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\ic_biegi.png",
+        "source": "D:\\wsAndroidStudio\\JustRace-Android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_biegi.png"
+    },
+    {
+        "merged": "D:\\wsAndroidStudio\\JustRace-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\ic_motorowe.png",
+        "source": "D:\\wsAndroidStudio\\JustRace-Android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_motorowe.png"
+    },
+    {
+        "merged": "D:\\wsAndroidStudio\\JustRace-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\ic_volume_on.png",
+        "source": "D:\\wsAndroidStudio\\JustRace-Android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_volume_on.png"
+    },
+    {
+        "merged": "D:\\wsAndroidStudio\\JustRace-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\ic_volume_off.png",
+        "source": "D:\\wsAndroidStudio\\JustRace-Android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_volume_off.png"
+    },
+    {
+        "merged": "D:\\wsAndroidStudio\\JustRace-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\ic_launcher2.png",
+        "source": "D:\\wsAndroidStudio\\JustRace-Android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher2.png"
+    },
+    {
+        "merged": "D:\\wsAndroidStudio\\JustRace-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\arrow1.png",
+        "source": "D:\\wsAndroidStudio\\JustRace-Android\\app\\src\\main\\res\\mipmap-xxhdpi\\arrow1.png"
+    },
+    {
+        "merged": "D:\\wsAndroidStudio\\JustRace-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\ic_narciarskie.png",
+        "source": "D:\\wsAndroidStudio\\JustRace-Android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_narciarskie.png"
+    },
+    {
+        "merged": "D:\\wsAndroidStudio\\JustRace-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\ic_powietrzne.png",
+        "source": "D:\\wsAndroidStudio\\JustRace-Android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_powietrzne.png"
+    }
+]

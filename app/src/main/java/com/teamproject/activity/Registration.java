@@ -232,7 +232,7 @@ public class Registration extends Activity {
 	{
 		String klub = URLEncoder.encode(klubS,"UTF-8");
 		String obyw = URLEncoder.encode(obywS,"UTF-8");
-		String URL = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/user?"
+		String URL = "http://192.168.0.2:8080/Rest/rest/user?"
 				+ "name="+imieS+
 				"&surname="+nazwiskoS+
 				"&login="+loginS+

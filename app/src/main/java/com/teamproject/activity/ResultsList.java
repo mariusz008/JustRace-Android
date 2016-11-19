@@ -45,7 +45,7 @@ public class ResultsList extends Activity {
         setContentView(R.layout.results_list);
         buttonWyjdz = (Button) findViewById(R.id.buttonAlert);
         refresh = (ImageButton) findViewById(R.id.imageButton);
-        url = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/result/list?" +
+        url = "http://192.168.0.2:8080/Rest/rest/result/list?" +
                 "competition_id=" + ID_zaw;
         sendHttpRequest(url, "GET");
         buttonWyjdz.setOnClickListener(new View.OnClickListener() {

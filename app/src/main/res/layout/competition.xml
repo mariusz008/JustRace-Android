@@ -247,7 +247,14 @@
         android:textColor="#FFF"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"/>
-
+        <Button
+            android:id="@+id/Button3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tableButtons"
+            android:text="Transmisja"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"/>
     <Button
         android:id="@+id/Button2"
         android:layout_width="match_parent"

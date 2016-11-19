@@ -3,7 +3,7 @@ package com.teamproject.models;
 /**
  * Created by 008M on 2016-04-28.
  */
-public class GpsDTO {
+public class GPSDTO {
 
     private double dlugosc;
     private double szerokosc;

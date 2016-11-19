@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTabHost;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -29,7 +28,7 @@ import com.teamproject.conn.TurningOnGPS;
 import com.teamproject.functions.DialogCommunications;
 import com.teamproject.functions.GpsTracker;
 import com.teamproject.functions.RestController;
-import com.teamproject.models.GpsDTO;
+import com.teamproject.models.GPSDTO;
 import com.teamproject.models.competitionDTO;
 import com.teamproject.models.userDTO;
 import com.teamproject.route.TrackPOI;
@@ -66,7 +65,7 @@ public class MakingRoute extends FragmentActivity implements OnMapReadyCallback,
     List<String> pk_all = new ArrayList<String>();
     List<String> pk_POI = new ArrayList<String>();
     List<Polyline> polylines = new ArrayList<Polyline>();
-    final static GpsDTO gpsdto = new GpsDTO();
+    final static GPSDTO gpsdto = new GPSDTO();
     private GoogleApiClient client;
     final userDTO us = Login.user;
     final String ownerID = us.getID_uzytkownika();
@@ -387,7 +386,7 @@ public class MakingRoute extends FragmentActivity implements OnMapReadyCallback,
             points = points.substring(0, points.length() - 1);
             points = points.replaceAll("\\s+","");
 
-            String url = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/route?owner_id="+ownerID+
+            String url = "http://192.168.0.2:8080/Rest/rest/competition/route?owner_id="+ownerID+
                     "&competition_id="+ID_zaw+"&points="+points;
             sendHttpRequest(url, "POST");
             f9 = true;
@@ -438,7 +437,7 @@ public class MakingRoute extends FragmentActivity implements OnMapReadyCallback,
             trackroute = trackroute.substring(1);
             trackroute = trackroute.substring(0, trackroute.length() - 1);
             trackroute = trackroute.replaceAll("\\s+", "");
-            String url1 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/track?owner_id="+ownerID+
+            String url1 = "http://192.168.0.2:8080/Rest/rest/competition/track?owner_id="+ownerID+
             "&competition_id="+ID_zaw+"&points="+trackroute;
             sendHttpRequest(url1, "POST");
             f12 = true;
@@ -472,7 +471,7 @@ public class MakingRoute extends FragmentActivity implements OnMapReadyCallback,
             POI = POI.substring(0, POI.length() - 1);
             POI = POI.replaceAll("\\s+", "");
 
-            String url1 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/poi?owner_id="+ownerID+
+            String url1 = "http://192.168.0.2:8080/Rest/rest/competition/poi?owner_id="+ownerID+
                     "&competition_id="+ID_zaw+"&points="+POI;
             sendHttpRequest(url1, "POST");
         }

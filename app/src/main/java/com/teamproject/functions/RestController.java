@@ -17,6 +17,8 @@ import android.widget.Toast;
 import com.teamproject.activity.Login;
 import com.teamproject.conn.ConnectionDetector;
 
+import org.json.JSONException;
+
 public abstract class RestController extends AsyncTask<String, Void, String> implements RestClientIF {
 
         private Context context;
@@ -39,7 +41,7 @@ public abstract class RestController extends AsyncTask<String, Void, String> imp
 		public static Handler UIHandler;
 
 		@Override
-		public abstract void onResponseReceived(String result);
+		public abstract void onResponseReceived(String result) throws JSONException;
 
 		static
 		{
@@ -104,7 +106,11 @@ public abstract class RestController extends AsyncTask<String, Void, String> imp
 				((Activity) context).finish();
 				context.startActivity(intentLog);
 			} else
-			onResponseReceived(result);
+				try {
+					onResponseReceived(result);
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
 		}
 
 

@@ -59,7 +59,7 @@ public class UserProfile extends Activity {
 		nrtelET = (EditText) findViewById(R.id.editText9);
 		ICEET = (EditText) findViewById(R.id.editText10);
 		comm = new DialogCommunications(context);
-		String url="http://209785serwer.iiar.pwr.edu.pl/Rest/rest/user?id="+ID_usera;
+		String url="http://192.168.0.2:8080/Rest/rest/user?id="+ID_usera;
 		sendHttpRequest(url, "GET");
 		przyciskWyjscia.setOnClickListener(new OnClickListener() {
 			@Override
@@ -175,7 +175,7 @@ public class UserProfile extends Activity {
 				.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
 						String passwd = input.getText().toString();
-						String url3 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/user/delete?user_id=" + ID_usera + "&password=" + passwd;
+						String url3 = "http://192.168.0.2:8080/Rest/rest/user/delete?user_id=" + ID_usera + "&password=" + passwd;
 						sendHttpRequest(url3, "DELETE");
 					}
 				});
@@ -224,7 +224,7 @@ public class UserProfile extends Activity {
 	{
 		String klub = URLEncoder.encode(klubS,"UTF-8");
 		String obyw = URLEncoder.encode(obywS,"UTF-8");
-		String URL = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/user?"
+		String URL = "http://192.168.0.2:8080/Rest/rest/user?"
 				+ "name="+imieS+
 				"&surname="+nazwiskoS+
 				"&email="+emailS+

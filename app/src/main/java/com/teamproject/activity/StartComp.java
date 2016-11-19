@@ -153,7 +153,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-        String url1 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/gps/all?competition_id=" + ID_zaw;
+        String url1 = "http://192.168.0.2:8080/Rest/rest/competition/gps/all?competition_id=" + ID_zaw;
         sendHttpRequest(url1, "GET", 0);
         buttonSound.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
@@ -234,7 +234,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                     timeOnPoint = timeOnPoint.substring(1);
                     timeOnPoint = timeOnPoint.substring(0, timeOnPoint.length() - 1);
                     timeOnPoint = timeOnPoint.replaceAll("\\s+", "");
-                    String url2 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/event/time?competition_id=" + ID_zaw+
+                    String url2 = "http://192.168.0.2:8080/Rest/rest/competition/event/time?competition_id=" + ID_zaw+
                             "&user_id="+ID_usera+"&point_nr="+nrPoints+"&time="+timeOnPoint;
                     sendHttpRequest(url2, "PUT", 1);
                     czySaNiewyslaneCzasy = false;
@@ -398,7 +398,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                 czasGPS1 = new Date(timeBetween2- TimeUnit.HOURS.toMillis(1));
                 timeSend = sdf.format(czasGPS1);
                 if (cd.isConnectingToInternet()) {
-                    String url2 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/event/time?competition_id=" + ID_zaw+
+                    String url2 = "http://192.168.0.2:8080/Rest/rest/competition/event/time?competition_id=" + ID_zaw+
                             "&user_id="+ID_usera+"&point_nr="+z/4+"&time="+timeSend;
                     sendHttpRequest(url2, "PUT", 1);
                 } else {
@@ -422,7 +422,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                 info1.setText("Przekroczyłeś punkt kontrolny nr: " + z / 4 + " w czasie " + timeSend);
                 playVoiceSound(whichPKSound(z/4));
                 if (cd.isConnectingToInternet()) {
-                    String url2 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/event/time?competition_id=" + ID_zaw+
+                    String url2 = "http://192.168.0.2:8080/Rest/rest/competition/event/time?competition_id=" + ID_zaw+
                             "&user_id="+ID_usera+"&point_nr="+z/4+"&time="+timeSend;
                     sendHttpRequest(url2, "PUT", 0);
                 } else {
@@ -458,7 +458,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                 info1.setText("Zakończyłeś wyścig");
                 playVoiceSound(R.raw.zakonczyleswyscig);
                 if (cd.isConnectingToInternet()) {
-                    String url2 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/event/time?competition_id=" + ID_zaw+
+                    String url2 = "http://192.168.0.2:8080/Rest/rest/competition/event/time?competition_id=" + ID_zaw+
                             "&user_id="+ID_usera+"&point_nr="+z/4+"&time="+timeSend;
                     sendHttpRequest(url2, "PUT", 1);
                 } else {
@@ -477,7 +477,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                 info1.setText("Przekroczyłeś punkt kontrolny nr: " + z / 4 + " w czasie " + timeSend);
                 playVoiceSound(whichPKSound(z / 4));
                 if (cd.isConnectingToInternet()) {
-                    String url2 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/event/time?competition_id=" + ID_zaw+
+                    String url2 = "http://192.168.0.2:8080/Rest/rest/competition/event/time?competition_id=" + ID_zaw+
                             "&user_id="+ID_usera+"&point_nr="+z/4+"&time="+timeSend;
                     sendHttpRequest(url2, "PUT", 0);
                 } else {
@@ -517,7 +517,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                 info1.setText("Zakończyłeś wyścig");
                 playVoiceSound(R.raw.zakonczyleswyscig);
                 if (cd.isConnectingToInternet()) {
-                    String url2 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/event/time?competition_id=" + ID_zaw+
+                    String url2 = "http://192.168.0.2:8080/Rest/rest/competition/event/time?competition_id=" + ID_zaw+
                             "&user_id="+ID_usera+"&point_nr="+z/4+"&time="+timeSend;
                     sendHttpRequest(url2, "PUT", 1);
                 } else {
@@ -536,7 +536,7 @@ public class StartComp extends FragmentActivity implements OnMapReadyCallback {
                 info1.setText("Przekroczyłeś punkt kontrolny nr: " + z / 4 + " w czasie " + timeSend);
                 playVoiceSound(whichPKSound(z / 4));
                 if (cd.isConnectingToInternet()) {
-                    String url2 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/event/time?competition_id=" + ID_zaw+
+                    String url2 = "http://192.168.0.2:8080/Rest/rest/competition/event/time?competition_id=" + ID_zaw+
                             "&user_id="+ID_usera+"&point_nr="+z/4+"&time="+timeSend;
                     sendHttpRequest(url2, "PUT", 0);
                 } else {

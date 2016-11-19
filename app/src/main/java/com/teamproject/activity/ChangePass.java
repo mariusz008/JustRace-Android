@@ -97,7 +97,7 @@ public class ChangePass extends Activity{
     }
   public String URLaddress(String ID, String hasloS, String hasloN1)
 	{
-		String URL = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/user/password?"
+		String URL = "http://192.168.0.2:8080/Rest/rest/user/password?"
 				+ "user_id="+ID+
 				"&old_password="+hasloS+
 				"&new_password="+hasloN1+"";

@@ -215,7 +215,7 @@ public class Login extends Activity {
     
 	public String URLaddress(String loginS, String hasloS)
 	{
-		String URL = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/user/login?"
+		String URL = "http://192.168.0.2:8080/Rest/rest/user/login?"
 				+ "login="+loginS+"&password="+hasloS+"";
 		return URL;
 	}

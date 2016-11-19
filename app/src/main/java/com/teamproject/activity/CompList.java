@@ -69,13 +69,13 @@ public class CompList extends Activity {
 		button1 = (Button) findViewById(R.id.button1);
 
 		if (whichList.contains("OGOLNE") || whichList.contains("OBSERW")) {
-			url1 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/all?type=&name=&place=";
+			url1 = "http://192.168.0.2:8080/Rest/rest/competition/all?type=&name=&place=";
 		}
 		if (whichList.contains("OSOBISTE")) {
-			url1 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/user/list?user_id=" + ID_usera + "&type=&name=&place=";
+			url1 = "http://192.168.0.2:8080/Rest/rest/competition/user/list?user_id=" + ID_usera + "&type=&name=&place=";
 		}
 		if (whichList.contains("ORG")) {
-			url1 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/my?user_id=" + ID_usera + "&type=&name=&place=";
+			url1 = "http://192.168.0.2:8080/Rest/rest/competition/my?user_id=" + ID_usera + "&type=&name=&place=";
 		}
 		sendHttpRequest(url1, "GET");
 		focus = false;
@@ -95,15 +95,15 @@ public class CompList extends Activity {
 				String miejsc = miejsET.getText().toString();
 				if (whichList.equals("OGOLNE") || whichList.contains("OBSERW")) {
 
-					url2 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/all?"
+					url2 = "http://192.168.0.2:8080/Rest/rest/competition/all?"
 							+ "type=" + typ1 + "&name=" + nazwa + "&place=" + miejsc;
 				}
 				if (whichList.equals("OSOBISTE")) {
-					url2 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/user/list?"
+					url2 = "http://192.168.0.2:8080/Rest/rest/competition/user/list?"
 							+ "user_id=" + ID_usera + "&type=" + typ1 + "&name=" + nazwa + "&place=" + miejsc;
 				}
 				if (whichList.equals("ORG")) {
-					url2 = "http://209785serwer.iiar.pwr.edu.pl/Rest/rest/competition/my?"
+					url2 = "http://192.168.0.2:8080/Rest/rest/competition/my?"
 							+ "user_id=" + ID_usera + "&type=" + typ1 + "&name=" + nazwa + "&place=" + miejsc;
 				}
 				sendHttpRequest(url2, "GET");
